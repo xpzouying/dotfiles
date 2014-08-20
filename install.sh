@@ -8,7 +8,7 @@
 ########## Variables
 
 dir_files=~/dotfiles    # dotfiles directory
-files="vimrc vimrc.bundles"   # list of files in $dir_files
+files="vimrc vimrc.bundles gitconfig"   # list of files in $dir_files
 
 ########## Script
 echo "Making files from $dir_files to $HOME"
