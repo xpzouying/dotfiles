@@ -36,6 +36,15 @@
 
     " General {
         Plugin 'flazz/vim-colorschemes'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'tpope/vim-surround'
+        Plugin 'kien/ctrlp.vim'
+        Plugin 'tacahiroy/ctrlp-funky'
+    " }
+
+    " General Programming {
+        Plugin 'tpope/vim-fugitive'
+
     " }
 
 " }

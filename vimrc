@@ -62,6 +62,12 @@
         colorscheme jellybeans    " Load a colorscheme
     endif
 
+    set guioptions-=m               "Remove menu bar
+    set guioptions-=T               " Remove toolbar
+    "set guioptions-=r              " Remove right-hand scroll bar
+    "set guioptions-=L              " Remove right-hand scroll bar
+    set guifont=DejaVu\ Sans\ Mono\ 12  " Font
+
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
 
@@ -84,7 +90,7 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        "zouying - set statusline+=%{fugitive#statusline()} " Git Hotness
+        set statusline+=%{fugitive#statusline()} " Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -125,12 +131,89 @@
     set splitbelow                  " Puts new split windows to the bottom of the current
 " }
 
+" Key mapping / binding {
+    let mapleader = ","
+
+" }
 
 
 
 " Plugins {
 
+    " NERDTree {
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            map <F4> :NERDTreeToggle<CR>
+            map <leader>e :NERDTreeFind<CR>
+            nmap <leader>nt :NERDTreeFind<CR>
 
+            let NERDTreeShowBookmarks=1
+            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+            let NERDTreeChDirMode=0
+            let NERDTreeMouseMode=2
+            let NERDTreeQuitOnOpen=1
+            let NERDTreeShowHidden=1
+            let NERDTreeKeepTreeInNewTab=1
+        endif
+    " }
 
+    " ctrlp {
+        if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+            let g:ctrlp_working_path_mode = 'ra'
+            
+            " shortkey for Mac
+            " nnoremap <silent> <D-t> :CtrlP<CR>
+            " nnoremap <silent> <D-r> :CtrlPMRU<CR>
+            
+            let g:ctrlp_custom_ignore = {
+                        \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+                        \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+            " On Windows use "dir" as fallback command.
+            if WINDOWS()
+                let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+            elseif executable('ag')
+                let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+            elseif executable('ack-grep')
+                let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+            elseif executable('ack')
+                let s:ctrlp_fallback = 'ack %s --nocolor -f'
+            else
+                let s:ctrlp_fallback = 'find %s -type f'
+            endif
+
+            let g:ctrlp_user_command = {
+                        \ 'types': {
+                        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+                        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+                        \ },
+                        \ 'fallback': s:ctrlp_fallback
+                        \ }
+
+            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+                " CtrlP extensions
+                let g:ctrlp_extensions = ['funky']
+
+                "funky
+                nnoremap <Leader>fu :CtrlPFunky<Cr>
+            endif
+        endif
+    "}
+
+   "  " Fugitive {
+   "      if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+   "          nnoremap <silent> <leader>gs :Gstatus<CR>
+   "          nnoremap <silent> <leader>gd :Gdiff<CR>
+   "          nnoremap <silent> <leader>gc :Gcommit<CR>
+   "          nnoremap <silent> <leader>gb :Gblame<CR>
+   "          nnoremap <silent> <leader>gl :Glog<CR>
+   "          nnoremap <silent> <leader>gp :Git push<CR>
+   "          nnoremap <silent> <leader>gr :Gread<CR>
+   "          nnoremap <silent> <leader>gw :Gwrite<CR>
+   "          nnoremap <silent> <leader>ge :Gedit<CR>
+   "          " Mnemonic _i_nteractive
+   "          nnoremap <silent> <leader>gi :Git add -p %<CR>
+   "          nnoremap <silent> <leader>gg :SignifyToggle<CR>
+   "      endif
+   "  "}
 
 " }
