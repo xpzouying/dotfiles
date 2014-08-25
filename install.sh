@@ -9,7 +9,7 @@
 
 # dir_files=~/dotfiles    # dotfiles directory
 dotfiles_path=$(pwd)
-files="vimrc vimrc.bundles gitconfig"   # list of files in $dotfiles_path
+files="vimrc vimrc.bundles gitconfig zshrc"   # list of files in $dotfiles_path
 
 ########## Script
 echo "Making files from $dotfiles_path to $HOME"

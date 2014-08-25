@@ -1,0 +1,8 @@
+This is dotfiles for Zou,Ying.
+
+NOTE:
+1. For zsh, using oh-my-zsh.
+    After install oh-my-zsh,
+        $ sudo chsh -s $(which zsh) $(whoami)
+    Change default bash in /etc/passwd:
+        $(whoami):.../usr/bin/zsh
