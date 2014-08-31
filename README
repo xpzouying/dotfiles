@@ -2,7 +2,20 @@ This is dotfiles for Zou,Ying.
 
 NOTE:
 1. For zsh, using oh-my-zsh.
+    -- via curl:
+        curl -L http://install.ohmyz.sh | sh
+
+    -- via wget:
+        wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+
     After install oh-my-zsh,
         $ sudo chsh -s $(which zsh) $(whoami)
     Change default bash in /etc/passwd:
         $(whoami):.../usr/bin/zsh
+
+2. Install 'ack-grep'
+    Installation for Ubuntu: 
+        sudo apt-get install ack-grep
+
+    Rename ack:
+       sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep

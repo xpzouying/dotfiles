@@ -32,6 +32,16 @@
 " Bundles {
 	" let Vundle manage Vundle, required {
 		Plugin 'gmarik/Vundle.vim'
+
+        if executable('ag')
+            Plugin 'mileszs/ack.vim'
+            let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+        elseif executable('ack-grep')
+            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+            Plugin 'mileszs/ack.vim'
+        elseif executable('ack')
+            Plugin 'mileszs/ack.vim'
+        endif
 	" }
 
     " General {
@@ -40,6 +50,7 @@
         Plugin 'tpope/vim-surround'
         Plugin 'kien/ctrlp.vim'
         Plugin 'tacahiroy/ctrlp-funky'
+        Plugin 'sjl/gundo.vim'
     " }
 
     " General Programming {

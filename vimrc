@@ -62,6 +62,7 @@
         colorscheme jellybeans    " Load a colorscheme
     endif
 
+    set t_Co=256
     set guioptions-=m               "Remove menu bar
     set guioptions-=T               " Remove toolbar
     "set guioptions-=r              " Remove right-hand scroll bar
@@ -122,6 +123,7 @@
 
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
+    set wrap                        " Wrap lines
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
     set tabstop=4                   " An indentation every four columns
@@ -198,6 +200,15 @@
             endif
         endif
     "}
+
+    " Gundo {
+        nnoremap <F5> :GundoToggle<CR>
+
+        " let g:gundo_width = 60
+        " let g:gundo_preview_height = 40
+        let g:gundo_right = 1
+
+    " }
 
    "  " Fugitive {
    "      if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
