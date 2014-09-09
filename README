@@ -1,6 +1,9 @@
 This is dotfiles for Zou,Ying.
 
 NOTE:
+0. Pre-install (for ubuntu):
+    sudo apt-get install vim git curl zsh
+
 1. For zsh, using oh-my-zsh.
     -- via curl:
         curl -L http://install.ohmyz.sh | sh
@@ -19,3 +22,10 @@ NOTE:
 
     Rename ack:
        sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+
+3. Install Vundle:
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+4. PluginInstall:
+    Open vim, then:
+        :PluginInstall
