@@ -11,10 +11,43 @@
 dotfiles_path=$(pwd)
 files="vimrc vimrc.bundles gitconfig zshrc"   # list of files in $dotfiles_path
 
-########## Script
+
+# 1. Pre-install
+sudo apt-get install -y vim git curl zsh
+
+# 2. Configuration
+
+# Colors {
+    ## Setting Terminal to support 256 colors
+    # Combine with *zshrc* config file.
+    curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark > ~/.dircolors
+# }
+
+# zsh {
+    curl -L http://install.ohmyz.sh | sh
+
+    sudo chsh -s $(which zsh) $(whoami)
+# }
+
+# ack-grep {
+    sudo apt-get install -y ack-grep
+
+    # Rename ack-grep to ack
+    sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+# }
+
+# Vundle {
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# }
+
+# Link config file.
 echo "Making files from $dotfiles_path to $HOME"
 
 for file in $files; do
     echo "Creating link to $file."
     ln -sf $dotfiles_path/$file ~/.$file
 done
+
+# Install font for vim
+sudo gnome-font-viewer tools/*.otf
+

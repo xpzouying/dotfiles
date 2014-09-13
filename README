@@ -1,10 +1,35 @@
 This is dotfiles for Zou,Ying.
 
+This is configuration for zouying.
+
+Installation:
+    $ git clone https://github.com/xpzouying/dotfiles.git
+    $ sh install.sh
+
+    Open vim, and install plugins.
+    $ vim
+    :PluginInstall
+
+    Finished installation.
+
+
+1. The install.sh will install: git, vim, curl, zsh, ack-grep(ack).
+2. Link some config file at $HOME: zshrc, vimrc, gitconfig, vimrc.bundles.
+3. Modify terminal colors to support 256 colors. Use `tput colors` to check.
+
+NOTE:
+
+To support vim plugins perfectly, may need to install powerline_font(Inconsolata
+for Powerline) in "tools\" directory manually.
+
+####################
+## Backup ##
+
 NOTE:
 0. Pre-install (for ubuntu):
     sudo apt-get install vim git curl zsh
 
-1. For zsh, using oh-my-zsh.
+1. For zsh, using oh-my-zs .
     -- via curl:
         curl -L http://install.ohmyz.sh | sh
 
@@ -17,7 +42,7 @@ NOTE:
         $(whoami):.../usr/bin/zsh
 
 2. Install 'ack-grep'
-    Installation for Ubuntu: 
+    Installation for Ubuntu:
         sudo apt-get install ack-grep
 
     Rename ack:
@@ -29,3 +54,8 @@ NOTE:
 4. PluginInstall:
     Open vim, then:
         :PluginInstall
+
+
+######
+Install powerline fonts:
+    git clone https://github.com/Lokaltog/powerline-fonts.git

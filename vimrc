@@ -15,30 +15,29 @@
             return  (has('win16') || has('win32') || has('win64'))
         endfunction
     " }
-	
- 	" Basics {
+
+    " Basics {
         set nocompatible        " Must be first line
     " }
 
 " } " End Environment
 
 
-
 " Use bundles config {
-	if filereadable(expand("~/.vimrc.bundles"))
-		source ~/.vimrc.bundles
-	endif
-" } 
+    if filereadable(expand("~/.vimrc.bundles"))
+        source ~/.vimrc.bundles
+    endif
+" }
 "
 "
-" 
+"
 " General {
-	filetype plugin indent on	" Automatically detect file types
-	syntax on					" Syntax highlighting
-	set mouse=a					" Automatically enable mouse usage
-	set mousehide				" Hide the mouse cursor while typing
+    filetype plugin indent on   " Automatically detect file types
+    syntax on                   " Syntax highlighting
+    set mouse=a                 " Automatically enable mouse usage
+    set mousehide               " Hide the mouse cursor while typing
 
-	if has('clipboard')
+    if has('clipboard')
         if has('unnamedplus')  " When possible use + register for copy-paste
             set clipboard=unnamed,unnamedplus
         else         " On mac and Windows, use * register for copy-paste
@@ -46,9 +45,9 @@
         endif
     endif
 
-	set history=1000			" Store a ton of history (default is 20)
-	" set spell 					" Spell checking on
-	set hidden					" Allow buffer switching whithout saving
+    set history=1000            " Store a ton of history (default is 20)
+    " set spell                 " Spell checking on
+    set hidden                  " Allow buffer switching whithout saving
     set iskeyword-=.            " '.' is an end of word designator
     set iskeyword-=#            " '#' is an end of word designator
     set iskeyword-=-            " '-' is an end of word designator
@@ -58,16 +57,23 @@
 
 
 " Vim UI {
-    if filereadable(expand("~/.vim/bundle/vim-colorschemes/colors/jellybeans.vim"))
-        colorscheme jellybeans    " Load a colorscheme
-    endif
-
     set t_Co=256
+
+    " Colorscheme
+    "" if filereadable(expand("~/.vim/bundle/vim-colorschemes/colors/jellybeans.vim"))
+    ""     colorscheme jellybeans    " Load a colorscheme
+    "" endif
+    if has('gui_running')
+        set background=light
+    endif
+    colorscheme solarized
+
     set guioptions-=m               "Remove menu bar
     set guioptions-=T               " Remove toolbar
     "set guioptions-=r              " Remove right-hand scroll bar
     "set guioptions-=L              " Remove right-hand scroll bar
-    set guifont=DejaVu\ Sans\ Mono\ 12  " Font
+    " set guifont=DejaVu\ Sans\ Mono\ 12  " Font
+    set guifont=Ubuntu\ Mono\ 14
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -85,17 +91,20 @@
                                     " Selected characters/lines in visual mode
     endif
 
-    if has('statusline')
-        set laststatus=2
 
-        " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        set statusline+=%{fugitive#statusline()} " Git Hotness
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
+
+"" Replaced by airline
+""    if has('statusline')
+""        set laststatus=2
+""
+""        " Broken down into easily includeable segments
+""        set statusline=%<%f\                     " Filename
+""        set statusline+=%w%h%m%r                 " Options
+""        set statusline+=%{fugitive#statusline()} " Git Hotness
+""        set statusline+=\ [%{&ff}/%Y]            " Filetype
+""        set statusline+=\ [%{getcwd()}]          " Current dir
+""        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+""    endif
 
     set backspace=indent,eol,start  " Backspace for dummies
     set linespace=0                 " No extra spaces between rows
@@ -117,8 +126,6 @@
 " }
 
 
-
-
 " Formatting {
 
     set nowrap                      " Do not wrap long lines
@@ -136,6 +143,11 @@
 " Key mapping / binding {
     let mapleader = ","
 
+    " Move to the next buffer & previous buffer
+    nmap <leader>l :bnext<CR>
+    nmap <leader>h :bprevious<CR>
+    " Close this buffer and move to the previous one
+    nmap <leader>bq :bp <BAR> bd #<CR>
 " }
 
 
@@ -161,11 +173,11 @@
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
-            
+
             " shortkey for Mac
             " nnoremap <silent> <D-t> :CtrlP<CR>
             " nnoremap <silent> <D-r> :CtrlPMRU<CR>
-            
+
             let g:ctrlp_custom_ignore = {
                         \ 'dir':  '\.git$\|\.hg$\|\.svn$',
                         \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
@@ -200,6 +212,40 @@
             endif
         endif
     "}
+
+
+
+    " vim-airline {
+        if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+            set laststatus=2
+
+            let g:airline_theme = 'powerlineish'
+
+            let g:airline_enable_branch     = 1
+            let g:airline_enable_syntastic  = 1
+
+            let g:airline_powerline_fonts = 1
+            " set guifont=Inconsolata\ for\ Powerline\ 10
+
+            " if !exists('g:airline_powerline_fonts')
+            "     let g:airline_left_sep='›'  " Slightly fancier than '>'
+            "     let g:airline_right_sep='‹' " Slightly fancier than '<'
+            " else
+            "     let g:airline_powerline_fonts = 1
+            "     set guifont=Inconsolata\ for\ Powerline\ 16
+            " endif
+
+            " Enable the list of buffers
+            let g:airline#extensions#tabline#enabled = 1
+
+            " Show just the filename
+            let g:airline#extensions#tabline#fnamemod = ':t'
+
+            let g:airline#extensions#tabline#left_sep = ' '
+            let g:airline#extensions#tabline#left_alt_sep = '|'
+
+        endif
+    " }
 
     " Gundo {
         nnoremap <F5> :GundoToggle<CR>
