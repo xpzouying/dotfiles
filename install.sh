@@ -36,8 +36,11 @@ sudo apt-get install -y vim git curl zsh
     sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 # }
 
-# Vundle {
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# vim plugins manager {
+    # git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    # Use neobundle
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 # }
 
 # Link config file.

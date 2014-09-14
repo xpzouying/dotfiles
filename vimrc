@@ -65,8 +65,10 @@
     "" endif
     if has('gui_running')
         set background=light
+        colorscheme solarized
+    else
+        colorscheme default
     endif
-    colorscheme solarized
 
     set guioptions-=m               "Remove menu bar
     set guioptions-=T               " Remove toolbar
@@ -154,21 +156,17 @@
 
 " Plugins {
 
-    " NERDTree {
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
-            map <F4> :NERDTreeToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
-            nmap <leader>nt :NERDTreeFind<CR>
+    " ack / ack-grep {
+        if isdirectory(expand("~/.vim/bundle/ack.vim"))
+            let g:ackpreview = 1
+            let g:ack_autoclose = 1
+            let g:ackhighlight = 1
 
-            let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeChDirMode=0
-            let NERDTreeMouseMode=2
-            let NERDTreeQuitOnOpen=1
-            let NERDTreeShowHidden=1
-            let NERDTreeKeepTreeInNewTab=1
+            let g:ack_default_options =
+                        \ " -s -H --nocolor --nogroup --column --smart-case --follow"
         endif
     " }
+
 
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
@@ -213,6 +211,85 @@
         endif
     "}
 
+    " neocomplete {
+        if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
+            let g:acp_enableAtStartup = 0
+            let g:neocomplete#enable_at_startup = 1
+            let g:neocomplete#enable_smart_case = 1
+            let g:neocomplete#enable_auto_delimiter = 1
+            let g:neocomplete#max_list = 15
+            let g:neocomplete#force_overwrite_completefunc = 1
+            let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+            let g:neocomplete#data_directory = '~/.vim/.cache/neocomplete'
+
+            " Define keyword.
+            if !exists('g:neocomplete#keyword_patterns')
+                let g:neocomplete#keyword_patterns = {}
+            endif
+            let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+            " Plugin key-mappings.
+            inoremap <expr><C-g>     neocomplete#undo_completion()
+            inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+            " Recommended key-mappings.
+            " <CR>: close popup and save indent.
+            inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+            function! s:my_cr_function()
+                return neocomplete#close_popup() . "\<CR>"
+                " For no inserting <CR> key.
+                "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+            endfunction
+            " <TAB>: completion.
+            inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+            " <C-h>, <BS>: close popup and delete backword char.
+            inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+            inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+            inoremap <expr><C-y>  neocomplete#close_popup()
+            inoremap <expr><C-e>  neocomplete#cancel_popup()
+            " Close popup by <Space>.
+            "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+            " For cursor moving in insert mode(Not recommended)
+            "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+            "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+            "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+            "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+            " Or set this.
+            "let g:neocomplete#enable_cursor_hold_i = 1
+            " Or set this.
+            "let g:neocomplete#enable_insert_char_pre = 1
+
+            " AutoComplPop like behavior.
+            "let g:neocomplete#enable_auto_select = 1
+
+            " Shell like behavior(not recommended).
+            "set completeopt+=longest
+            "let g:neocomplete#enable_auto_select = 1
+            "let g:neocomplete#disable_auto_complete = 1
+            "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+            " Enable omni completion.
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+            " Enable heavy omni completion.
+            if !exists('g:neocomplete#sources#omni#input_patterns')
+                let g:neocomplete#sources#omni#input_patterns = {}
+            endif
+            "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+            "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+            "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+            " For perlomni.vim setting.
+            " https://github.com/c9s/perlomni.vim
+            let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+        endif
+    " }
 
 
     " vim-airline {
@@ -246,6 +323,24 @@
 
         endif
     " }
+
+
+    " NERDTree {
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            map <F4> :NERDTreeToggle<CR>
+            map <leader>e :NERDTreeFind<CR>
+            nmap <leader>nt :NERDTreeFind<CR>
+
+            let NERDTreeShowBookmarks=1
+            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+            let NERDTreeChDirMode=0
+            let NERDTreeMouseMode=2
+            let NERDTreeQuitOnOpen=1
+            let NERDTreeShowHidden=1
+            let NERDTreeKeepTreeInNewTab=1
+        endif
+    " }
+
 
     " Gundo {
         nnoremap <F5> :GundoToggle<CR>

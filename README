@@ -6,10 +6,6 @@ Installation:
     $ git clone https://github.com/xpzouying/dotfiles.git
     $ sh install.sh
 
-    Open vim, and install plugins.
-    $ vim
-    :PluginInstall
-
     Finished installation.
 
 
@@ -18,6 +14,8 @@ Installation:
 3. Modify terminal colors to support 256 colors. Use `tput colors` to check.
 
 NOTE:
+
+Vim plugins manager: neobundle.
 
 To support vim plugins perfectly, may need to install powerline_font(Inconsolata
 for Powerline) in "tools\" directory manually.
