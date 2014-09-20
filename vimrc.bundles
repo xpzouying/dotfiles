@@ -60,8 +60,16 @@
     " }
 
     " General Programming {
+        NeoBundle 'majutsushi/tagbar'
         NeoBundle 'tpope/vim-fugitive'
         NeoBundle 'scrooloose/syntastic'
+        NeoBundle 'nathanaelkane/vim-indent-guides'
+
+        NeoBundle 'tpope/vim-markdown'  " Markdown
+
+        " Python
+        NeoBundle 'klen/python-mode'
+        NeoBundle 'davidhalter/jedi-vim'
 
     " }
 

@@ -351,6 +351,41 @@
 
     " }
 
+
+    " Tagbar {
+        nmap <F8> :TagbarToggle<CR>
+        let g:tagbar_left = 1
+
+        " Support for additional filetypes: https://github.com/majutsushi/tagbar/wiki
+        " --- Makefile (targets) ---
+        " Addto ~/.ctags:
+        "   --regex-make=/^\s*([^#][^:]*):/\1/t,target/
+        let g:tagbar_type_make = {
+                    \ 'kinds':[
+                    \ 'm:macros',
+                    \ 't:targets'
+                    \ ]
+                    \}
+
+        " --- Markdown ---
+        " Add to ~/.ctags:
+        "   --langdef=markdown
+        "   --langmap=markdown:.mkd
+        "   --regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
+        "   --regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/
+        "   --regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+        let g:tagbar_type_markdown = {
+                    \ 'ctagstype' : 'markdown',
+                    \ 'kinds' : [
+                    \ 'h:Heading_L1',
+                    \ 'i:Heading_L2',
+                    \ 'k:Heading_L3'
+                    \ ]
+                    \ }
+
+    " }
+
+
    "  " Fugitive {
    "      if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
    "          nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -368,4 +403,39 @@
    "      endif
    "  "}
 
+   " Indent-Guides {
+        " <leader>ig to show indent-guides
+        let g:indent_guides_auto_colors = 1
+   " }
+
+   " python-mode {
+        let g:pymode_rope = 0   " Use jedi
+        " let g:pymode_rope = 1
+
+        " Documentation
+        let g:pymode_doc = 1
+        let g:pymode_doc_key = 'K'
+
+        " "Linting
+        let g:pymode_lint = 1
+        let g:pymode_lint_checker = "pyflakes,pep8"
+        " " Auto check on save
+        let g:pymode_lint_write = 1
+
+        " Support virtualenv
+        let g:pymode_virtualenv = 1
+
+        " Enable breakpoints plugin
+        let g:pymode_breakpoint = 1
+        let g:pymode_breakpoint_key = '<leader>b'
+
+        " syntax highlighting
+        let g:pymode_syntax = 1
+        let g:pymode_syntax_all = 1
+        let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+        let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+        " Don't autofold code
+        let g:pymode_folding = 0
+   " }
 " }
