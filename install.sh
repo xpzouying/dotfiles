@@ -55,5 +55,6 @@ for file in $files; do
 done
 
 # Install font for vim
-sudo gnome-font-viewer tools/*.otf
-
+# sudo gnome-font-viewer tools/*.otf
+mkdir -p ~/.fonts/
+cp tools/*.otf ~/.fonts/
