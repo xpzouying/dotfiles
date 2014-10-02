@@ -51,6 +51,9 @@
               \    },
               \ }
 
+        NeoBundle 'Shougo/neosnippet'
+        NeoBundle 'Shougo/neosnippet-snippets'
+
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'bling/vim-airline'
 
