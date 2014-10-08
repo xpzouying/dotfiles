@@ -16,7 +16,7 @@ files="vimrc vimrc.bundles gitconfig zshrc"   # list of files in $dotfiles_path
 sudo apt-get install -y vim git curl zsh exuberant-ctags
 
 # 1. Pre-install: Programming
-pip install jedi
+# pip install jedi
 
 # 2. Configuration
 
