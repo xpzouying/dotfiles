@@ -72,8 +72,8 @@
         NeoBundle 'tpope/vim-markdown'  " Markdown
 
         " Python
-        NeoBundle 'klen/python-mode'
-        NeoBundle 'davidhalter/jedi-vim'
+        " NeoBundle 'klen/python-mode'
+        " NeoBundle 'davidhalter/jedi-vim'
 
     " }
 
