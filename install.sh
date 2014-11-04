@@ -9,7 +9,7 @@
 
 # dir_files=~/dotfiles    # dotfiles directory
 dotfiles_path=$(pwd)
-files="vimrc vimrc.bundles gitconfig zshrc"   # list of files in $dotfiles_path
+files="vimrc vimrc.bundles gitconfig zshrc tmux.conf"   # list of files in $dotfiles_path
 
 
 # 1. Pre-install
