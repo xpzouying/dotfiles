@@ -214,15 +214,23 @@
 
     " neocomplete {
         if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
+            "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+            " Disable AutoComplPop.
             let g:acp_enableAtStartup = 0
+            " Use neocomplete.
             let g:neocomplete#enable_at_startup = 1
+            " Use smartcase.
             let g:neocomplete#enable_smart_case = 1
-            let g:neocomplete#enable_auto_delimiter = 1
-            let g:neocomplete#max_list = 15
-            let g:neocomplete#force_overwrite_completefunc = 1
+            " Set minimum syntax keyword length.
             let g:neocomplete#sources#syntax#min_keyword_length = 3
+            let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-            let g:neocomplete#data_directory = '~/.vim/.cache/neocomplete'
+            " Define dictionary.
+            let g:neocomplete#sources#dictionary#dictionaries = {
+                        \ 'default' : '',
+                        \ 'vimshell' : $HOME.'/.vimshell_hist',
+                        \ 'scheme' : $HOME.'/.gosh_completions'
+                        \ }
 
             " Define keyword.
             if !exists('g:neocomplete#keyword_patterns')
@@ -331,12 +339,12 @@
         xmap <C-l> <Plug>(neosnippet_start_unite_snippet_target)
 
         " SuperTab like snippets' behavior.
-        "" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        ""             \ "\<Plug>(neosnippet_expand_or_jump)"
-        ""             \: pumvisible() ? "\<C-n>" : "\<TAB>"
-        "" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        ""             \ "\<Plug>(neosnippet_expand_or_jump)"
-        ""             \: "\<TAB>"
+        imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                    \ "\<Plug>(neosnippet_expand_or_jump)"
+                    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+        smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                    \ "\<Plug>(neosnippet_expand_or_jump)"
+                    \: "\<TAB>"
 
         " Enable snipMate compatibility feature.
         " let g:neosnippet#enable_snipmate_compatibility = 1
