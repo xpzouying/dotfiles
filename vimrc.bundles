@@ -35,6 +35,7 @@
     " General {
         " NeoBundle 'flazz/vim-colorschemes'
         NeoBundle 'mileszs/ack.vim'
+        NeoBundle 'rking/ag.vim'
         NeoBundle 'tpope/vim-surround'
         NeoBundle 'kien/ctrlp.vim'
         NeoBundle 'tacahiroy/ctrlp-funky'
