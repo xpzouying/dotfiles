@@ -60,4 +60,6 @@ done
 # Install font for vim
 # sudo gnome-font-viewer tools/*.otf
 mkdir -p ~/.fonts/
-cp tools/*.otf ~/.fonts/
+cp tools/fonts/*.otf ~/.fonts/
+# Install SourceCodeFonts
+for TTF_FONT in `ls tools/fonts/*.ttf `; do sudo gnome-font-viewer $TTF_FONT ; done
