@@ -63,3 +63,8 @@ mkdir -p ~/.fonts/
 cp tools/fonts/*.otf ~/.fonts/
 # Install SourceCodeFonts
 for TTF_FONT in `ls tools/fonts/*.ttf `; do sudo gnome-font-viewer $TTF_FONT ; done
+
+
+# Post-installation:
+echo "Add airline fonts: git clone https://github.com/powerline/fonts.git"
+echo "===== End ====="
