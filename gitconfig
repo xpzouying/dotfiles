@@ -1,9 +1,11 @@
 [user]
-	email = xpzouying@gmail.com
-	name = Zou, Ying
+    email = xpzouying@gmail.com
+    name = Zou, Ying
 [color]
     ui = true
-# [http]
-#     proxy = http://web-proxy.sgp.hp.com:8080/
-# [https]
-#     proxy = http://web-proxy.sgp.hp.com:8080/
+[http]
+    proxy = http://web-proxy.austin.hp.com:8080/
+    # proxy = http://web-proxy.sgp.hp.com:8080/
+[https]
+    proxy = http://web-proxy.austin.hp.com:8080/
+    # proxy = http://web-proxy.sgp.hp.com:8080/

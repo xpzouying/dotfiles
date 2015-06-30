@@ -64,6 +64,10 @@
 
     " }
 
+    " Operation {
+        NeoBundle 'chase/vim-ansible-yaml'
+    " }
+
     " General Programming {
         NeoBundle 'majutsushi/tagbar'
         NeoBundle 'tpope/vim-fugitive'
