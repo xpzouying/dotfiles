@@ -4,8 +4,8 @@
 [color]
     ui = true
 [http]
-    proxy = http://web-proxy.austin.hp.com:8080/
+    # proxy = http://web-proxy.austin.hp.com:8080/
     # proxy = http://web-proxy.sgp.hp.com:8080/
 [https]
-    proxy = http://web-proxy.austin.hp.com:8080/
+    # proxy = http://web-proxy.austin.hp.com:8080/
     # proxy = http://web-proxy.sgp.hp.com:8080/
