@@ -57,3 +57,26 @@ NOTE:
 ######
 Install powerline fonts:
     git clone https://github.com/Lokaltog/powerline-fonts.git
+
+Install the latest vim:
+    https://kowalcj0.wordpress.com/2013/11/19/how-to-compile-and-install-latest-version-of-vim-with-support-for-x11-clipboard-ruby-python-2-3/
+
+#####
+- Configuration for git
+git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+git config --global https.proxy https://proxyuser:proxypwd@proxy.server.com:8080
+
+- Git config
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
+
+# cache time
+$ git config --global credential.helper cache
+# Set git to use the credential memory cache
+
+OR
+
+$ git config --global credential.helper 'cache --timeout=3600'
+# Set the cache to timeout after 1 hour (setting is in seconds)
+
+
