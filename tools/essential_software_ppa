@@ -1,0 +1,3 @@
+
+# the latest git
+sudo add-apt-repository ppa:git-core/ppa
