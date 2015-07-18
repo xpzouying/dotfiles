@@ -59,17 +59,6 @@
 " Vim UI {
     set t_Co=256
 
-    " Colorscheme
-    "" if filereadable(expand("~/.vim/bundle/vim-colorschemes/colors/jellybeans.vim"))
-    ""     colorscheme jellybeans    " Load a colorscheme
-    "" endif
-    if has('gui_running')
-        set background=light
-        colorscheme solarized
-    else
-        colorscheme default
-    endif
-
     set guioptions-=m               "Remove menu bar
     set guioptions-=T               " Remove toolbar
     "set guioptions-=r              " Remove right-hand scroll bar
@@ -157,20 +146,19 @@
 
 " Plugins {
 
-    " ack / ack-grep {
-        if isdirectory(expand("~/.vim/bundle/ack.vim"))
-            let g:ackpreview = 0
-            let g:ack_autoclose = 1
-            let g:ackhighlight = 1
-
-            let g:ack_default_options =
-                        \ " -s -H --nocolor --nogroup --column --smart-case --follow"
-        endif
+    " Solarized colortheme {
+        set background=light
+        " set background=dark
+        let g:solarized_termtrans=1
+        let g:solarized_termcolors=256
+        let g:solarized_contrast="high"
+        let g:solarized_visibility="high"
+        colorscheme solarized
     " }
 
     " ag {
     "-- In the quickfix window, you can use:
-    "-- 
+    "--
     "-- e    to open file and close the quickfix window
     "-- o    to open (same as enter)
     "-- go   to preview file (open but maintain focus on ag.vim results)
@@ -186,6 +174,16 @@
 
 
     " ctrlp {
+        " F5: Refresh cache
+        " <c-f>, <c-b>: Change mode
+        " <c-d>: Search file name, NOT path
+        " <c-r>: Use regrex
+        " <c-j>,<c-k>: UP & DOWN to select file
+        " <c-t>,<c-v>,<c-x>: Open file in new tab, or split windows
+        " <c-n>,<c-p>: Use before or after search results
+        " <c-y>: Create a new file
+        " <c-z>: Mark multiple file and use <c-o> to open them.
+        "
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
 
@@ -264,7 +262,7 @@
             function! s:my_cr_function()
                 return neocomplete#close_popup() . "\<CR>"
                 " For no inserting <CR> key.
-                "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+                return pumvisible() ? neocomplete#close_popup() : "\<CR>"
             endfunction
             " <TAB>: completion.
             inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -310,10 +308,11 @@
             "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
             "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-            " For perlomni.vim setting.
-            " https://github.com/c9s/perlomni.vim
-            let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
         endif
+    " }
+
+    " SuperTab {
+        let g:SuperTabDefaultCompletionType = "context"
     " }
 
     " neosnippet {
@@ -446,10 +445,6 @@
    "      endif
    "  "}
 
-   " Indent-Guides {
-        " <leader>ig to show indent-guides
-        let g:indent_guides_auto_colors = 1
-   " }
 
    "" delete python ide --> " python-mode {
    "" delete python ide -->      let g:pymode_rope = 0   " Use jedi

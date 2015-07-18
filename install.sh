@@ -15,6 +15,9 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 # 1. Pre-install
 sudo apt-get install -y vim git curl zsh exuberant-ctags
 
+# 1. Add terminal color
+echo "export TERM=xterm-256color" >> ~/.bashrc
+
 # 1. Pre-install: Programming
 # pip install jedi
 
@@ -33,13 +36,6 @@ sudo apt-get install -y silversearcher-ag
     curl -L http://install.ohmyz.sh | sh
 
     sudo chsh -s $(which zsh) $(whoami)
-# }
-
-# ack-grep {
-    sudo apt-get install -y ack-grep
-
-    # Rename ack-grep to ack
-    sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 # }
 
 # vim plugins manager {
