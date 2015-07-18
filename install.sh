@@ -15,6 +15,10 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 # 1. Pre-install
 sudo apt-get install -y vim git curl zsh exuberant-ctags
 
+##### pip install #####
+sudo pip install pylint pep8
+
+
 # 1. Add terminal color
 echo "export TERM=xterm-256color" >> ~/.bashrc
 

@@ -51,6 +51,13 @@
     set iskeyword-=.            " '.' is an end of word designator
     set iskeyword-=#            " '#' is an end of word designator
     set iskeyword-=-            " '-' is an end of word designator
+
+    " Always splits to the right and below
+    set splitright
+    set splitbelow
+
+    " Set to auto read when a file is changed from the outside
+    set autoread
 " }
 "
 
@@ -128,8 +135,6 @@
     set tabstop=4                   " An indentation every four columns
     set softtabstop=4               " Let backspace delete indent
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-    set splitright                  " Puts new vsplit windows to the right of the current
-    set splitbelow                  " Puts new split windows to the bottom of the current
 " }
 
 " Key mapping / binding {
@@ -312,7 +317,12 @@
     " }
 
     " SuperTab {
-        let g:SuperTabDefaultCompletionType = "context"
+        " let g:SuperTabDefaultCompletionType = "context"
+
+        " scroll down the list, NOT navigate the completion menu from bottom
+        " to top
+        let g:SuperTabDefaultCompletionType = "<c-n>"
+        let g:SuperTabContextDefaultCompletionType = "<c-n>"
     " }
 
     " neosnippet {
@@ -340,8 +350,10 @@
 
             let g:airline_theme = 'powerlineish'
 
-            let g:airline_enable_branch     = 1
-            let g:airline_enable_syntastic  = 1
+            " let g:airline_enable_branch     = 1
+            " let g:airline_enable_syntastic  = 1
+            let g:airline#extensions#branch#enabled = 1
+            let g:airline#extensions#syntastic#enabled = 1
 
             let g:airline_powerline_fonts = 1
             " set guifont=Inconsolata\ for\ Powerline\ 10
@@ -360,8 +372,8 @@
             " Show just the filename
             let g:airline#extensions#tabline#fnamemod = ':t'
 
-            let g:airline#extensions#tabline#left_sep = ' '
-            let g:airline#extensions#tabline#left_alt_sep = '|'
+            " let g:airline#extensions#tabline#left_sep = ' '
+            " let g:airline#extensions#tabline#left_alt_sep = '|'
 
         endif
     " }
@@ -445,35 +457,79 @@
    "      endif
    "  "}
 
+   " syntastic {
+       set statusline+=%#warningmsg#
+       set statusline+=%{SyntasticStatuslineFlag()}
+       set statusline+=%*
 
-   "" delete python ide --> " python-mode {
-   "" delete python ide -->      let g:pymode_rope = 0   " Use jedi
-   "" delete python ide -->      " let g:pymode_rope = 1
+       " Setup syntastic to automatically load errors into the location list
+       let g:syntastic_always_populate_loc_list = 1
+       " let g:syntastic_auto_loc_list = 1
+       " Enable - check errors when a file is loaded
+       let g:syntastic_check_on_open = 1
+       " Disable - syntastic checks for errors whenever saving the file
+       let g:syntastic_check_on_wq = 0
 
-   "" delete python ide -->      " Documentation
-   "" delete python ide -->      let g:pymode_doc = 1
-   "" delete python ide -->      let g:pymode_doc_key = 'K'
+        " Do not automatically jump to the error line when saving file
+        let g:syntastic_auto_jump = 0
 
-   "" delete python ide -->      " "Linting
-   "" delete python ide -->      let g:pymode_lint = 1
-   "" delete python ide -->      let g:pymode_lint_checker = "pyflakes,pep8"
-   "" delete python ide -->      " " Auto check on save
-   "" delete python ide -->      let g:pymode_lint_write = 1
+        " Python checkers
+        let g:syntastic_python_checkers=['pep8', 'pylint', 'python']
 
-   "" delete python ide -->      " Support virtualenv
-   "" delete python ide -->      let g:pymode_virtualenv = 1
+       let g:syntastic_error_symbol = "✗"
+       let g:syntastic_warning_symbol = "⚠"
+   " }
 
-   "" delete python ide -->      " Enable breakpoints plugin
-   "" delete python ide -->      let g:pymode_breakpoint = 1
-   "" delete python ide -->      let g:pymode_breakpoint_key = '<leader>b'
+    " python-syntax {
+        let python_highlight_all = 1
+    " }
 
-   "" delete python ide -->      " syntax highlighting
-   "" delete python ide -->      let g:pymode_syntax = 1
-   "" delete python ide -->      let g:pymode_syntax_all = 1
-   "" delete python ide -->      let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-   "" delete python ide -->      let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-   "" delete python ide -->      " Don't autofold code
-   "" delete python ide -->      let g:pymode_folding = 0
-   "" delete python ide --> " }
+   " python-mode {
+        " Keys:
+        " K: Show python docs
+        " <Ctrl-Space>: autocomplete
+        " <Ctrl-c>g: goto definition
+        " <Ctrl-c>d     Rope show documentation
+        " <Ctrl-c>f     Rope find occurrences
+        " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+        " [[            Jump on previous class or function (normal, visual, operator modes)
+        " ]]            Jump on next class or function (normal, visual, operator modes)
+        " [M            Jump on previous class or method (normal, visual, operator modes)
+        " ]M            Jump on next class or method (normal, visual, operator modes)
+
+        let g:pymode_rope = 0   " Use jedi
+        " let g:pymode_rope = 1
+
+        " Documentation
+        let g:pymode_doc = 1
+        let g:pymode_doc_key = 'K'
+
+        " "Linting
+        let g:pymode_lint = 1
+        let g:pymode_lint_checker = "pyflakes,pep8"
+        " " Auto check on save
+        let g:pymode_lint_write = 1
+
+        " Support virtualenv
+        let g:pymode_virtualenv = 1
+
+        " Enable breakpoints plugin
+        let g:pymode_breakpoint = 1
+        let g:pymode_breakpoint_key = '<leader>b'
+
+        " syntax highlighting
+        let g:pymode_syntax = 1
+        let g:pymode_syntax_all = 1
+        let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+        let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+        " Don't autofold code
+        let g:pymode_folding = 0
+   " }
+
+   " Jedi {
+        " Disable auto-complete on .
+        let g:jedi#popup_on_dot = 0
+   " }
 " }
