@@ -13,7 +13,7 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 
 
 # 1. Pre-install
-sudo apt-get install -y vim git curl zsh exuberant-ctags
+sudo apt-get install -y vim git curl zsh exuberant-ctags python-pip
 
 ##### pip install #####
 sudo pip install pylint pep8
@@ -23,7 +23,7 @@ sudo pip install pylint pep8
 echo "export TERM=xterm-256color" >> ~/.bashrc
 
 # 1. Pre-install: Programming
-# pip install jedi
+sudo pip install jedi
 
 # 1. Pre-install: Better features
 sudo apt-get install -y silversearcher-ag
@@ -62,7 +62,7 @@ done
 mkdir -p ~/.fonts/
 cp tools/fonts/*.otf ~/.fonts/
 # Install SourceCodeFonts
-for TTF_FONT in `ls tools/fonts/*.ttf `; do sudo gnome-font-viewer $TTF_FONT ; done
+# for TTF_FONT in `ls tools/fonts/*.ttf `; do sudo gnome-font-viewer $TTF_FONT ; done
 
 
 # Post-installation:

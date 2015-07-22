@@ -61,7 +61,7 @@
 
         " Python
         " Python plugin
-        NeoBundle 'klen/python-mode'
+        " NeoBundle 'klen/python-mode'
         " Python refactoring
         NeoBundle 'davidhalter/jedi-vim'
         " Python Better syntax highlighting
