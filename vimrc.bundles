@@ -31,7 +31,9 @@
    " }
 
     " General {
+        " ----- Colortheme -----
         NeoBundle 'altercation/vim-colors-solarized'
+        " NeoBundle 'nanotech/jellybeans.vim'
 
         " NeoBundle 'flazz/vim-colorschemes'
         NeoBundle 'rking/ag.vim'
@@ -53,6 +55,8 @@
     " }
 
     " General Programming {
+        " For quickfix
+        NeoBundle 'tpope/vim-unimpaired'
         NeoBundle 'majutsushi/tagbar'
         NeoBundle 'tpope/vim-fugitive'
         NeoBundle 'scrooloose/syntastic'

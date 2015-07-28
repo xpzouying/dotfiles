@@ -151,6 +151,15 @@
 
 " Plugins {
 
+    """ " Colortheme - jellybeans {
+    """     let g:jellybeans_use_lowcolor_black = 0
+    """     let g:jellybeans_overrides = {
+    """         \    'Todo': {  'guifg': '303030', 'guibg': 'f0f000',
+    """         \               'ctermfg': 'Black', 'ctermbg': 'Yellow',
+    """         \               'attr': 'bold' },
+    """         \}
+    """ " }
+
     " Solarized colortheme {
         set background=light
         " set background=dark
