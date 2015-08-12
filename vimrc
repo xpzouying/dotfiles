@@ -362,7 +362,7 @@
             " let g:airline_enable_branch     = 1
             " let g:airline_enable_syntastic  = 1
             let g:airline#extensions#branch#enabled = 1
-            let g:airline#extensions#syntastic#enabled = 1
+            " let g:airline#extensions#syntastic#enabled = 1
 
             let g:airline_powerline_fonts = 1
             " set guifont=Inconsolata\ for\ Powerline\ 10
@@ -417,7 +417,7 @@
 
     " Tagbar {
         nmap <F8> :TagbarToggle<CR>
-        let g:tagbar_left = 1
+        let g:tagbar_left = 0
 
         " Support for additional filetypes: https://github.com/majutsushi/tagbar/wiki
         " --- Makefile (targets) ---
@@ -466,28 +466,28 @@
    "      endif
    "  "}
 
-   " syntastic {
-       set statusline+=%#warningmsg#
-       set statusline+=%{SyntasticStatuslineFlag()}
-       set statusline+=%*
+   """ " syntastic {
+   """     set statusline+=%#warningmsg#
+   """     set statusline+=%{SyntasticStatuslineFlag()}
+   """     set statusline+=%*
 
-       " Setup syntastic to automatically load errors into the location list
-       let g:syntastic_always_populate_loc_list = 1
-       " let g:syntastic_auto_loc_list = 1
-       " Enable - check errors when a file is loaded
-       let g:syntastic_check_on_open = 1
-       " Disable - syntastic checks for errors whenever saving the file
-       let g:syntastic_check_on_wq = 0
+   """     " Setup syntastic to automatically load errors into the location list
+   """     let g:syntastic_always_populate_loc_list = 1
+   """     " let g:syntastic_auto_loc_list = 1
+   """     " Enable - check errors when a file is loaded
+   """     let g:syntastic_check_on_open = 1
+   """     " Disable - syntastic checks for errors whenever saving the file
+   """     let g:syntastic_check_on_wq = 0
 
-        " Do not automatically jump to the error line when saving file
-        let g:syntastic_auto_jump = 0
+   """      " Do not automatically jump to the error line when saving file
+   """      let g:syntastic_auto_jump = 0
 
-        " Python checkers
-        let g:syntastic_python_checkers=['pep8', 'pylint', 'python']
+   """      " Python checkers
+   """      let g:syntastic_python_checkers=['pep8', 'pylint', 'python']
 
-       let g:syntastic_error_symbol = "✗"
-       let g:syntastic_warning_symbol = "⚠"
-   " }
+   """     let g:syntastic_error_symbol = "✗"
+   """     let g:syntastic_warning_symbol = "⚠"
+   """ " }
 
     " python-syntax {
         let python_highlight_all = 1

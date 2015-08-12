@@ -59,7 +59,7 @@
         NeoBundle 'tpope/vim-unimpaired'
         NeoBundle 'majutsushi/tagbar'
         NeoBundle 'tpope/vim-fugitive'
-        NeoBundle 'scrooloose/syntastic'
+        " NeoBundle 'scrooloose/syntastic'
 
         NeoBundle 'tpope/vim-markdown'  " Markdown
 
