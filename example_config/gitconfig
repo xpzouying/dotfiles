@@ -7,6 +7,8 @@
     excludesfile = ~/.gitignore
 [web]
     browser = google-chrome
+[http]
+    # proxy = http://user:password@proxy.server:port/
 [rerere]
     enabled = 1
     autoupdate = 1
