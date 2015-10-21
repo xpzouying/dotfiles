@@ -79,4 +79,6 @@ echo "===== End ====="
 # $ export PATH=$PATH:$GOPATH/bin
 
 
-# 
+# --- 2. For Mac OS X
+# Install vim with lua features:
+# $ brew install vim --with-lua --override-system-vim
