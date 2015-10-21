@@ -13,7 +13,7 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 
 
 # 1. Pre-install
-sudo apt-get install -y vim git curl zsh exuberant-ctags python-pip
+sudo apt-get install -y vim git curl exuberant-ctags python-pip
 
 ##### pip install #####
 sudo pip install pylint pep8
@@ -37,14 +37,14 @@ sudo apt-get install -y silversearcher-ag
 # }
 
 # zsh {
-    curl -L http://install.ohmyz.sh | sh
+    # curl -L http://install.ohmyz.sh | sh
+    # sudo chsh -s $(which zsh) $(whoami)
 
-    sudo chsh -s $(which zsh) $(whoami)
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sudo chsh -s $(which zsh)
 # }
 
 # vim plugins manager {
-    # git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
     # Use neobundle
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 # }
@@ -59,10 +59,8 @@ done
 
 # Install font for vim
 # sudo gnome-font-viewer tools/*.otf
-mkdir -p ~/.fonts/
-cp tools/fonts/*.otf ~/.fonts/
-# Install SourceCodeFonts
-# for TTF_FONT in `ls tools/fonts/*.ttf `; do sudo gnome-font-viewer $TTF_FONT ; done
+# mkdir -p ~/.fonts/
+# cp tools/fonts/*.otf ~/.fonts/
 
 
 # Post-installation:
