@@ -66,3 +66,17 @@ done
 # Post-installation:
 echo "Add airline fonts: git clone https://github.com/powerline/fonts.git"
 echo "===== End ====="
+
+
+############
+# TIPS #
+
+# --- 1. GOPATH
+# $ mkdir $HOME/work
+# $ export GOPATH=$HOME/work
+
+# For convenience, add the workspace's bin subdirectory to your PATH:
+# $ export PATH=$PATH:$GOPATH/bin
+
+
+# 
