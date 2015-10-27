@@ -476,8 +476,8 @@
        " Setup syntastic to automatically load errors into the location list
        let g:syntastic_always_populate_loc_list = 1
        " let g:syntastic_auto_loc_list = 1
-       " Enable - check errors when a file is loaded
-       let g:syntastic_check_on_open = 1
+       " Check errors when a file is loaded. {1: "yes", 0: "no"}
+       let g:syntastic_check_on_open = 0
        " Disable - syntastic checks for errors whenever saving the file
        let g:syntastic_check_on_wq = 0
 
