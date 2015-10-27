@@ -63,7 +63,8 @@
         NeoBundle 'tpope/vim-fugitive'
         NeoBundle 'airblade/vim-gitgutter'
 
-        " NeoBundle 'scrooloose/syntastic'
+        " syntax checking
+        NeoBundle 'scrooloose/syntastic'
 
         NeoBundle 'tpope/vim-markdown'  " Markdown
 

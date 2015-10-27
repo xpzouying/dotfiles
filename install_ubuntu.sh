@@ -16,6 +16,8 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 sudo apt-get install -y vim git zsh curl exuberant-ctags python-pip
 
 ##### pip install #####
+# By default, syntastic plugins needs "flake8" or "pylint" to be installed
+# and in "$PATH"
 sudo pip install pylint pep8
 
 
