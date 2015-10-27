@@ -325,14 +325,14 @@
         endif
     " }
 
-    " SuperTab {
-        " let g:SuperTabDefaultCompletionType = "context"
-
-        " scroll down the list, NOT navigate the completion menu from bottom
-        " to top
-        let g:SuperTabDefaultCompletionType = "<c-n>"
-        let g:SuperTabContextDefaultCompletionType = "<c-n>"
-    " }
+"""    " SuperTab {
+"""        " let g:SuperTabDefaultCompletionType = "context"
+"""
+"""        " scroll down the list, NOT navigate the completion menu from bottom
+"""        " to top
+"""        let g:SuperTabDefaultCompletionType = "<c-n>"
+"""        let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"""    " }
 
     " neosnippet {
         " Plugin key-mappings.

@@ -41,7 +41,7 @@
         NeoBundle 'kien/ctrlp.vim'
         NeoBundle 'tacahiroy/ctrlp-funky'
         NeoBundle 'Shougo/neocomplete.vim'
-        NeoBundle 'ervandew/supertab'
+        " NeoBundle 'ervandew/supertab'
 
 
         NeoBundle 'Shougo/neosnippet'
