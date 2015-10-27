@@ -58,7 +58,11 @@
         " For quickfix
         NeoBundle 'tpope/vim-unimpaired'
         NeoBundle 'majutsushi/tagbar'
+
+        " git
         NeoBundle 'tpope/vim-fugitive'
+        NeoBundle 'airblade/vim-gitgutter'
+
         " NeoBundle 'scrooloose/syntastic'
 
         NeoBundle 'tpope/vim-markdown'  " Markdown
