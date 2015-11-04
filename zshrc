@@ -80,8 +80,14 @@ export EDITOR="vim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls="ls -F --color"
-alias grep='grep --color=auto'
+if [[ `uname` == 'Darwin' ]]; then
+    # Mac OS
+    alias ls="ls -G"
+else
+    # Linux
+    alias ls="ls -F --color"
+    alias grep='grep --color=auto'
+fi
 
 alias vi="vim"
 
