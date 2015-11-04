@@ -72,7 +72,7 @@
     "set guioptions-=L              " Remove right-hand scroll bar
     " set guifont=DejaVu\ Sans\ Mono\ 12  " Font
     " set guifont=Ubuntu\ Mono\ 14
-    set guifont=Inconsolata-dz\ 13
+    " set guifont=Inconsolata-dz\ 13
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -152,15 +152,6 @@
 
 
 " Plugins {
-
-    """ " Colortheme - jellybeans {
-    """     let g:jellybeans_use_lowcolor_black = 0
-    """     let g:jellybeans_overrides = {
-    """         \    'Todo': {  'guifg': '303030', 'guibg': 'f0f000',
-    """         \               'ctermfg': 'Black', 'ctermbg': 'Yellow',
-    """         \               'attr': 'bold' },
-    """         \}
-    """ " }
 
     " Solarized colortheme {
         set background=light
