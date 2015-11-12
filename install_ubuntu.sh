@@ -13,7 +13,7 @@ files="vimrc vimrc.bundles zshrc tmux.conf agignore"   # list of files in $dotfi
 
 
 # 1. Pre-install
-sudo apt-get install -y vim git zsh curl exuberant-ctags python-pip
+sudo apt-get install -y git zsh curl exuberant-ctags python-pip
 
 ##### pip install #####
 # By default, syntastic plugins needs "flake8" or "pylint" to be installed
@@ -35,7 +35,9 @@ sudo apt-get install -y silversearcher-ag
 # Colors {
     ## Setting Terminal to support 256 colors
     # Combine with *zshrc* config file.
-    curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark > ~/.dircolors
+    # curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark > ~/.dircolors
+
+    # Use ./tools/dircolors/ file.
 # }
 
 # zsh {
