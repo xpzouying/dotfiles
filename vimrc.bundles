@@ -33,9 +33,11 @@
     " General {
         " ----- Colortheme -----
         NeoBundle 'altercation/vim-colors-solarized'
-        " NeoBundle 'nanotech/jellybeans.vim'
-
+        NeoBundle 'nanotech/jellybeans.vim'
+        NeoBundle 'jnurmine/Zenburn'
+        NeoBundle 'tomasr/molokai'
         " NeoBundle 'flazz/vim-colorschemes'
+
         NeoBundle 'rking/ag.vim'
         NeoBundle 'tpope/vim-surround'
         NeoBundle 'kien/ctrlp.vim'
