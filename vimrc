@@ -150,37 +150,26 @@
 " }
 
 " Features {
-    " Auto close preview {
-        " If you prefer the Omni-Completion tip window to close when a selection is
-        " made, these lines close it on movement in insert mode or when leaving
-        " insert mode
-        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-    " }
+    """--- " Auto close preview {
+    """---     " If you prefer the Omni-Completion tip window to close when a selection is
+    """---     " made, these lines close it on movement in insert mode or when leaving
+    """---     " insert mode
+    """---     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    """---     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    """--- " }
 " }
 
 
 " Plugins {
-
-    " colors zenburn
-
-    " molokai colortheme {
-        colors molokai
-        " Two options: select 1 of following two
-        " let g:molokai_original = 1 " 1, original color
-        let g:rehash256 = 1 " 2, close as possible as default GUI
-
+    " Solarized colortheme {
+        set background=light
+        " set background=dark
+        let g:solarized_termtrans=1
+        let g:solarized_termcolors=256
+        let g:solarized_contrast="high"
+        let g:solarized_visibility="high"
+        colorscheme solarized
     " }
-
-    "-- " Solarized colortheme {
-    "--     set background=light
-    "--     " set background=dark
-    "--     let g:solarized_termtrans=1
-    "--     let g:solarized_termcolors=256
-    "--     let g:solarized_contrast="high"
-    "--     let g:solarized_visibility="high"
-    "--     colorscheme solarized
-    "-- " }
 
     " ag {
     "-- In the quickfix window, you can use:
