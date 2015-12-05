@@ -2,6 +2,8 @@
 " This is final Zou,Ying vimrc
 """""""""""""""""""""""""
 
+set encoding=utf-8
+
 
 " Environment {
     " Identify platform {
