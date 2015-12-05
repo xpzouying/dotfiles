@@ -163,15 +163,21 @@ set encoding=utf-8
 
 
 " Plugins {
-    " Solarized colortheme {
-        set background=light
-        " set background=dark
-        let g:solarized_termtrans=1
-        let g:solarized_termcolors=256
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="high"
-        colorscheme solarized
+    " gruvbox colortheme {
+        set background=dark     " default is light
+        let g:gruvbox_bold=1
+        colorscheme gruvbox
     " }
+
+    "--- " Solarized colortheme {
+    "---     set background=light
+    "---     " set background=dark
+    "---     let g:solarized_termtrans=1
+    "---     let g:solarized_termcolors=256
+    "---     let g:solarized_contrast="high"
+    "---     let g:solarized_visibility="high"
+    "---     colorscheme solarized
+    "--- " }
 
     " ag {
     "-- In the quickfix window, you can use:

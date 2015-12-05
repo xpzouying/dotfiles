@@ -32,7 +32,8 @@
 
     " General {
         " ----- Colortheme -----
-        NeoBundle 'altercation/vim-colors-solarized'
+        " NeoBundle 'altercation/vim-colors-solarized'
+        NeoBundle 'morhetz/gruvbox'
 
         NeoBundle 'rking/ag.vim'
         NeoBundle 'tpope/vim-surround'
