@@ -1,0 +1,196 @@
+
+
+" General {
+    set nocompatible
+    syntax on
+    " set encoding=utf-8  " UTF8
+    set tabstop=4       " Number of spaces that a <tab> represents in a file
+    set shiftwidth=4    " Use indents of 4 spaces
+    set expandtab       " Tabs are spaces, not tabs
+    set softtabstop=4   " Number of spaces that a <tab> represents
+    set shiftwidth=4
+    set smarttab
+    set cursorline      " Highlight current line
+    set nu              " Line numbers on
+    set backspace=indent,eol,start      " Backspace for dummies
+    set ignorecase
+    set smartcase
+
+    " With system clipboard
+    " set clipboard+=unnamedplus
+    set clipboard+=unnamed
+
+" }
+
+
+" Key-mapping {
+    let mapleader=","
+
+    " Move to the next & previous buffer
+    nmap <F2> :bprevious<CR>
+    nmap <F3> :bnext<CR>
+
+
+" }
+
+
+" Programming {
+" }
+
+
+" Plugin - vim-plug{
+    " DoRmotePlugin {
+        function! DoRemotePlugin(arg)
+            UpdateRemotePlugins
+        endfunction
+
+    " }
+
+
+
+    " Begin section
+    call plug#begin('~/.vim/plugged')
+
+    " Feel & Look
+    " Plug 'joshdick/onedark.vim'
+    Plug 'fatih/molokai'
+
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'scrooloose/nerdtree'
+
+    " Highlight current words
+    " Plug 'xpzouying/HiCursorWords'
+
+    " Plugs for everthing
+    " TODO: Add youcompleteme
+    function! BuildYCM(info)
+        " info is a dictionary with 3 fields
+        " - name:   name of the plugin
+        " - status: 'installed', 'updated', or 'unchanged'
+        " - force:  set on PlugInstall! or PlugUpdate!
+        if a:info.status == 'installed' || a:info.force
+          !./install.py --all
+        endif
+    endfunction
+    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+    Plug 'easymotion/vim-easymotion'
+    " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    " Plug 'junegunn/fzf.vim'
+    " TODO: Add ctrlp
+
+
+    " Programming
+    Plug 'scrooloose/syntastic'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    " Plug 'airblade/vim-gitgutter'
+    " Plug 'tpope/vim-fugitive'
+
+    " Python
+    " Plug 'davidhalter/jedi-vim'
+
+    call plug#end()
+    " End plug
+" }
+
+
+""""""""""
+" Plugin config {
+
+    " fatih/molokai {
+        let g:rehash256 = 1
+        let g:molokai_original = 1
+        colorscheme molokai
+    " }
+
+    " vim-airline {
+        set laststatus=2
+        let g:airline#extensions#branch#enabled=1
+        " let g:airline#extension#syntastic#enabled=1
+        let g:airline_powerline_fonts=1
+
+        " Enable the list of buffers
+        let g:airline#extensions#tabline#enabled=1
+        " Show just the file name
+        " let g:airline#extensions#tabline#fnamemod=':t'
+    " }
+
+
+    " NERDTree {
+        map <F4> :NERDTreeToggle<CR>
+
+        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.sw[op]$', '^\.git$']
+        let NERDTreeQuitOnOpen=1  " Close the tree window after opening a file
+    " }
+
+    " vim-go {
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_types = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        let g:go_highlight_extra_types = 1
+
+        " Enable goimports to automatically insert import paths instead of gofmt
+        let g:go_fmt_command = "goimports"
+
+        let g:go_textobj_include_function_doc = 1
+
+        " :GoInfo
+        autocmd FileType go nmap <Leader>i <Plug>(go-info)
+        let g:go_auto_type_info = 1
+        set updatetime=100
+
+        " auto Identifier highlighting
+        let g:go_auto_sameids = 1
+
+    " }
+
+
+    " EasyMotion {
+        " <Leader>f{char} to move to {char}
+        map  <Leader>f <Plug>(easymotion-bd-f)
+        nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+        " s{char}{char} to move to {char}{char}
+        nmap s <Plug>(easymotion-overwin-f2)
+
+        " Move to line
+        map <Leader>L <Plug>(easymotion-bd-jk)
+        nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+        " Move to word
+        map  <Leader>w <Plug>(easymotion-bd-w)
+        nmap <Leader>w <Plug>(easymotion-overwin-w)
+    " }
+
+    " { YouCompleteMe
+        " let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+        " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+        " nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+        " let g:ycm_confirm_extra_conf = 0
+    " }
+
+    " syntastic recommanded settings {
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+
+       let g:syntastic_always_populate_loc_list = 1
+       let g:syntastic_auto_loc_list = 1
+       let g:syntastic_check_on_open = 1
+       let g:syntastic_check_on_wq = 0
+     " }
+
+
+    " HiCursorWords {
+        let g:HiCursorWords_delay=1000
+
+    " }
+
+" }
+""""""""""
