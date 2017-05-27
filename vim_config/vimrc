@@ -16,6 +16,8 @@
     set ignorecase
     set smartcase
 
+    set guifont=hack:h14
+
     " With system clipboard
     " set clipboard+=unnamedplus
     set clipboard+=unnamed
@@ -59,9 +61,9 @@
     Plug 'vim-airline/vim-airline-themes'
 
     Plug 'scrooloose/nerdtree'
-
-    " Highlight current words
-    " Plug 'xpzouying/HiCursorWords'
+    Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    
 
     " Plugs for everthing
     " TODO: Add youcompleteme
@@ -71,7 +73,7 @@
         " - status: 'installed', 'updated', or 'unchanged'
         " - force:  set on PlugInstall! or PlugUpdate!
         if a:info.status == 'installed' || a:info.force
-          !./install.py --all
+          !./install.py --clang-completer --gocode-completer
         endif
     endfunction
     Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
@@ -123,6 +125,29 @@
 
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.sw[op]$', '^\.git$']
         let NERDTreeQuitOnOpen=1  " Close the tree window after opening a file
+        " let NERDTreeShowHidden=1
+    " }
+    " nerdtree-tabs {
+        " default is 0.
+        " set 2, if directory was given as startup arg
+        let g:nerdtree_tabs_open_on_console_startup=2
+
+        " autofind and select currently opened file
+        let g:nerdtree_tabs_autofind=1
+    " }
+    " nerdtree-git-plugin {
+        let g:NERDTreeIndicatorMapCustom = {
+                \ "Modified"  : "✹",
+                \ "Staged"    : "✚",
+                \ "Untracked" : "✭",
+                \ "Renamed"   : "➜",
+                \ "Unmerged"  : "═",
+                \ "Deleted"   : "✖",
+                \ "Dirty"     : "✗",
+                \ "Clean"     : "✔︎",
+                \ 'Ignored'   : '☒',
+                \ "Unknown"   : "?"
+                \ }
     " }
 
     " vim-go {
