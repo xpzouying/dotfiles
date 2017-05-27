@@ -67,11 +67,14 @@
 
     " Enhance operation
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'easymotion/vim-easymotion'
 
     " Programming
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/syntastic'
     Plug 'airblade/vim-gitgutter'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    Plug 'scrooloose/nerdcommenter'
     
 
     " Plugs for everthing
@@ -87,17 +90,6 @@
     endfunction
     Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
-    Plug 'easymotion/vim-easymotion'
-    " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    " Plug 'junegunn/fzf.vim'
-    " TODO: Add ctrlp
-
-
-    " Programming
-    Plug 'scrooloose/syntastic'
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    " Plug 'airblade/vim-gitgutter'
-    " Plug 'tpope/vim-fugitive'
 
     " Python
     " Plug 'davidhalter/jedi-vim'
@@ -237,6 +229,19 @@
         nmap <F8> :TagbarToggle<CR>
 
         let g:tagbar_width=30
+     " }
+
+     " Nerdcommenter {
+        " Add spaces after comment delimiters by default
+        let g:NERDSpaceDelims = 1
+        " Use compact syntax for prettified multi-line comments
+        let g:NERDCompactSexyComs = 1
+        " Align line-wise comment delimiters flush left instead of following code indentation
+        let g:NERDDefaultAlign = 'left'
+        " Allow commenting and inverting empty lines (useful when commenting a region)
+        let g:NERDCommentEmptyLines = 1
+        " Enable trimming of trailing whitespace when uncommenting
+        let g:NERDTrimTrailingWhitespace = 1
      " }
 
 " }
