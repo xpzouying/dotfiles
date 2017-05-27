@@ -71,6 +71,7 @@
     " Programming
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/syntastic'
+    Plug 'airblade/vim-gitgutter'
     
 
     " Plugs for everthing
