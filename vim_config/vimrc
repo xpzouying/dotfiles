@@ -75,6 +75,7 @@
     Plug 'airblade/vim-gitgutter'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'scrooloose/nerdcommenter'
+    Plug 'raimondi/delimitmate'
     
 
     " Plugs for everthing
