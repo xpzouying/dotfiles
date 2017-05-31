@@ -68,6 +68,8 @@
     " Enhance operation
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'easymotion/vim-easymotion'
+    Plug 'mileszs/ack.vim'
+
 
     " Programming
     Plug 'tpope/vim-fugitive'

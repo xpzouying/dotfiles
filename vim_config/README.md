@@ -11,3 +11,6 @@
     > Install ctags
     > `brew install ctags`
 
+- Ack:
+    > Install `ack`
+    > `brew install ack`
