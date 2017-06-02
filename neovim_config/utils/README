@@ -1,0 +1,8 @@
+INSTALL GUIDE
+
+
+1. install oh-my-zsh
+    Install zplug:
+        curl -sL zplug.sh/installer | zsh
+    or
+        brew install zplug
