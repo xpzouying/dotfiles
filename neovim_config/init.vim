@@ -146,20 +146,20 @@
 
         let g:NERDTreeWinSize=20
     " }
-    "" nerdtree-git-plugin {
-    "    let g:NERDTreeIndicatorMapCustom = {
-    "            \ "Modified"  : "✹",
-    "            \ "Staged"    : "✚",
-    "            \ "Untracked" : "✭",
-    "            \ "Renamed"   : "➜",
-    "            \ "Unmerged"  : "═",
-    "            \ "Deleted"   : "✖",
-    "            \ "Dirty"     : "✗",
-    "            \ "Clean"     : "✔︎",
-    "            \ 'Ignored'   : '☒',
-    "            \ "Unknown"   : "?"
-    "            \ }
-    "" }
+    " nerdtree-git-plugin {
+        let g:NERDTreeIndicatorMapCustom = {
+                \ "Modified"  : "✹",
+                \ "Staged"    : "✚",
+                \ "Untracked" : "✭",
+                \ "Renamed"   : "➜",
+                \ "Unmerged"  : "═",
+                \ "Deleted"   : "✖",
+                \ "Dirty"     : "✗",
+                \ "Clean"     : "✔︎",
+                \ 'Ignored'   : '☒',
+                \ "Unknown"   : "?"
+                \ }
+    " }
 
 
     " deoplete.nvim {
