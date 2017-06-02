@@ -11,7 +11,7 @@
 " General {
     set nocompatible
     syntax on
-    " set encoding=utf-8  " UTF8
+    set encoding=utf-8  " UTF8
     set tabstop=4       " Number of spaces that a <tab> represents in a file
     set shiftwidth=4    " Use indents of 4 spaces
     set expandtab       " Tabs are spaces, not tabs
@@ -71,6 +71,7 @@
 
     " Feel & Look
     Plug 'fatih/molokai'
+    Plug 'mhinz/vim-startify'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -78,19 +79,18 @@
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
 
     Plug 'majutsushi/tagbar'
 
-
-    " Plugs for everthing
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
-    Plug 'mileszs/ack.vim'
-    Plug 'easymotion/vim-easymotion'
+    " Enhance operation
     Plug 'ctrlpvim/ctrlp.vim'
-
+    Plug 'easymotion/vim-easymotion'
+    Plug 'mileszs/ack.vim'
 
     " Programming
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/syntastic'
     Plug 'airblade/vim-gitgutter'
@@ -174,6 +174,18 @@
         let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     " }
+
+    " ctrlp {
+        let g:ctrlp_map = '<c-p>'
+        let g:ctrlp_cmd = 'CtrlP'
+
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+        let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+    "}
 
     " vim-go {
         let g:go_highlight_functions = 1

@@ -3,7 +3,7 @@
 " General {
     set nocompatible
     syntax on
-    " set encoding=utf-8  " UTF8
+    set encoding=utf-8  " UTF8
     set tabstop=4       " Number of spaces that a <tab> represents in a file
     set shiftwidth=4    " Use indents of 4 spaces
     set expandtab       " Tabs are spaces, not tabs
@@ -16,7 +16,8 @@
     set ignorecase
     set smartcase
 
-    set guifont=hack:h14
+    " set guifont=hack:h14
+    set guifont=Knack\ Nerd\ Font:h16
 
     " With system clipboard
     " set clipboard+=unnamedplus
@@ -55,6 +56,8 @@
     " Plug 'joshdick/onedark.vim'
     Plug 'fatih/molokai'
 
+    Plug 'mhinz/vim-startify'
+
     " Side bar
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -62,6 +65,7 @@
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
 
     Plug 'majutsushi/tagbar'
 
