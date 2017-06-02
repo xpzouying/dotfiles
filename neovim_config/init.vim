@@ -130,10 +130,11 @@
 
 
     " NERDTree {
-        map <F4> :NERDTreeToggle<CR>
+        nmap <F4> :NERDTreeToggle<CR>
 
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.sw[op]$', '^\.git$']
-        let NERDTreeQuitOnOpen=1  " Close the tree window after opening a file
+        let NERDTreeQuitOnOpen=0  " Close the tree window after opening a file
+        let NERDTreeMouseMode=2
     " }
     " nerdtree-tabs {
         " default is 0.
