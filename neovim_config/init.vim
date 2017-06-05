@@ -101,6 +101,8 @@
     Plug 'mileszs/ack.vim'
 
     " Programming
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'raimondi/delimitmate'
     Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
