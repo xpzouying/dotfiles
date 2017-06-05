@@ -8,3 +8,8 @@ Dotfiles for zouying.
 
 - Update airline to lightline
     > [https://github.com/itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
+
+
+## Software ##
+- Nerd tree font: (vim-devicons)[https://github.com/ryanoasis/vim-devicons]
+- fzf: (fzf)[https://github.com/junegunn/fzf]
