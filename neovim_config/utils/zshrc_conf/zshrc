@@ -194,3 +194,6 @@ export LIBRARY_PATH=/usr/local/lib
 
 
 export VIRTUAL_ENV_DISABLE_PROMPT=
+
+# color 256 color
+export TERM=xterm-256color

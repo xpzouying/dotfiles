@@ -28,9 +28,19 @@
     " set clipboard+=unnamedplus
     set clipboard+=unnamed
 
+    " For color {
+    " Ref: https://github.com/joshdick/onedark.vim
+    if (empty($TMUX))
+        if (has("nvim"))
+            let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+        endif
 
-    " set neovim with true color
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+        if (has("termguicolors"))
+            set termguicolors
+        endif
+    endif
+    "}
+
     " set neovim cursor shape
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " }
@@ -70,7 +80,9 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    Plug 'fatih/molokai'
+    " Plug 'fatih/molokai'
+    Plug 'joshdick/onedark.vim'
+    Plug 'rakr/vim-one'
     Plug 'mhinz/vim-startify'
 
     Plug 'vim-airline/vim-airline'
@@ -89,6 +101,7 @@
     Plug 'mileszs/ack.vim'
 
     " Programming
+    Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
@@ -108,15 +121,29 @@
 """"""""""
 " Plugin config {
 
-    " fatih/molokai {
-        let g:rehash256 = 1
-        let g:molokai_original = 1
-        colorscheme molokai
+    "" fatih/molokai {
+    "    let g:rehash256 = 1
+    "    let g:molokai_original = 1
+    "    colorscheme molokai
+    "" }
+
+    " onedark {
+        colorscheme onedark
+
+        let g:onedark_termcolors=256  " default
     " }
+
+    " " vim-one {
+    "     colorscheme one
+    "     set background=dark  " light or dark
+
+    "     let g:one_allow_italics = 1  " some terminal may not support it
+
+    " " }
 
     " vim-airline {
         set laststatus=2
-        " let g:airline_theme='gruvbox'
+        " let g:airline_theme='one'
         let g:airline_theme='onedark'  " depends on onedark
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
