@@ -28,6 +28,8 @@
     " set clipboard+=unnamedplus
     set clipboard+=unnamed
 
+    set mouse=a
+
     " For color {
     " Ref: https://github.com/joshdick/onedark.vim
     if (empty($TMUX))
