@@ -15,5 +15,14 @@ Dotfiles for zouying.
 - fzf: (fzf)[https://github.com/junegunn/fzf]
 
 
-## Only for test ##
-This is test demo.
+## Questions ##
+
+### vscode can't full screen ###
+
+`brew install reattach-to-user-namespace`
+
+And then add to your ~/.tmux.conf:
+
+`set-option -g default-command "reattach-to-user-namespace -l zsh"`
+
+
