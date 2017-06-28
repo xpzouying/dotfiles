@@ -280,6 +280,10 @@
         let g:tagbar_width=30
      " }
 
+     " delimitMate {
+        let delimitMate_expand_inside_quotes = 1
+     " }
+
      " Nerdcommenter {
         " Add spaces after comment delimiters by default
         let g:NERDSpaceDelims = 1
