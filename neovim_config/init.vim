@@ -164,12 +164,21 @@
 
 
     " NERDTree {
-        nmap <F4> :NERDTreeToggle<CR>
+        " nmap <F4> :NERDTreeToggle<CR>
+        nmap <C-n> :NERDTreeToggle<CR>
+        noremap <Leader>n :NERDTreeToggle<CR>
+        noremap <Leader>f :NERDTreeFind<CR>
 
-        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.sw[op]$', '^\.git$']
+        let NERDTreeShowHidden=1
+
+        " Close nerdtree and vim on close file
+        " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.sw[op]$', '^\.git$', '.DS_Store', '.vim$']
         let NERDTreeQuitOnOpen=0  " Close the tree window after opening a file
         let NERDTreeMouseMode=2
     " }
+ 
     " nerdtree-tabs {
         " default is 0.
         " set 2, if directory was given as startup arg
@@ -249,8 +258,8 @@
 
     " EasyMotion {
         " <Leader>f{char} to move to {char}
-        map  <Leader>f <Plug>(easymotion-bd-f)
-        nmap <Leader>f <Plug>(easymotion-overwin-f)
+        " map  <Leader>f <Plug>(easymotion-bd-f)
+        " nmap <Leader>f <Plug>(easymotion-overwin-f)
 
         " s{char}{char} to move to {char}{char}
         nmap s <Plug>(easymotion-overwin-f2)
