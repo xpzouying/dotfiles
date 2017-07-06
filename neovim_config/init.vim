@@ -29,7 +29,9 @@
     " set clipboard+=unnamedplus
     set clipboard+=unnamed
 
-    set mouse=a
+    if has('mouse')
+        set mouse=a
+    endif
 
     " For color {
     " Ref: https://github.com/joshdick/onedark.vim
