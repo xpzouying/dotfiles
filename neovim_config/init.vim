@@ -99,6 +99,8 @@
     Plug 'ryanoasis/vim-devicons'
 
     Plug 'majutsushi/tagbar'
+    Plug 'ntpeters/vim-better-whitespace'
+
 
     " Enhance operation
     Plug 'ctrlpvim/ctrlp.vim'
@@ -289,6 +291,12 @@
         nmap <F8> :TagbarToggle<CR>
 
         let g:tagbar_width=30
+     " }
+
+     " vim-better-whitespace {
+        " auto strip whitespace except for file with extention blacklisted
+        let blacklist = ['markdown', 'md']
+        autocmd BufWritePre * StripWhitespace
      " }
 
      " delimitMate {
