@@ -180,7 +180,7 @@
         let NERDTreeQuitOnOpen=0  " Close the tree window after opening a file
         let NERDTreeMouseMode=2
     " }
- 
+
     " nerdtree-tabs {
         " default is 0.
         " set 2, if directory was given as startup arg

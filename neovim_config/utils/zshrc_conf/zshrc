@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # --- zplug ---
-if [[ "$(uname)" == "Linux" ]]; then 
+if [[ "$(uname)" == "Linux" ]]; then
     export ZPLUG_HOME="$HOME/.zplug"
 else
     export ZPLUG_HOME=/usr/local/opt/zplug
@@ -124,7 +124,7 @@ zplug "chrissicool/zsh-256color"
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
 
-
+zplug "petervanderdoes/git-flow-completion"
 
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
