@@ -114,7 +114,8 @@
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
-    Plug 'scrooloose/syntastic'
+    " Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
     Plug 'airblade/vim-gitgutter'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -322,16 +323,25 @@
         let g:cpp_concepts_highlight = 1
     " }
 
-    " syntastic recommanded settings {
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
+    " ALE {
+        " enable airline status
+        let g:airline#extensions#ale#enabled = 1
 
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_check_on_open = 0
-        let g:syntastic_check_on_wq = 0
+        " use quickfix list instead of the loclist
+        let g:ale_set_loclist = 0
+        let g:ale_set_quickfix = 1
     " }
+
+    " " syntastic recommanded settings {
+    "     set statusline+=%#warningmsg#
+    "     set statusline+=%{SyntasticStatuslineFlag()}
+    "     set statusline+=%*
+
+    "     let g:syntastic_always_populate_loc_list = 1
+    "     let g:syntastic_auto_loc_list = 1
+    "     let g:syntastic_check_on_open = 0
+    "     let g:syntastic_check_on_wq = 0
+    " " }
 
     " {
         " By default syntax-highlighting for Functions,
