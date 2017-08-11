@@ -19,7 +19,7 @@ fi
 
 
 echo "Link zsh"
-ln -s "$(pwd)/.zshrc" "$HOME/.zshrc"
+ln -s "$(pwd)/zshrc" "$HOME/.zshrc"
 
 
 echo "Install oh-my-zsh"
