@@ -103,6 +103,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-history-substring-search"
 
 zplug "supercrabtree/k"
+zplug "plugins/z",  from:oh-my-zsh
 
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
@@ -180,7 +181,7 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 
 # plugins
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. /usr/local/etc/profile.d/z.sh
+# . /usr/local/etc/profile.d/z.sh
 
 # use vim or neovim
 alias vim=nvim
