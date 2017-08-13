@@ -170,6 +170,11 @@ fi
 
 
 
+# use nvim first
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 # enable colors
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
