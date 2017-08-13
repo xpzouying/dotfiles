@@ -58,6 +58,10 @@
     nmap <F2> :bprevious<CR>
     nmap <F3> :bnext<CR>
 
+    map <C-n> :cnext<CR>
+    map <C-m> :cprevious<CR>
+    nnoremap <leader>a :cclose<CR>
+
 
 " }
 
@@ -104,7 +108,9 @@
 
 
     " Enhance operation
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'mileszs/ack.vim'
 
@@ -172,7 +178,6 @@
         " nmap <F4> :NERDTreeToggle<CR>
         " nmap <C-n> :NERDTreeToggle<CR>
         noremap <Leader>n :NERDTreeToggle<CR>
-        noremap <Leader>f :NERDTreeFind<CR>
 
         let NERDTreeShowHidden=1
 
@@ -224,17 +229,34 @@
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     " }
 
-    " ctrlp {
-        let g:ctrlp_map = '<c-p>'
-        let g:ctrlp_cmd = 'CtrlP'
+    " fzf {
+        " [Buffers] Jump to the existing window if possible
+        let g:fzf_buffers_jump = 1
 
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-    "}
+        " [[B]Commits] Customize the options used by 'git log':
+        let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+        " [Tags] Command to generate tags file
+        let g:fzf_tags_command = 'ctags -R'
+
+        " [Commands] --expect expression for directly executing the command
+        let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+        map <leader>b :Buffers<cr>
+        map <leader>f :Files<cr>
+    " }
+
+    """ " ctrlp {
+    """     let g:ctrlp_map = '<c-p>'
+    """     let g:ctrlp_cmd = 'CtrlP'
+
+    """     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    """     let g:ctrlp_custom_ignore = {
+    """         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    """         \ 'file': '\v\.(exe|so|dll)$',
+    """         \ 'link': 'some_bad_symbolic_links',
+    """         \ }
+    """ "}
 
     " vim-go {
         let g:go_highlight_structs = 1
@@ -265,14 +287,9 @@
         " auto Identifier highlighting
         " let g:go_auto_sameids = 1
 
-        " vim-go tutorial
-        map <C-n> :cnext<CR>
-        map <C-m> :cprevious<CR>
-        nnoremap <leader>a :cclose<CR>
-
         " GoRun & GoBuild in go
-        autocmd FileType go nmap <leader>b <Plug>(go-build)
-        autocmd FileType go nmap <leader>r <Plug>(go-run)
+        " autocmd FileType go nmap <leader>b <Plug>(go-build)
+        " autocmd FileType go nmap <leader>r <Plug>(go-run)
 
         let g:go_test_timeout = '10s'
 
@@ -292,25 +309,25 @@
         nmap s <Plug>(easymotion-overwin-f2)
 
         " Move to line
-        map <Leader>L <Plug>(easymotion-bd-jk)
-        nmap <Leader>L <Plug>(easymotion-overwin-line)
+        " map <Leader>L <Plug>(easymotion-bd-jk)
+        " nmap <Leader>L <Plug>(easymotion-overwin-line)
 
         " Move to word
         map  <Leader>w <Plug>(easymotion-bd-w)
         nmap <Leader>w <Plug>(easymotion-overwin-w)
     " }
 
-    " ctrlp {
-        let g:ctrlp_map = '<c-p>'
-        let g:ctrlp_cmd = 'CtrlP'
+    " " ctrlp {
+    "     let g:ctrlp_map = '<c-p>'
+    "     let g:ctrlp_cmd = 'CtrlP'
 
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-    "}
+    "     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    "     let g:ctrlp_custom_ignore = {
+    "         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    "         \ 'file': '\v\.(exe|so|dll)$',
+    "         \ 'link': 'some_bad_symbolic_links',
+    "         \ }
+    " "}
 
      " Tagbar {
         nmap <F8> :TagbarToggle<CR>
