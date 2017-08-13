@@ -58,6 +58,10 @@
     nmap <F2> :bprevious<CR>
     nmap <F3> :bnext<CR>
 
+    map <C-n> :cnext<CR>
+    map <C-m> :cprevious<CR>
+    nnoremap <leader>a :cclose<CR>
+
 
 " }
 
@@ -86,9 +90,10 @@
 
     " Feel & Look
     " Plug 'fatih/molokai'
-    Plug 'joshdick/onedark.vim'
-    Plug 'rakr/vim-one'
+    " Plug 'joshdick/onedark.vim'
+    " Plug 'rakr/vim-one'
     " Plug 'mhinz/vim-startify'
+    Plug 'altercation/vim-colors-solarized'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -103,9 +108,11 @@
 
 
     " Enhance operation
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
-    Plug 'mileszs/ack.vim'
+    " Plug 'rking/ag.vim'
 
     " Programming
     Plug 'SirVer/ultisnips'
@@ -131,31 +138,10 @@
 
 """"""""""
 " Plugin config {
-
-    "" fatih/molokai {
-    "    let g:rehash256 = 1
-    "    let g:molokai_original = 1
-    "    colorscheme molokai
-    "" }
-
-    " onedark {
-        colorscheme onedark
-
-        let g:onedark_termcolors=256  " default
-    " }
-
-    " " vim-one {
-    "     colorscheme one
-    "     set background=dark  " light or dark
-
-    "     let g:one_allow_italics = 1  " some terminal may not support it
-
-    " " }
-
     " vim-airline {
         set laststatus=2
-        " let g:airline_theme='one'
-        let g:airline_theme='onedark'  " depends on onedark
+        let g:airline_theme='solarized'
+
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
         let g:airline_powerline_fonts=1
@@ -171,7 +157,6 @@
         " nmap <F4> :NERDTreeToggle<CR>
         " nmap <C-n> :NERDTreeToggle<CR>
         noremap <Leader>n :NERDTreeToggle<CR>
-        noremap <Leader>f :NERDTreeFind<CR>
 
         let NERDTreeShowHidden=1
 
@@ -223,17 +208,36 @@
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     " }
 
-    " ctrlp {
-        let g:ctrlp_map = '<c-p>'
-        let g:ctrlp_cmd = 'CtrlP'
+    " fzf {
+        " [Buffers] Jump to the existing window if possible
+        let g:fzf_buffers_jump = 1
 
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-    "}
+        " [[B]Commits] Customize the options used by 'git log':
+        let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+        " [Tags] Command to generate tags file
+        let g:fzf_tags_command = 'ctags -R'
+
+        " [Commands] --expect expression for directly executing the command
+        let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+        map <leader>b :Buffers<cr>
+        map <leader>f :Files<cr>
+        map <C-p> :Files<CR>
+
+    " }
+
+    """ " ctrlp {
+    """     let g:ctrlp_map = '<c-p>'
+    """     let g:ctrlp_cmd = 'CtrlP'
+
+    """     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    """     let g:ctrlp_custom_ignore = {
+    """         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    """         \ 'file': '\v\.(exe|so|dll)$',
+    """         \ 'link': 'some_bad_symbolic_links',
+    """         \ }
+    """ "}
 
     " vim-go {
         let g:go_highlight_structs = 1
@@ -264,14 +268,9 @@
         " auto Identifier highlighting
         " let g:go_auto_sameids = 1
 
-        " vim-go tutorial
-        map <C-n> :cnext<CR>
-        map <C-m> :cprevious<CR>
-        nnoremap <leader>a :cclose<CR>
-
         " GoRun & GoBuild in go
-        autocmd FileType go nmap <leader>b <Plug>(go-build)
-        autocmd FileType go nmap <leader>r <Plug>(go-run)
+        " autocmd FileType go nmap <leader>b <Plug>(go-build)
+        " autocmd FileType go nmap <leader>r <Plug>(go-run)
 
         let g:go_test_timeout = '10s'
 
@@ -291,25 +290,31 @@
         nmap s <Plug>(easymotion-overwin-f2)
 
         " Move to line
-        map <Leader>L <Plug>(easymotion-bd-jk)
-        nmap <Leader>L <Plug>(easymotion-overwin-line)
+        " map <Leader>L <Plug>(easymotion-bd-jk)
+        " nmap <Leader>L <Plug>(easymotion-overwin-line)
 
         " Move to word
         map  <Leader>w <Plug>(easymotion-bd-w)
         nmap <Leader>w <Plug>(easymotion-overwin-w)
     " }
 
-    " ctrlp {
-        let g:ctrlp_map = '<c-p>'
-        let g:ctrlp_cmd = 'CtrlP'
+    " ag.vim {
+        " let g:ag_working_path_mode='r'
+        " let g:ag_prg="ag --vimgrep --smart-case"  " need Ag 0.25.0
+        " let g:ag_format="%f:%l%m"
+    " }
 
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-    "}
+    " " ctrlp {
+    "     let g:ctrlp_map = '<c-p>'
+    "     let g:ctrlp_cmd = 'CtrlP'
+
+    "     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    "     let g:ctrlp_custom_ignore = {
+    "         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    "         \ 'file': '\v\.(exe|so|dll)$',
+    "         \ 'link': 'some_bad_symbolic_links',
+    "         \ }
+    " "}
 
      " Tagbar {
         nmap <F8> :TagbarToggle<CR>
@@ -387,6 +392,17 @@
         " jedi override previous config
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
+
+    " solarized {
+        set background=light
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans = 1  " must set
+        " let g:solarized_termcolors=16
+        " let g:solarized_visibility = "high"
+        " let g:solarized_contrast = "high"
+        colorscheme solarized
+    " }
+
 
 " }
 """"""""""
