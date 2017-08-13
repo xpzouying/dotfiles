@@ -155,8 +155,8 @@
 
     " vim-airline {
         set laststatus=2
-        " let g:airline_theme='one'
-        let g:airline_theme='onedark'  " depends on onedark
+        let g:airline_theme='solarized'
+
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
         let g:airline_powerline_fonts=1
