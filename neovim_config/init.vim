@@ -112,7 +112,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
-    Plug 'mileszs/ack.vim'
+    Plug 'rking/ag.vim'
 
     " Programming
     Plug 'SirVer/ultisnips'
@@ -138,27 +138,6 @@
 
 """"""""""
 " Plugin config {
-
-    "" fatih/molokai {
-    "    let g:rehash256 = 1
-    "    let g:molokai_original = 1
-    "    colorscheme molokai
-    "" }
-
-    " " onedark {
-    "     colorscheme onedark
-
-    "     let g:onedark_termcolors=256  " default
-    " " }
-
-    " " vim-one {
-    "     colorscheme one
-    "     set background=dark  " light or dark
-
-    "     let g:one_allow_italics = 1  " some terminal may not support it
-
-    " " }
-
     " vim-airline {
         set laststatus=2
         let g:airline_theme='solarized'
