@@ -13,7 +13,7 @@ Dotfiles for zouying.
 ## Software ##
 - Nerd tree font: (vim-devicons)[https://github.com/ryanoasis/vim-devicons]
 - fzf: (fzf)[https://github.com/junegunn/fzf]
-
+- ag: `brew install the_silver_searcher`
 
 ## Questions ##
 
