@@ -112,7 +112,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
-    Plug 'rking/ag.vim'
+    " Plug 'rking/ag.vim'
 
     " Programming
     Plug 'SirVer/ultisnips'
@@ -296,6 +296,12 @@
         " Move to word
         map  <Leader>w <Plug>(easymotion-bd-w)
         nmap <Leader>w <Plug>(easymotion-overwin-w)
+    " }
+
+    " ag.vim {
+        " let g:ag_working_path_mode='r'
+        " let g:ag_prg="ag --vimgrep --smart-case"  " need Ag 0.25.0
+        " let g:ag_format="%f:%l%m"
     " }
 
     " " ctrlp {
