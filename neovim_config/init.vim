@@ -244,6 +244,8 @@
 
         map <leader>b :Buffers<cr>
         map <leader>f :Files<cr>
+        map <C-p> :Files<CR>
+
     " }
 
     """ " ctrlp {
