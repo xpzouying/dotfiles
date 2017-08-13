@@ -88,7 +88,7 @@
     " Plug 'fatih/molokai'
     Plug 'joshdick/onedark.vim'
     Plug 'rakr/vim-one'
-    Plug 'mhinz/vim-startify'
+    " Plug 'mhinz/vim-startify'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -108,6 +108,7 @@
     Plug 'mileszs/ack.vim'
 
     " Programming
+    Plug 'SirVer/ultisnips'
     Plug 'scrooloose/nerdcommenter'
     Plug 'raimondi/delimitmate'
     Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
@@ -168,7 +169,7 @@
 
     " NERDTree {
         " nmap <F4> :NERDTreeToggle<CR>
-        nmap <C-n> :NERDTreeToggle<CR>
+        " nmap <C-n> :NERDTreeToggle<CR>
         noremap <Leader>n :NERDTreeToggle<CR>
         noremap <Leader>f :NERDTreeFind<CR>
 
@@ -235,6 +236,8 @@
     "}
 
     " vim-go {
+        let g:go_highlight_structs = 1
+        let g:go_highlight_interfaces = 1
         let g:go_highlight_functions = 1
         let g:go_highlight_methods = 1
         let g:go_highlight_fields = 1
@@ -245,6 +248,11 @@
 
         " Enable goimports to automatically insert import paths instead of gofmt
         let g:go_fmt_command = "goimports"
+        let g:go_def_mode = 'godef'
+
+        " GoDecls search include 'function and type'
+        let g:go_decls_includes = "func,type"
+        " let g:go_decls_includes = "func"  " just show func
 
         let g:go_textobj_include_function_doc = 1
 
@@ -254,7 +262,22 @@
         set updatetime=100
 
         " auto Identifier highlighting
-        let g:go_auto_sameids = 1
+        " let g:go_auto_sameids = 1
+
+        " vim-go tutorial
+        map <C-n> :cnext<CR>
+        map <C-m> :cprevious<CR>
+        nnoremap <leader>a :cclose<CR>
+
+        " GoRun & GoBuild in go
+        autocmd FileType go nmap <leader>b <Plug>(go-build)
+        autocmd FileType go nmap <leader>r <Plug>(go-run)
+
+        let g:go_test_timeout = '10s'
+
+        " edit config
+        let g:go_fmt_autosave = 1
+        let g:go_fmt_command = "goimports"  "use goimport, not gofmt
 
     " }
 
@@ -347,18 +370,9 @@
         " By default syntax-highlighting for Functions,
         " Methods and Structs is disabled.
         " To change it:
-        let g:go_highlight_functions = 1
-        let g:go_highlight_methods = 1
-        let g:go_highlight_structs = 1
-        let g:go_highlight_interfaces = 1
-        let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1
 
         " Python
         let g:syntastic_python_checkers = ['pep8']
-
-        " Enable goimports
-        " let g:go_fmt_command = "goimports"
 
         " Syntastic
         let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
