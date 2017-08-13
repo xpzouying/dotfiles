@@ -168,7 +168,7 @@
 
     " NERDTree {
         " nmap <F4> :NERDTreeToggle<CR>
-        nmap <C-n> :NERDTreeToggle<CR>
+        " nmap <C-n> :NERDTreeToggle<CR>
         noremap <Leader>n :NERDTreeToggle<CR>
         noremap <Leader>f :NERDTreeFind<CR>
 
@@ -255,6 +255,21 @@
 
         " auto Identifier highlighting
         let g:go_auto_sameids = 1
+
+        " vim-go tutorial
+        map <C-n> :cnext<CR>
+        map <C-m> :cprevious<CR>
+        nnoremap <leader>a :cclose<CR>
+
+        " GoRun & GoBuild in go
+        autocmd FileType go nmap <leader>b <Plug>(go-build)
+        autocmd FileType go nmap <leader>r <Plug>(go-run)
+
+        let g:go_test_timeout = '10s'
+
+        " edit config
+        let g:go_fmt_autosave = 1
+        let g:go_fmt_command = "goimports"
 
     " }
 
