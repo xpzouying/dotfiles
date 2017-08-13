@@ -1,0 +1,17 @@
+[user]
+	email = xpzouying@gmail.com
+	name = Ying Zou
+[core]
+	excludesfile = /Users/zouying/.gitignore_global
+	editor = nvim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+# [http]
+# 	proxy = http://127.0.0.1:8087
+# 	sslverify = false
+# [https]
+# 	proxy = http://127.0.0.1:8087
