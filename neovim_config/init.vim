@@ -272,7 +272,7 @@
         " autocmd FileType go nmap <leader>b <Plug>(go-build)
         " autocmd FileType go nmap <leader>r <Plug>(go-run)
 
-        let g:go_test_timeout = '10s'
+        let g:go_test_timeout = '30s'
 
         " edit config
         let g:go_fmt_autosave = 1
