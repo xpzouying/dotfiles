@@ -262,8 +262,8 @@
 
         " :GoInfo
         autocmd FileType go nmap <Leader>i <Plug>(go-info)
-        let g:go_auto_type_info = 1
-        set updatetime=100
+        " let g:go_auto_type_info = 1
+        " set updatetime=100
 
         " auto Identifier highlighting
         " let g:go_auto_sameids = 1
