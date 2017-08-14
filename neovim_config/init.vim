@@ -112,7 +112,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
-    " Plug 'rking/ag.vim'
+    Plug 'rking/ag.vim'
 
     " Programming
     Plug 'SirVer/ultisnips'
