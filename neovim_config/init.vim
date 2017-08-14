@@ -55,8 +55,8 @@
     let mapleader=","
 
     " Move to the next & previous buffer
-    nmap <F2> :bprevious<CR>
-    nmap <F3> :bnext<CR>
+    map <C-j> :bnext<CR>
+    map <C-k> :bprevious<CR>
 
     map <C-n> :cnext<CR>
     map <C-m> :cprevious<CR>
