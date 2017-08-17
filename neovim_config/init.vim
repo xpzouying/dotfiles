@@ -27,7 +27,7 @@
 
     " With system clipboard
     " set clipboard+=unnamedplus
-    set clipboard+=unnamed
+    " set clipboard+=unnamed
 
     if has('mouse')
         set mouse=a
@@ -89,10 +89,6 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    " Plug 'fatih/molokai'
-    " Plug 'joshdick/onedark.vim'
-    " Plug 'rakr/vim-one'
-    " Plug 'mhinz/vim-startify'
     Plug 'altercation/vim-colors-solarized'
 
     Plug 'vim-airline/vim-airline'
@@ -104,20 +100,15 @@
     Plug 'ryanoasis/vim-devicons'
 
     Plug 'majutsushi/tagbar'
-    Plug 'ntpeters/vim-better-whitespace'
 
 
     " Enhance operation
-    " Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'rking/ag.vim'
 
     " Programming
-    Plug 'SirVer/ultisnips'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'raimondi/delimitmate'
     Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -141,6 +132,7 @@
     " vim-airline {
         set laststatus=2
         let g:airline_theme='solarized'
+        " let g:airline_theme='onedark'
 
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
@@ -154,8 +146,6 @@
 
 
     " NERDTree {
-        " nmap <F4> :NERDTreeToggle<CR>
-        " nmap <C-n> :NERDTreeToggle<CR>
         noremap <Leader>n :NERDTreeToggle<CR>
 
         let NERDTreeShowHidden=1
@@ -322,29 +312,6 @@
         let g:tagbar_width=30
      " }
 
-     " vim-better-whitespace {
-        " auto strip whitespace except for file with extention blacklisted
-        let blacklist = ['markdown', 'md']
-        autocmd BufWritePre * StripWhitespace
-     " }
-
-     " delimitMate {
-        let delimitMate_expand_inside_quotes = 1
-     " }
-
-     " Nerdcommenter {
-        " Add spaces after comment delimiters by default
-        let g:NERDSpaceDelims = 1
-        " Use compact syntax for prettified multi-line comments
-        let g:NERDCompactSexyComs = 1
-        " Align line-wise comment delimiters flush left instead of following code indentation
-        let g:NERDDefaultAlign = 'left'
-        " Allow commenting and inverting empty lines (useful when commenting a region)
-        let g:NERDCommentEmptyLines = 1
-        " Enable trimming of trailing whitespace when uncommenting
-        let g:NERDTrimTrailingWhitespace = 1
-     " }
-
     " Plug 'octol/vim-cpp-enhanced-highlight'
         let g:cpp_class_scope_highlight = 1
         let g:cpp_experimental_simple_template_highlight = 1
@@ -394,7 +361,7 @@
     " }
 
     " solarized {
-        set background=light
+        set background=light " dark or light
         let g:solarized_termcolors=256
         let g:solarized_termtrans = 1  " must set
         " let g:solarized_termcolors=16
@@ -402,6 +369,26 @@
         " let g:solarized_contrast = "high"
         colorscheme solarized
     " }
+
+    " " onedark {
+    "     let g:onedark_termcolors = 256
+    "     let g:onedark_terminal_italics = 1
+
+    "     " --- from github.com/joshdick/onedark.vim ---
+    "     if (empty($TMUX))
+    "         if (has("nvim"))
+    "             let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "         endif
+
+    "         if (has("termguicolors"))
+    "             set termguicolors
+    "         endif
+    "     endif
+
+    "     syntax on
+    "     colorscheme onedark
+
+    " " }
 
 
 " }
