@@ -146,6 +146,7 @@
 
     " NERDTree {
         noremap <Leader>n :NERDTreeToggle<CR>
+        noremap <Leader>N :NERDTreeFind<CR>
 
         let NERDTreeShowHidden=1
 
