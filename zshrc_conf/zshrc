@@ -124,6 +124,7 @@ zplug "chrissicool/zsh-256color"
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
 
 zplug "petervanderdoes/git-flow-completion"
 
@@ -186,7 +187,6 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 
 # plugins
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# . /usr/local/etc/profile.d/z.sh
 
 # use vim or neovim
 alias vim=nvim
