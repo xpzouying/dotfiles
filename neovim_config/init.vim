@@ -17,7 +17,7 @@
     set expandtab       " Tabs are spaces, not tabs
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
-    set relativenumber
+    " set relativenumber
     " set smarttab
     set cursorline      " Highlight current line
     set nu              " Line numbers on
