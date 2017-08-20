@@ -61,24 +61,9 @@ plugins=(git osx brew docker python tmux virtualenv ssh-agent pylint)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # --- zplug ---
 if [[ "$(uname)" == "Linux" ]]; then
@@ -102,33 +87,25 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # Enhance plugins
 zplug "zsh-users/zsh-history-substring-search"
 
-zplug "supercrabtree/k"
-zplug "plugins/z",  from:oh-my-zsh
-
-# Grab binaries from GitHub Releases
-# and rename with the "rename-to:" tag
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*"
-
-
 # Load theme file
-# zplug "dracula/zsh", as:theme
-zplug "chrissicool/zsh-256color"
-# zplug 'KuoE0/oh-my-zsh-solarized-powerline-theme', as:theme
+# enhanced syntax
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
+# pure theme plugin: async + pure
+# zplug mafredri/zsh-async, from:github
+# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+zplug 'dracula/zsh', as:theme
+
+# # dircolors
 # zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
+# eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
 
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
-
 zplug "petervanderdoes/git-flow-completion"
-
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug "plugins/z", from:oh-my-zsh
 
 
 # zplug check returns true if the given repository exists
@@ -186,10 +163,9 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 
 # plugins
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# . /usr/local/etc/profile.d/z.sh
 
-# use vim or neovim
-alias vim=nvim
+alias python=python3
+alias pip=pip3
 
 
 # start the ssh-agent in the background

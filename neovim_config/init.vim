@@ -17,7 +17,7 @@
     set expandtab       " Tabs are spaces, not tabs
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
-    set relativenumber
+    " set relativenumber
     " set smarttab
     set cursorline      " Highlight current line
     set nu              " Line numbers on
@@ -89,7 +89,8 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    Plug 'altercation/vim-colors-solarized'
+    " Plug 'altercation/vim-colors-solarized'
+    Plug 'dracula/vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -106,7 +107,6 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
-    Plug 'rking/ag.vim'
 
     " Programming
     Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
@@ -130,8 +130,9 @@
 " Plugin config {
     " vim-airline {
         set laststatus=2
-        let g:airline_theme='solarized'
+        " let g:airline_theme='solarized'
         " let g:airline_theme='onedark'
+        let g:airline_theme='dracula'
 
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
@@ -288,12 +289,6 @@
         nmap <Leader>w <Plug>(easymotion-overwin-w)
     " }
 
-    " ag.vim {
-        " let g:ag_working_path_mode='r'
-        " let g:ag_prg="ag --vimgrep --smart-case"  " need Ag 0.25.0
-        " let g:ag_format="%f:%l%m"
-    " }
-
     " " ctrlp {
     "     let g:ctrlp_map = '<c-p>'
     "     let g:ctrlp_cmd = 'CtrlP'
@@ -349,15 +344,20 @@
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
-    " solarized {
-        set background=light " dark or light
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans = 1  " must set
-        " let g:solarized_termcolors=16
-        " let g:solarized_visibility = "high"
-        " let g:solarized_contrast = "high"
-        colorscheme solarized
+    " dracula {
+        syntax on
+        color dracula
     " }
+
+    " " solarized {
+    "     set background=light " dark or light
+    "     let g:solarized_termcolors=256
+    "     let g:solarized_termtrans = 1  " must set
+    "     " let g:solarized_termcolors=16
+    "     " let g:solarized_visibility = "high"
+    "     " let g:solarized_contrast = "high"
+    "     colorscheme solarized
+    " " }
 
     " " onedark {
     "     let g:onedark_termcolors = 256

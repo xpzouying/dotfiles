@@ -3,6 +3,16 @@
 
 Dotfiles for zouying.
 
+## Settings ##
+
+### pip settings ###
+
+cat ~/.pip/pip.conf
+
+    > [global]
+    > index-url = https://pypi.douban.com/simple/
+    > trusted-host = pypi.douban.com
+
 
 ## TODO ##
 
