@@ -89,7 +89,8 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    Plug 'altercation/vim-colors-solarized'
+    " Plug 'altercation/vim-colors-solarized'
+    Plug 'dracula/vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -129,8 +130,9 @@
 " Plugin config {
     " vim-airline {
         set laststatus=2
-        let g:airline_theme='solarized'
+        " let g:airline_theme='solarized'
         " let g:airline_theme='onedark'
+        let g:airline_theme='dracula'
 
         let g:airline#extensions#branch#enabled=1
         " let g:airline#extension#syntastic#enabled=1
@@ -342,15 +344,20 @@
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
-    " solarized {
-        set background=light " dark or light
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans = 1  " must set
-        " let g:solarized_termcolors=16
-        " let g:solarized_visibility = "high"
-        " let g:solarized_contrast = "high"
-        colorscheme solarized
+    " dracula {
+        syntax on
+        color dracula
     " }
+
+    " " solarized {
+    "     set background=light " dark or light
+    "     let g:solarized_termcolors=256
+    "     let g:solarized_termtrans = 1  " must set
+    "     " let g:solarized_termcolors=16
+    "     " let g:solarized_visibility = "high"
+    "     " let g:solarized_contrast = "high"
+    "     colorscheme solarized
+    " " }
 
     " " onedark {
     "     let g:onedark_termcolors = 256
