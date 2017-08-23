@@ -271,6 +271,11 @@
 
     " }
 
+    " fugitive {
+        nnoremap <Leader>gs :Gstatus<CR>
+        nnoremap <Leader> gd :Gdiff<CR>
+    " }
+
 
     " EasyMotion {
         " <Leader>f{char} to move to {char}
