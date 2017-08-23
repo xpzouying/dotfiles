@@ -104,6 +104,7 @@ zplug 'dracula/zsh', as:theme
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
+zplug "plugins/git-flow", from:oh-my-zsh
 zplug "petervanderdoes/git-flow-completion"
 zplug "plugins/z", from:oh-my-zsh
 
