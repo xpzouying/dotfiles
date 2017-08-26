@@ -92,8 +92,9 @@
     " Plug 'altercation/vim-colors-solarized'
     Plug 'dracula/vim'
 
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -128,20 +129,27 @@
 
 """"""""""
 " Plugin config {
-    " vim-airline {
+    " " vim-airline {
+    "     set laststatus=2
+    "     " let g:airline_theme='solarized'
+    "     " let g:airline_theme='onedark'
+    "     let g:airline_theme='dracula'
+
+    "     let g:airline#extensions#branch#enabled=1
+    "     " let g:airline#extension#syntastic#enabled=1
+    "     let g:airline_powerline_fonts=1
+
+    "     " Enable the list of buffers
+    "     let g:airline#extensions#tabline#enabled=1
+    "     " Show just the file name
+    "     " let g:airline#extensions#tabline#fnamemod=':t'
+    " " }
+
+    " lightline {
         set laststatus=2
-        " let g:airline_theme='solarized'
-        " let g:airline_theme='onedark'
-        let g:airline_theme='dracula'
-
-        let g:airline#extensions#branch#enabled=1
-        " let g:airline#extension#syntastic#enabled=1
-        let g:airline_powerline_fonts=1
-
-        " Enable the list of buffers
-        let g:airline#extensions#tabline#enabled=1
-        " Show just the file name
-        " let g:airline#extensions#tabline#fnamemod=':t'
+        let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ }
     " }
 
 
@@ -320,7 +328,7 @@
 
     " ALE {
         " enable airline status
-        let g:airline#extensions#ale#enabled = 1
+        " let g:airline#extensions#ale#enabled = 1
 
         " use quickfix list instead of the loclist
         let g:ale_set_loclist = 0
@@ -350,40 +358,8 @@
     " }
 
     " dracula {
-        syntax on
         color dracula
     " }
-
-    " " solarized {
-    "     set background=light " dark or light
-    "     let g:solarized_termcolors=256
-    "     let g:solarized_termtrans = 1  " must set
-    "     " let g:solarized_termcolors=16
-    "     " let g:solarized_visibility = "high"
-    "     " let g:solarized_contrast = "high"
-    "     colorscheme solarized
-    " " }
-
-    " " onedark {
-    "     let g:onedark_termcolors = 256
-    "     let g:onedark_terminal_italics = 1
-
-    "     " --- from github.com/joshdick/onedark.vim ---
-    "     if (empty($TMUX))
-    "         if (has("nvim"))
-    "             let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    "         endif
-
-    "         if (has("termguicolors"))
-    "             set termguicolors
-    "         endif
-    "     endif
-
-    "     syntax on
-    "     colorscheme onedark
-
-    " " }
-
 
 " }
 """"""""""
