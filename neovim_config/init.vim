@@ -278,6 +278,7 @@
         let g:go_fmt_autosave = 1
         let g:go_fmt_command = "goimports"  "use goimport, not gofmt
 
+        let g:go_template_autocreate = 0
     " }
 
     " fugitive {
