@@ -90,7 +90,8 @@
 
     " Feel & Look
     " Plug 'altercation/vim-colors-solarized'
-    Plug 'dracula/vim'
+    " Plug 'dracula/vim'
+    Plug 'trevordmiller/nova-vim'
 
     " Plug 'vim-airline/vim-airline'
     " Plug 'vim-airline/vim-airline-themes'
@@ -366,8 +367,12 @@
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
-    " dracula {
-        color dracula
+    " " dracula {
+    "     color dracula
+    " " }
+
+    " nova color {
+        colorscheme nova
     " }
 
 " }
