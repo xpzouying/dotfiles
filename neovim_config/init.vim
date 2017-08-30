@@ -55,23 +55,11 @@
     let mapleader=","
 
     " Move to the next & previous buffer
-    map <C-k> :bnext<CR>
     map <C-j> :bprevious<CR>
+    map <C-k> :bnext<CR>
 
-    map <C-n> :cnext<CR>
-    map <C-m> :cprevious<CR>
     nnoremap <leader>a :cclose<CR>
 
-
-" }
-
-
-" Programming {
-    " Path to python interpreter for neovim
-    " let g:python3_host_prog = '/usr/local/bin/python3'
-    " Skip the check of neovim module
-    " let g:python_host_skip_check = 1
-    " let g:python3_host_skip_check = 1
 
 " }
 
@@ -89,16 +77,12 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    " Plug 'altercation/vim-colors-solarized'
     Plug 'dracula/vim'
 
     Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
 
     Plug 'majutsushi/tagbar'
 
@@ -113,9 +97,7 @@
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
-    Plug 'w0rp/ale'
     Plug 'airblade/vim-gitgutter'
-    Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
     " Python
@@ -130,12 +112,9 @@
 " Plugin config {
     " vim-airline {
         set laststatus=2
-        " let g:airline_theme='solarized'
-        " let g:airline_theme='onedark'
         let g:airline_theme='dracula'
 
         let g:airline#extensions#branch#enabled=1
-        " let g:airline#extension#syntastic#enabled=1
         let g:airline_powerline_fonts=1
 
         " Enable the list of buffers
@@ -167,23 +146,8 @@
         " autofind and select currently opened file
         let g:nerdtree_tabs_autofind=1
 
-        let g:NERDTreeWinSize=20
+        let g:NERDTreeWinSize=30
     " }
-    " nerdtree-git-plugin {
-        let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "✹",
-                \ "Staged"    : "✚",
-                \ "Untracked" : "✭",
-                \ "Renamed"   : "➜",
-                \ "Unmerged"  : "═",
-                \ "Deleted"   : "✖",
-                \ "Dirty"     : "✗",
-                \ "Clean"     : "✔︎",
-                \ 'Ignored'   : '☒',
-                \ "Unknown"   : "?"
-                \ }
-    " }
-
 
     " deoplete.nvim {
         let g:deoplete#enable_at_startup=1
@@ -217,18 +181,6 @@
         map <C-p> :Files<CR>
 
     " }
-
-    """ " ctrlp {
-    """     let g:ctrlp_map = '<c-p>'
-    """     let g:ctrlp_cmd = 'CtrlP'
-
-    """     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-    """     let g:ctrlp_custom_ignore = {
-    """         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    """         \ 'file': '\v\.(exe|so|dll)$',
-    """         \ 'link': 'some_bad_symbolic_links',
-    """         \ }
-    """ "}
 
     " vim-go {
         let g:go_highlight_structs = 1
@@ -289,55 +241,11 @@
         nmap <Leader>w <Plug>(easymotion-overwin-w)
     " }
 
-    " " ctrlp {
-    "     let g:ctrlp_map = '<c-p>'
-    "     let g:ctrlp_cmd = 'CtrlP'
-
-    "     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-    "     let g:ctrlp_custom_ignore = {
-    "         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    "         \ 'file': '\v\.(exe|so|dll)$',
-    "         \ 'link': 'some_bad_symbolic_links',
-    "         \ }
-    " "}
-
-     " Tagbar {
+    " Tagbar {
         nmap <F8> :TagbarToggle<CR>
 
         let g:tagbar_width=30
      " }
-
-    " Plug 'octol/vim-cpp-enhanced-highlight'
-        let g:cpp_class_scope_highlight = 1
-        let g:cpp_experimental_simple_template_highlight = 1
-        let g:cpp_concepts_highlight = 1
-    " }
-
-    " ALE {
-        " enable airline status
-        let g:airline#extensions#ale#enabled = 1
-
-        " use quickfix list instead of the loclist
-        let g:ale_set_loclist = 0
-        let g:ale_set_quickfix = 1
-    " }
-
-    " {
-        " By default syntax-highlighting for Functions,
-        " Methods and Structs is disabled.
-        " To change it:
-
-        " Python
-        let g:syntastic_python_checkers = ['pep8']
-
-        " Syntastic
-        let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-        let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-        let g:go_list_type = "quickfix"
-
-
-    " }
 
     " jedi-vim {
         " jedi override previous config
@@ -345,40 +253,7 @@
     " }
 
     " dracula {
-        syntax on
-        color dracula
+        colorscheme dracula
     " }
-
-    " " solarized {
-    "     set background=light " dark or light
-    "     let g:solarized_termcolors=256
-    "     let g:solarized_termtrans = 1  " must set
-    "     " let g:solarized_termcolors=16
-    "     " let g:solarized_visibility = "high"
-    "     " let g:solarized_contrast = "high"
-    "     colorscheme solarized
-    " " }
-
-    " " onedark {
-    "     let g:onedark_termcolors = 256
-    "     let g:onedark_terminal_italics = 1
-
-    "     " --- from github.com/joshdick/onedark.vim ---
-    "     if (empty($TMUX))
-    "         if (has("nvim"))
-    "             let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    "         endif
-
-    "         if (has("termguicolors"))
-    "             set termguicolors
-    "         endif
-    "     endif
-
-    "     syntax on
-    "     colorscheme onedark
-
-    " " }
-
-
 " }
 """"""""""
