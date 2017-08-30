@@ -14,6 +14,3 @@ alias pip pip3
 #Add anaconda & anaconda3
 set -x PATH $PATH $HOME/anaconda/bin/
 
-# 256 color
-set -x TERM xterm-256color
-
