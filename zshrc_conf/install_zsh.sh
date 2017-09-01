@@ -12,10 +12,10 @@ fi
 echo "OS Platform is" $PLATFORM
 
 
-echo "Install zplug"
-if [[ "$PLATFORM" == 'linux' ]]; then
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-fi
+# echo "Install zplug"
+# if [[ "$PLATFORM" == 'linux' ]]; then
+#     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+# fi
 
 
 echo "Link zsh"
