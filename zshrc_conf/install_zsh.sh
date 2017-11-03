@@ -18,6 +18,10 @@ echo "OS Platform is" $PLATFORM
 # fi
 
 
+echo "install pure theme"
+npm install --global pure-prompt
+
+
 echo "Link zsh"
 ln -s "$(pwd)/zshrc" "$HOME/.zshrc"
 
