@@ -69,6 +69,8 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+alias c='code'
+
 # enable colors
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -113,3 +115,4 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # pure theme for zsh
 autoload -U promptinit; promptinit
 prompt pure
+
