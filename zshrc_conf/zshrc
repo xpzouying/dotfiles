@@ -90,6 +90,12 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_rsa
 
+cover () {
+    t="/tmp/go-cover.$$.tmp"
+    go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+
 
 # brew-bottles
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
