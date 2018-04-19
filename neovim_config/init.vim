@@ -77,7 +77,8 @@
     " call plug#begin('~/.config/nvim/plugged')
 
     " Feel & Look
-    Plug 'dracula/vim'
+    Plug 'joshdick/onedark.vim'
+    Plug 'sheerun/vim-polyglot'  " better syntax highlight
 
     Plug 'vim-airline/vim-airline'
 
@@ -110,25 +111,9 @@
 
 """"""""""
 " Plugin config {
-    " " vim-airline {
-    "     set laststatus=2
-    "     " let g:airline_theme='solarized'
-    "     " let g:airline_theme='onedark'
-    "     let g:airline_theme='dracula'
-
-    "     let g:airline#extensions#branch#enabled=1
-    "     " let g:airline#extension#syntastic#enabled=1
-    "     let g:airline_powerline_fonts=1
-
-    "     " Enable the list of buffers
-    "     let g:airline#extensions#tabline#enabled=1
-    "     " Show just the file name
-    "     " let g:airline#extensions#tabline#fnamemod=':t'
-    " " }
-
     " lightline {
         set laststatus=2
-        let g:airline_theme='dracula'
+        let g:airline_theme='onedark'
 
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts=1
@@ -274,8 +259,8 @@
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
-    " dracula {
-        colorscheme dracula
+    " colorscheme {
+        colorscheme onedark
     " }
 " }
 """"""""""
