@@ -92,6 +92,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
+    Plug 'terryma/vim-multiple-cursors'
 
     " Programming
     Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
