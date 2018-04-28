@@ -24,6 +24,7 @@
     set backspace=indent,eol,start      " Backspace for dummies
     set ignorecase
     set smartcase
+    set hidden          " change buffer without saving
 
     " With system clipboard
     " set clipboard+=unnamedplus
