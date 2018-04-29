@@ -83,7 +83,9 @@
     call plug#begin(zynvimpathplugged)
     " call plug#begin('~/.config/nvim/plugged')
 
-    " Plug 'vim-airline/vim-airline'
+    " theme / colorscheme
+    Plug 'altercation/vim-colors-solarized'
+
     Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
@@ -284,6 +286,14 @@
     " jedi-vim {
         " jedi override previous config
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
+    " }
+
+    " vim-solarized {
+        " set background=dark
+        set background=light
+        " let g:solarized_termcolors=256  " must before colorscheme solarized line
+
+        colorscheme solarized
     " }
 " }
 """"""""""
