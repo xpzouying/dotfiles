@@ -11,6 +11,7 @@
 " General {
     set nocompatible
     syntax on
+    set autoread " auto-reread changed files without asking
     set encoding=utf-8  " UTF8
     set tabstop=4       " Number of spaces that a <tab> represents in a file
     set shiftwidth=4    " Use indents of 4 spaces
@@ -19,12 +20,17 @@
     set shiftwidth=4
     " set relativenumber
     set smarttab
-    set cursorline      " Highlight current line
     set nu              " Line numbers on
     set backspace=indent,eol,start      " Backspace for dummies
     set ignorecase
     set smartcase
     set hidden          " change buffer without saving
+    set noerrorbells    " no beeps
+    set noswapfile      " no swap file
+    set nobackup        " no backup files
+    set nocursorcolumn
+    set nocursorline
+    " set cursorline      " Highlight current line
 
     " With system clipboard
     " set clipboard+=unnamedplus
