@@ -83,11 +83,8 @@
     call plug#begin(zynvimpathplugged)
     " call plug#begin('~/.config/nvim/plugged')
 
-    " Feel & Look
-    Plug 'joshdick/onedark.vim'
-    Plug 'sheerun/vim-polyglot'  " better syntax highlight
-
-    Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -102,11 +99,11 @@
     Plug 'terryma/vim-multiple-cursors'
 
     " Programming
-    Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
+    " Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    " Plug 'airblade/vim-gitgutter'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
     " Python
@@ -121,15 +118,17 @@
 " Plugin config {
     " lightline {
         set laststatus=2
-        let g:airline_theme='onedark'
+		let g:lightline = {
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component_function': {
+			\   'gitbranch': 'fugitive#head'
+			\ },
+			\ }
 
-        let g:airline#extensions#branch#enabled=1
-        " let g:airline_powerline_fonts=1
-
-        " Enable the list of buffers
-        let g:airline#extensions#tabline#enabled=1
-        " Show just the file name
-        " let g:airline#extensions#tabline#fnamemod=':t'
+		let g:lightline.colorscheme = 'wombat'
     " }
 
 
@@ -192,6 +191,7 @@
     " }
 
     " vim-go {
+        " let g:go_fmt_fail_silently = 1
         let g:go_highlight_structs = 1
         let g:go_highlight_interfaces = 1
         let g:go_highlight_functions = 1
@@ -205,6 +205,8 @@
         " Enable goimports to automatically insert import paths instead of gofmt
         let g:go_fmt_command = "goimports"
         let g:go_def_mode = 'godef'
+        let g:go_list_type = "quickfix"
+        let g:go_def_mode = "guru"
 
         " GoDecls search include 'function and type'
         let g:go_decls_includes = "func,type"
@@ -212,25 +214,42 @@
 
         let g:go_textobj_include_function_doc = 1
 
-        " :GoInfo
-        autocmd FileType go nmap <Leader>i <Plug>(go-info)
-        " let g:go_auto_type_info = 1
-        " set updatetime=100
-
-        " auto Identifier highlighting
-        " let g:go_auto_sameids = 1
-
-        " GoRun & GoBuild in go
-        " autocmd FileType go nmap <leader>b <Plug>(go-build)
-        " autocmd FileType go nmap <leader>r <Plug>(go-run)
-
-        let g:go_test_timeout = '30s'
+        let g:go_auto_type_info = 0  " AutoTypeInfo
+        let g:go_auto_sameids = 0   " auto Identifier highlighting
+        let g:go_gocode_unimported_packages = 1
+        let g:go_autodetect_gopath = 1
 
         " edit config
         let g:go_fmt_autosave = 1
-        let g:go_fmt_command = "goimports"  "use goimport, not gofmt
-
         let g:go_template_autocreate = 0
+
+
+        augroup go
+          autocmd!
+        
+          autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
+          autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
+          autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def-tab)
+        
+          autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
+        
+          autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
+          autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
+        
+          autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+          autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
+          autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
+          " autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
+        
+          autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+        
+          " I like these more!
+          autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+          autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+          autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+          autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+        augroup END
+
     " }
 
     " fugitive {
@@ -265,10 +284,6 @@
     " jedi-vim {
         " jedi override previous config
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
-    " }
-
-    " colorscheme {
-        colorscheme onedark
     " }
 " }
 """"""""""
