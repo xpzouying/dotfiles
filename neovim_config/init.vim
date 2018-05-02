@@ -82,6 +82,7 @@
     " Begin section
     call plug#begin(zynvimpathplugged)
     " call plug#begin('~/.config/nvim/plugged')
+    " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
     Plug 'altercation/vim-colors-solarized'
@@ -289,8 +290,8 @@
     " }
 
     " vim-solarized {
-        " set background=dark
-        set background=light
+        set background=dark
+        " set background=light
         " let g:solarized_termcolors=256  " must before colorscheme solarized line
 
         colorscheme solarized
