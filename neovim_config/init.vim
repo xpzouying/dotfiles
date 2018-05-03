@@ -293,6 +293,8 @@
         set background=dark
         " set background=light
         " let g:solarized_termcolors=256  " must before colorscheme solarized line
+        " let g:solarized_termcolors=16       " must before colorscheme solarized line
+        let g:solarized_termtrans = 1     " for grey background
 
         colorscheme solarized
     " }
