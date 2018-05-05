@@ -74,10 +74,24 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 alias c='code'
+alias ls='ls -GpF'  # Mac OS specific
+alias ll='ls -alGpF'  # Mac OS specific
 
 # enable colors
 export CLICOLOR=1
+# blue dir
 export LSCOLORS=ExFxBxDxCxegedabagacad
+# green dir
+# export LSCOLORS=cxBxhxDxfxhxhxhxhxcxcx
+
+# support colors in less
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 export GOROOT=/usr/local/go/
@@ -126,4 +140,3 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # pure theme for zsh
 autoload -U promptinit; promptinit
 prompt pure
-

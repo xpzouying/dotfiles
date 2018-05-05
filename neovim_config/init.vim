@@ -12,7 +12,10 @@
     set nocompatible
     syntax on
     set autoread " auto-reread changed files without asking
+    set autoindent
     set encoding=utf-8  " UTF8
+    set incsearch       " increase search
+    set hlsearch        "highlight search
     set tabstop=4       " Number of spaces that a <tab> represents in a file
     set shiftwidth=4    " Use indents of 4 spaces
     set expandtab       " Tabs are spaces, not tabs
@@ -28,17 +31,20 @@
     set noerrorbells    " no beeps
     set noswapfile      " no swap file
     set nobackup        " no backup files
-    set nocursorcolumn
+    set nocursorcolumn  " speed up syntax highlighting
     set nocursorline
     " set cursorline      " Highlight current line
+    set showcmd
+
+    set lazyredraw
 
     " With system clipboard
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
 
-    " if has('mouse')
-    "     set mouse=a
-    " endif
+    if has('mouse')
+        set mouse=a
+    endif
 
     " For color {
     " Ref: https://github.com/joshdick/onedark.vim
@@ -54,7 +60,7 @@
     "}
 
     set guicursor=
-
+    " set t_Co=256
 " }
 
 
@@ -65,9 +71,14 @@
     map <C-j> :bprevious<CR>
     map <C-k> :bnext<CR>
 
+    " fast saving
+    nnoremap <leader>w :w!<cr>
+    nnoremap <leader>q :q!<cr>
+
+    " Some useful quickfix shortcuts for quickfix
+    map <C-n> :cn<CR>
+    map <C-m> :cp<CR>
     nnoremap <leader>a :cclose<CR>
-
-
 " }
 
 
@@ -85,20 +96,17 @@
     " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
-    Plug 'altercation/vim-colors-solarized'
+    " Plug 'altercation/vim-colors-solarized'
+    Plug 'ayu-theme/ayu-vim'
 
     Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
 
-    Plug 'majutsushi/tagbar'
-
-
     " Enhance operation
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'easymotion/vim-easymotion'
     Plug 'terryma/vim-multiple-cursors'
 
     " Programming
@@ -106,7 +114,6 @@
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'tpope/vim-fugitive'
-    " Plug 'airblade/vim-gitgutter'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
     " Python
@@ -213,7 +220,6 @@
 
         " GoDecls search include 'function and type'
         let g:go_decls_includes = "func,type"
-        " let g:go_decls_includes = "func"  " just show func
 
         let g:go_textobj_include_function_doc = 1
 
@@ -226,6 +232,9 @@
         let g:go_fmt_autosave = 1
         let g:go_template_autocreate = 0
 
+        " nmap <C-g> :GoDecls<cr>
+        " imap <C-g> <esc>:<C-u>GoDecls<cr>
+        nmap <Leader>g :GoDecls<CR>
 
         augroup go
           autocmd!
@@ -260,43 +269,18 @@
         nnoremap <Leader> gd :Gdiff<CR>
     " }
 
-
-    " EasyMotion {
-        " <Leader>f{char} to move to {char}
-        " map  <Leader>f <Plug>(easymotion-bd-f)
-        " nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-        " s{char}{char} to move to {char}{char}
-        nmap s <Plug>(easymotion-overwin-f2)
-
-        " Move to line
-        " map <Leader>L <Plug>(easymotion-bd-jk)
-        " nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-        " Move to word
-        map  <Leader>w <Plug>(easymotion-bd-w)
-        nmap <Leader>w <Plug>(easymotion-overwin-w)
-    " }
-
-    " Tagbar {
-        nmap <F8> :TagbarToggle<CR>
-
-        let g:tagbar_width=30
-     " }
-
     " jedi-vim {
         " jedi override previous config
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
     " vim-solarized {
-        set background=dark
-        " set background=light
-        " let g:solarized_termcolors=256  " must before colorscheme solarized line
-        " let g:solarized_termcolors=16       " must before colorscheme solarized line
-        let g:solarized_termtrans = 1     " for grey background
-
-        colorscheme solarized
+        " set background=dark
+        set termguicolors
+        " let ayucolor="light"
+        " let ayucolor="mirage"
+        let ayucolor="dark"
+        colorscheme ayu
     " }
 " }
 """"""""""
