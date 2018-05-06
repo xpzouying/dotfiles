@@ -76,8 +76,8 @@
     nnoremap <leader>q :q!<cr>
 
     " Some useful quickfix shortcuts for quickfix
-    map <C-n> :cn<CR>
-    map <C-m> :cp<CR>
+    " map <C-n> :cn<CR>
+    " map <C-m> :cp<CR>
     nnoremap <leader>a :cclose<CR>
 " }
 
@@ -202,15 +202,15 @@
 
     " vim-go {
         " let g:go_fmt_fail_silently = 1
-        let g:go_highlight_structs = 1
-        let g:go_highlight_interfaces = 1
-        let g:go_highlight_functions = 1
-        let g:go_highlight_methods = 1
-        let g:go_highlight_fields = 1
-        let g:go_highlight_types = 1
-        let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1
-        let g:go_highlight_extra_types = 1
+        " let g:go_highlight_structs = 1
+        " let g:go_highlight_interfaces = 1
+        " let g:go_highlight_functions = 1
+        " let g:go_highlight_methods = 1
+        " let g:go_highlight_fields = 1
+        " let g:go_highlight_types = 1
+        " let g:go_highlight_operators = 1
+        " let g:go_highlight_build_constraints = 1
+        " let g:go_highlight_extra_types = 1
 
         " Enable goimports to automatically insert import paths instead of gofmt
         let g:go_fmt_command = "goimports"
@@ -227,6 +227,9 @@
         let g:go_auto_sameids = 0   " auto Identifier highlighting
         let g:go_gocode_unimported_packages = 1
         let g:go_autodetect_gopath = 1
+
+        let g:go_metalinter_autosave = 1
+        let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
 
         " edit config
         let g:go_fmt_autosave = 1
@@ -247,11 +250,6 @@
         
           autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
           autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-        
-          autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
-          autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
-          autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
-          " autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
         
           autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
         
