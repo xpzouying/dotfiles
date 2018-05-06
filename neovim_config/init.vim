@@ -110,11 +110,14 @@
     Plug 'terryma/vim-multiple-cursors'
 
     " Programming
-    " Plug 'sheerun/vim-polyglot'  " for more language colorscheme support
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'w0rp/ale'
     Plug 'tpope/vim-fugitive'
+
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
+        Plug 'zchee/deoplete-go', { 'do': 'make'}
+    endif
 
     " Python
     Plug 'davidhalter/jedi-vim'
@@ -168,17 +171,17 @@
     " }
 
     " deoplete.nvim {
-        let g:deoplete#enable_at_startup=1
-
-        set completeopt+=noselect
-        " automatically closing the scratch window. :pc, :pclose
-        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
+        if has('nvim')
+            let g:deoplete#enable_at_startup=1
+            set completeopt+=noselect
+            " automatically closing the scratch window. :pc, :pclose
+            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+        endif
     " }
 
     " deoplete-go settings {
-        let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-        let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+        " let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+        " let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     " }
 
     " fzf {
@@ -188,16 +191,15 @@
         " [[B]Commits] Customize the options used by 'git log':
         let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-        " [Tags] Command to generate tags file
-        let g:fzf_tags_command = 'ctags -R'
-
         " [Commands] --expect expression for directly executing the command
         let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
         map <leader>b :Buffers<cr>
-        map <leader>f :Files<cr>
         map <C-p> :Files<CR>
+    " }
 
+    " ALE {
+        let g:ale_linters = {'go': ['gometalinter'] }
     " }
 
     " vim-go {
@@ -262,23 +264,17 @@
 
     " }
 
-    " fugitive {
-        nnoremap <Leader>gs :Gstatus<CR>
-        nnoremap <Leader> gd :Gdiff<CR>
-    " }
-
     " jedi-vim {
         " jedi override previous config
         autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " }
 
-    " vim-solarized {
+    " color scheme {
         " set background=dark
         set termguicolors
-        " let ayucolor="light"
-        " let ayucolor="mirage"
         let ayucolor="dark"
         colorscheme ayu
     " }
 " }
+
 """"""""""
