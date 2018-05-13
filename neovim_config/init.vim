@@ -38,6 +38,10 @@
 
     set lazyredraw
 
+    " PERFORMANCE
+    set synmaxcol=200
+
+
     " With system clipboard
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
@@ -59,10 +63,10 @@
     endif
     "}
 
-    set guicursor=
+    " set guicursor=
     " set t_Co=256
     set t_Co=256
-    set t_ut=
+    " set t_ut=
     " set t_Co=0
 " }
 
@@ -100,7 +104,10 @@
 
     " theme / colorscheme
     " Plug 'altercation/vim-colors-solarized'
-    Plug 'ayu-theme/ayu-vim'
+    Plug 'sheerun/vim-polyglot'
+    " Plug 'ayu-theme/ayu-vim'
+    Plug 'trevordmiller/nova-vim'
+
 
     Plug 'itchyny/lightline.vim'
 
@@ -276,9 +283,10 @@
 
     " color scheme {
         " set background=dark
-        set termguicolors
-        let ayucolor="dark"
-        colorscheme ayu
+        " set termguicolors
+        " let ayucolor="dark"
+        " colorscheme ayu
+        colorscheme nova
     " }
 " }
 
