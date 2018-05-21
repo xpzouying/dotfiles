@@ -57,7 +57,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew python tmux virtualenv ssh-agent go colorize)
+plugins=(git osx brew python tmux virtualenv z ssh-agent go colorize)
 
 source $ZSH/oh-my-zsh.sh
 
