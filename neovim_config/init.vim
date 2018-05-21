@@ -18,7 +18,8 @@
     set hlsearch        "highlight search
     set tabstop=4       " Number of spaces that a <tab> represents in a file
     set shiftwidth=4    " Use indents of 4 spaces
-    set expandtab       " Tabs are spaces, not tabs
+    " set expandtab       " Tabs are spaces, not tabs
+    set noexpandtab
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
     " set relativenumber
