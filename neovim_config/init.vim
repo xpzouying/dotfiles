@@ -113,6 +113,7 @@
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'qpkorr/vim-bufkill'
 
     " Enhance operation
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -122,6 +123,7 @@
     " Programming
     Plug 'w0rp/ale'
     Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     if has('nvim')
@@ -274,6 +276,9 @@
           autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
         augroup END
 
+    " }
+
+    " vim-gitgutter {
     " }
 
     " jedi-vim {
