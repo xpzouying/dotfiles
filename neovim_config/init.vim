@@ -108,7 +108,7 @@
     Plug 'sheerun/vim-polyglot'
     " Plug 'ayu-theme/ayu-vim'
     Plug 'trevordmiller/nova-vim'
-
+	Plug 'NLKNguyen/papercolor-theme'
 
     Plug 'itchyny/lightline.vim'
 
@@ -245,7 +245,7 @@
         let g:go_gocode_unimported_packages = 1
         let g:go_autodetect_gopath = 1
 
-        let g:go_metalinter_autosave = 1
+        let g:go_metalinter_autosave = 0
         let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
 
         " edit config
@@ -292,7 +292,13 @@
         " set termguicolors
         " let ayucolor="dark"
         " colorscheme ayu
-        colorscheme nova
+
+        " colorscheme nova
+
+		" papercolor
+		" set background=light
+		set background=dark
+		colorscheme PaperColor
     " }
 " }
 
