@@ -37,6 +37,8 @@
     " set cursorline      " Highlight current line
     set showcmd
 
+	set laststatus=0	" disable status line
+
     set lazyredraw
 
     " PERFORMANCE
@@ -104,13 +106,13 @@
     " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
-    " Plug 'altercation/vim-colors-solarized'
-    Plug 'sheerun/vim-polyglot'
-    " Plug 'ayu-theme/ayu-vim'
-    Plug 'trevordmiller/nova-vim'
+    Plug 'altercation/vim-colors-solarized'
+    " Plug 'sheerun/vim-polyglot'
+    Plug 'ayu-theme/ayu-vim'
+    " Plug 'trevordmiller/nova-vim'
 	Plug 'NLKNguyen/papercolor-theme'
 
-    Plug 'itchyny/lightline.vim'
+    " Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -144,20 +146,20 @@
 
 """"""""""
 " Plugin config {
-    " lightline {
-        set laststatus=2
-		let g:lightline = {
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-			\ },
-			\ 'component_function': {
-			\   'gitbranch': 'fugitive#head'
-			\ },
-			\ }
+    " " lightline {
+    "     set laststatus=2
+	" 	let g:lightline = {
+	" 		\ 'active': {
+	" 		\   'left': [ [ 'mode', 'paste' ],
+	" 		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	" 		\ },
+	" 		\ 'component_function': {
+	" 		\   'gitbranch': 'fugitive#head'
+	" 		\ },
+	" 		\ }
 
-		let g:lightline.colorscheme = 'wombat'
-    " }
+	" 	let g:lightline.colorscheme = 'wombat'
+    " " }
 
 
     " NERDTree {
@@ -288,17 +290,17 @@
     " }
 
     " color scheme {
-        " set background=dark
-        " set termguicolors
-        " let ayucolor="dark"
-        " colorscheme ayu
+        set background=dark
+        set termguicolors
+        let ayucolor="dark"
+        colorscheme ayu
 
         " colorscheme nova
 
 		" papercolor
 		" set background=light
-		set background=dark
-		colorscheme PaperColor
+		" set background=dark
+		" colorscheme PaperColor
     " }
 " }
 

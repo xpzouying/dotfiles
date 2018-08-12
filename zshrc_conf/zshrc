@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 # ZSH_THEME="honukai"
 # ZSH_THEME="josh"
 # ZSH_THEME="agnoster"
@@ -132,12 +133,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/anaconda/bin/
 export PATH=$HOME/anaconda3/bin:$PATH
 
-
-# GTest
-export CPLUS_INCLUDE_PATH=/usr/local/include
-export LIBRARY_PATH=/usr/local/lib
-
-
 export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # color 256 color
@@ -145,4 +140,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # pure theme for zsh
 autoload -U promptinit; promptinit
-prompt pure
+# prompt pure
+
+
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
