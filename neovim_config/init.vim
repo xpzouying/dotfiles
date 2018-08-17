@@ -110,7 +110,7 @@
     " Plug 'sheerun/vim-polyglot'
     Plug 'ayu-theme/ayu-vim'
     " Plug 'trevordmiller/nova-vim'
-	" Plug 'NLKNguyen/papercolor-theme'
+	Plug 'NLKNguyen/papercolor-theme'
 
     " Plug 'itchyny/lightline.vim'
 
@@ -124,9 +124,9 @@
     Plug 'terryma/vim-multiple-cursors'
 
     " Programming
-    Plug 'w0rp/ale'
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    " Plug 'w0rp/ale'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'airblade/vim-gitgutter'
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     if has('nvim')
@@ -137,7 +137,7 @@
     endif
 
     " Python
-    Plug 'davidhalter/jedi-vim'
+    " Plug 'davidhalter/jedi-vim'
 
     call plug#end()
     " End plug
@@ -215,9 +215,9 @@
         map <C-p> :Files<CR>
     " }
 
-    " ALE {
-        let g:ale_linters = {'go': ['gometalinter'] }
-    " }
+    " " ALE {
+    "     let g:ale_linters = {'go': ['gometalinter'] }
+    " " }
 
     " vim-go {
         " let g:go_fmt_fail_silently = 1
@@ -284,23 +284,22 @@
     " vim-gitgutter {
     " }
 
-    " jedi-vim {
-        " jedi override previous config
-        autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
-    " }
+    " " jedi-vim {
+    "     " jedi override previous config
+    "     autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
+    " " }
 
     " color scheme {
-        set background=dark
-        set termguicolors
-        let ayucolor="dark"
-        colorscheme ayu
+        " set background=dark
+        " " set termguicolors
+        " let ayucolor="dark"
+        " colorscheme ayu
 
         " colorscheme nova
 
 		" papercolor
-		" set background=light
-		" set background=dark
-		" colorscheme PaperColor
+		set background=dark
+		colorscheme PaperColor
     " }
 " }
 
