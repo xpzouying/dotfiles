@@ -53,24 +53,8 @@
         set mouse=a
     endif
 
-    " For color {
-    " Ref: https://github.com/joshdick/onedark.vim
-    if (empty($TMUX))
-        if (has("nvim"))
-            let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-        endif
-
-        if (has("termguicolors"))
-            set termguicolors
-        endif
-    endif
-    "}
-
     " set guicursor=
-    " set t_Co=256
     set t_Co=256
-    " set t_ut=
-    " set t_Co=0
 " }
 
 
@@ -108,7 +92,6 @@
     " theme / colorscheme
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
-    Plug 'ayu-theme/ayu-vim'
 
     " Plug 'itchyny/lightline.vim'
 
@@ -279,21 +262,15 @@
 
     " }
 
-    " vim-gitgutter {
-    " }
-
     " " jedi-vim {
     "     " jedi override previous config
     "     autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
     " " }
-
-    " color scheme {
-        " set background=dark
-        " " set termguicolors
-        let ayucolor="dark"
-        colorscheme ayu
-
-    " }
+	
+	" color / colorscheme {
+		" set background=dark
+		" colorscheme solarized
+	" }
 " }
 
 """"""""""
