@@ -109,8 +109,6 @@
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
     Plug 'ayu-theme/ayu-vim'
-    " Plug 'trevordmiller/nova-vim'
-	Plug 'NLKNguyen/papercolor-theme'
 
     " Plug 'itchyny/lightline.vim'
 
@@ -292,14 +290,9 @@
     " color scheme {
         " set background=dark
         " " set termguicolors
-        " let ayucolor="dark"
-        " colorscheme ayu
+        let ayucolor="dark"
+        colorscheme ayu
 
-        " colorscheme nova
-
-		" papercolor
-		set background=dark
-		colorscheme PaperColor
     " }
 " }
 
