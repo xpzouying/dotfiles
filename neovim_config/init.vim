@@ -106,11 +106,11 @@
     " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
-    Plug 'altercation/vim-colors-solarized'
+    " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
     Plug 'ayu-theme/ayu-vim'
     " Plug 'trevordmiller/nova-vim'
-	Plug 'NLKNguyen/papercolor-theme'
+	" Plug 'NLKNguyen/papercolor-theme'
 
     " Plug 'itchyny/lightline.vim'
 
