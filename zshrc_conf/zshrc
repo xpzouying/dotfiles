@@ -138,7 +138,10 @@ cover () {
     go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
 
-
+# vsocde / vsocde-insider
+if ! type "$code-insiders" > /dev/null 2>&1; then
+	alias code=code-insiders
+fi
 
 # brew-bottles
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
