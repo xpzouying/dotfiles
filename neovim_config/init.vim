@@ -3,8 +3,6 @@
 " zouying variables {
     :let zynvimpath = "$HOME/.config/nvim"
     :let zynvimpathplugged = zynvimpath . "/plugged"
-
-
 "}
 
 
@@ -90,6 +88,7 @@
     " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
+	" Plug 'dracula/vim'
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
 
@@ -110,12 +109,12 @@
     " Plug 'airblade/vim-gitgutter'
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    if has('nvim')
-        Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
-        Plug 'zchee/deoplete-go', { 'do': 'make'}
-    else
-        Plug 'maralla/completor.vim'
-    endif
+    """ if has('nvim')
+    """     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
+    """     Plug 'zchee/deoplete-go', { 'do': 'make'}
+    """ else
+    """     Plug 'maralla/completor.vim'
+    """ endif
 
     " Python
     " Plug 'davidhalter/jedi-vim'
@@ -127,22 +126,6 @@
 
 """"""""""
 " Plugin config {
-    " " lightline {
-    "     set laststatus=2
-	" 	let g:lightline = {
-	" 		\ 'active': {
-	" 		\   'left': [ [ 'mode', 'paste' ],
-	" 		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-	" 		\ },
-	" 		\ 'component_function': {
-	" 		\   'gitbranch': 'fugitive#head'
-	" 		\ },
-	" 		\ }
-
-	" 	let g:lightline.colorscheme = 'wombat'
-    " " }
-
-
     " NERDTree {
         noremap <Leader>n :NERDTreeToggle<CR>
         noremap <Leader>N :NERDTreeFind<CR>
@@ -168,19 +151,19 @@
         let g:NERDTreeWinSize=30
     " }
 
-    " deoplete.nvim {
-        if has('nvim')
-            let g:deoplete#enable_at_startup=1
-            set completeopt+=noselect
-            " automatically closing the scratch window. :pc, :pclose
-            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-        endif
-    " }
+    """ " deoplete.nvim {
+    """     if has('nvim')
+    """         let g:deoplete#enable_at_startup=1
+    """         set completeopt+=noselect
+    """         " automatically closing the scratch window. :pc, :pclose
+    """         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    """     endif
+    """ " }
 
-    " deoplete-go settings {
-        " let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-        " let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-    " }
+    """ " deoplete-go settings {
+    """     let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+    """     let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+    """ " }
 
     " fzf {
         " [Buffers] Jump to the existing window if possible
@@ -216,7 +199,7 @@
         let g:go_fmt_command = "goimports"
         " let g:go_def_mode = 'godef'
         let g:go_list_type = "quickfix"
-        let g:go_def_mode = "guru"
+        " let g:go_def_mode = "guru"
 
         " GoDecls search include 'function and type'
         let g:go_decls_includes = "func,type"
@@ -261,15 +244,13 @@
         augroup END
 
     " }
-
-    " " jedi-vim {
-    "     " jedi override previous config
-    "     autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
-    " " }
 	
-	" color / colorscheme {
-		" set background=dark
-		" colorscheme solarized
+
+	" { OPTIONS 
+		set completeopt=preview,menuone
+	
+		" Hide the autocompletion scratch/preview window.
+		set completeopt-=preview
 	" }
 " }
 
