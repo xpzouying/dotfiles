@@ -252,6 +252,11 @@
 		" Hide the autocompletion scratch/preview window.
 		set completeopt-=preview
 	" }
+	
+
+	" { key remap
+		nnoremap <CR> :nohlsearch<cr>
+	" }
 " }
 
 """"""""""
