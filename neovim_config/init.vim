@@ -20,7 +20,7 @@
     set noexpandtab
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
-    " set relativenumber
+    set relativenumber
     set smarttab
     set nu              " Line numbers on
     set backspace=indent,eol,start      " Backspace for dummies
