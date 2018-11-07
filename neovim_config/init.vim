@@ -47,9 +47,9 @@
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
 
-    if has('mouse')
-        set mouse=a
-    endif
+    " if has('mouse')
+    "     set mouse=a
+    " endif
 
     " set guicursor=
     set t_Co=256
