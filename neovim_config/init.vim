@@ -109,6 +109,16 @@
     " Plug 'airblade/vim-gitgutter'
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+	if has('nvim')
+		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+		Plug 'zchee/deoplete-go', { 'do': 'make'}
+	else
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	endif
+
     """ if has('nvim')
     """     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
     """     Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -151,14 +161,15 @@
         let g:NERDTreeWinSize=30
     " }
 
-    """ " deoplete.nvim {
-    """     if has('nvim')
-    """         let g:deoplete#enable_at_startup=1
-    """         set completeopt+=noselect
-    """         " automatically closing the scratch window. :pc, :pclose
-    """         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-    """     endif
-    """ " }
+    " deoplete.nvim {
+        if has('nvim')
+            let g:deoplete#enable_at_startup=1
+            set completeopt+=noselect
+			"
+            " automatically closing the scratch window. :pc, :pclose
+            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+        endif
+    " }
 
     """ " deoplete-go settings {
     """     let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -246,12 +257,13 @@
     " }
 	
 
-	" { OPTIONS 
-		set completeopt=preview,menuone
-	
-		" Hide the autocompletion scratch/preview window.
-		set completeopt-=preview
-	" }
+	""" disable pop-up menu
+	""" " { OPTIONS 
+	""" 	set completeopt=preview,menuone
+	""" 
+	""" 	" Hide the autocompletion scratch/preview window.
+	""" 	set completeopt-=preview
+	""" " }
 	
 
 	" { key remap
