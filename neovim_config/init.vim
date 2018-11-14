@@ -91,6 +91,7 @@
 	" Plug 'dracula/vim'
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
+	Plug 'tomasr/molokai'
 
     " Plug 'itchyny/lightline.vim'
 
@@ -268,6 +269,11 @@
 
 	" { key remap
 		nnoremap <CR> :nohlsearch<cr>
+	" }
+	
+	" color {
+		let g:molokai_original = 1
+		colorscheme molokai
 	" }
 " }
 
