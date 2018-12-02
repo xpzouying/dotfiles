@@ -91,7 +91,7 @@
     " call plug#begin('~/.vim/autoload')  " for vimrc
 
     " theme / colorscheme
-	Plug 'chriskempson/base16-vim'
+	" Plug 'chriskempson/base16-vim'
 	" Plug 'dracula/vim'
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
@@ -288,7 +288,7 @@
 		" set termguicolors  " grey color
 		" let base16colorspace=256
 
-		colorscheme base16-default-dark
+		" colorscheme base16-default-dark
 	"}
 " }
 
