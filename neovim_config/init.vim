@@ -102,6 +102,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
+	Plug 'tpope/vim-unimpaired'
 
     " Programming
     " Plug 'w0rp/ale'
@@ -195,16 +196,16 @@
     " " }
 
     " vim-go {
-        " let g:go_fmt_fail_silently = 1
-        " let g:go_highlight_structs = 1
-        " let g:go_highlight_interfaces = 1
-        " let g:go_highlight_functions = 1
-        " let g:go_highlight_methods = 1
-        " let g:go_highlight_fields = 1
-        " let g:go_highlight_types = 1
-        " let g:go_highlight_operators = 1
-        " let g:go_highlight_build_constraints = 1
-        " let g:go_highlight_extra_types = 1
+        let g:go_fmt_fail_silently = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_interfaces = 1
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_types = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        let g:go_highlight_extra_types = 1
 
         " Enable goimports to automatically insert import paths instead of gofmt
         let g:go_fmt_command = "goimports"
@@ -248,6 +249,7 @@
           autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
         
           " I like these more!
+		  " called :A, :AV, :AS and :AT. Here :A works 
           autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
           autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
           autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -268,6 +270,10 @@
 
 	" { key remap
 		nnoremap <CR> :nohlsearch<cr>
+	" }
+	
+	" {
+		set updatetime=100
 	" }
 " }
 
