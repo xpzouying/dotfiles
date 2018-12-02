@@ -20,9 +20,9 @@
     set noexpandtab
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
-    set relativenumber
     set smarttab
-    set nu              " Line numbers on
+    " set relativenumber
+    " set number              " Line numbers on
     set backspace=indent,eol,start      " Backspace for dummies
     set ignorecase
     set smartcase
@@ -35,12 +35,15 @@
     " set cursorline      " Highlight current line
     set showcmd
 
-	set laststatus=0	" disable status line
+	" set laststatus=0	" disable status line
 
     set lazyredraw
 
     " PERFORMANCE
     set synmaxcol=200
+	
+	" for update
+	set updatetime=100
 
 
     " With system clipboard
@@ -93,7 +96,7 @@
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
 
-    " Plug 'itchyny/lightline.vim'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -138,6 +141,9 @@
 
 """"""""""
 " Plugin config {
+	" { lightline
+		set laststatus=2
+	" }
     " NERDTree {
         noremap <Leader>n :NERDTreeToggle<CR>
         noremap <Leader>N :NERDTreeFind<CR>
@@ -277,9 +283,6 @@
 		nnoremap <CR> :nohlsearch<cr>
 	" }
 	
-	" {
-		set updatetime=100
-	" }
 	
 	"{ colorscheme
 		" set termguicolors  " grey color
