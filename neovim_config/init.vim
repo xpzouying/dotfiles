@@ -187,6 +187,10 @@
         " [Commands] --expect expression for directly executing the command
         let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
+		" search in current word
+		nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+		nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
         map <leader>b :Buffers<cr>
         map <C-p> :Files<CR>
     " }
