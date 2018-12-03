@@ -50,9 +50,9 @@
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
 
-    " if has('mouse')
-    "     set mouse=a
-    " endif
+    if has('mouse')
+        set mouse=a
+    endif
 
     " set guicursor=
     set t_Co=256
@@ -109,7 +109,7 @@
 	Plug 'tpope/vim-unimpaired'
 
     " Programming
-    " Plug 'w0rp/ale'
+    Plug 'w0rp/ale'
     " Plug 'tpope/vim-fugitive'
     " Plug 'airblade/vim-gitgutter'
 
