@@ -107,6 +107,8 @@
     Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
 	Plug 'tpope/vim-unimpaired'
+	Plug 'jiangmiao/auto-pairs'
+
 
     " Programming
     Plug 'w0rp/ale'
