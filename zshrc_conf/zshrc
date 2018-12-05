@@ -98,6 +98,10 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+if type docker-compose > /dev/null 2>&1; then
+  alias dc=docker-compose
+fi
+
 alias ls='ls -GpF'  # Mac OS specific
 alias ll='ls -alGpF'  # Mac OS specific
 alias dc=docker-compose
