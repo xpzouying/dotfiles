@@ -204,9 +204,17 @@
         map <C-p> :Files<CR>
     " }
 
-    " " ALE {
-    "     let g:ale_linters = {'go': ['gometalinter'] }
-    " " }
+    " ALE {
+		" let g:ale_linters = {'go': ['gometalinter'] }
+		call ale#linter#Define('go', {
+		\   'name': 'revive',
+		\   'output_stream': 'both',
+		\   'executable': 'revive',
+		\   'read_buffer': 0,
+		\   'command': 'revive %t',
+		\   'callback': 'ale#handlers#unix#HandleAsWarning',
+		\})
+    " }
 
     " vim-go {
         let g:go_fmt_fail_silently = 1
