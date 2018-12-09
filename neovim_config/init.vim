@@ -112,8 +112,8 @@
 
     " Programming
     Plug 'w0rp/ale'
-    " Plug 'tpope/vim-fugitive'
-    " Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
