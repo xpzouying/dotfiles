@@ -6,7 +6,8 @@ export HTTPS_PROXY="socks5://127.0.0.1:1086"
 
 go get -u -v github.com/ramya-rao-a/go-outline
 go get -u -v github.com/acroca/go-symbols
-go get -u -v github.com/nsf/gocode
+go get -u -v github.com/mdempsky/gocode
+# go get -u -v github.com/nsf/gocode
 go get -u -v github.com/rogpeppe/godef
 go get -u -v golang.org/x/tools/cmd/godoc
 go get -u -v github.com/zmb3/gogetdoc
