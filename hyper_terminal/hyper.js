@@ -5,12 +5,13 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 16,
+    fontSize: 12,
 
     // font family with optional fallbacks
     // fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
     // fontFamily: '"Meslo LG L DZ for Powerline", Monaco, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
-	fontFamily: '"Fira Code", "Go Mono", Hasklig',
+	fontFamily: '"Go Mono", Hasklig',
+	// fontFamily: '"Fira Code", "Go Mono", Hasklig',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -120,7 +121,9 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-	  'hyper-ayu-light',
+	  'hyper-material-theme',
+	  // 'hyper-ayu-dark',
+	  // 'hyper-ayu-light',
 	  // 'hyper-native',
 	  // 'hyper-one-light',
 	  'hyperlinks',
