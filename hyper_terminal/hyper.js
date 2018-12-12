@@ -121,7 +121,8 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-	  'hyper-material-theme',
+	  'hyper-solarized-light',
+	  // 'hyper-material-theme',
 	  // 'hyper-ayu-dark',
 	  // 'hyper-ayu-light',
 	  // 'hyper-native',
