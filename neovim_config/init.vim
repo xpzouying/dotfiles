@@ -107,7 +107,8 @@
     Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
 	Plug 'tpope/vim-unimpaired'
-	Plug 'jiangmiao/auto-pairs'
+	" Plug 'jiangmiao/auto-pairs'
+	Plug 'Raimondi/delimitMate'
 
 
     " Programming
