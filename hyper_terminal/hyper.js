@@ -103,13 +103,13 @@ module.exports = {
 	modifierKeys: { altIsMeta: true },
 	
 	// Config for zouying
-	hyperline: {
-		plugins: [
-			"hostname",
-			"ip",
-			"cpu"
-		]
-	},
+	// hyperline: {
+	// 	plugins: [
+	// 		"hostname",
+	// 		"ip",
+	// 		"cpu"
+	// 	]
+	// },
   },
 
   // a list of plugins to fetch and install from npm
@@ -120,10 +120,10 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
 	  // 'hyper-ayu-dark',
-	  'hyper-ayu-light',
-	  // 'hyper-one-light',
+	  //'hyper-ayu-light',
+	  'hyper-one-light',
 	  'hyperlinks',
-	  'hyperline',
+	  // 'hyperline',
 	  'hyper-search'
   ],
 
