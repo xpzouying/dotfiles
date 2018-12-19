@@ -104,9 +104,9 @@ fi
 
 # httpstat: curl with color
 # go get github.com/davecheney/httpstat
-if type httpstat > /dev/null 2>&1; then
-	alias curl=httpstat
-fi
+# if type httpstat > /dev/null 2>&1; then
+# 	alias curl=httpstat
+# fi
 
 alias ls='ls -GpF'  # Mac OS specific
 alias ll='ls -alGpF'  # Mac OS specific
@@ -165,6 +165,9 @@ export PATH=$PATH:$HOME/anaconda/bin/
 export PATH=$HOME/anaconda3/bin:$PATH
 
 export VIRTUAL_ENV_DISABLE_PROMPT=
+
+# add zybin
+export PATH=$PATH:$HOME/Tools/zybin
 
 # color 256 color
 # export TERM=xterm-256color
