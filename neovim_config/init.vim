@@ -108,7 +108,7 @@
     Plug 'terryma/vim-multiple-cursors'
 	Plug 'tpope/vim-unimpaired'
 	" Plug 'jiangmiao/auto-pairs'
-	Plug 'Raimondi/delimitMate'
+	" Plug 'Raimondi/delimitMate'
 
 
     " Programming
