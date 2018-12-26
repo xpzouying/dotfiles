@@ -101,6 +101,7 @@
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'qpkorr/vim-bufkill'
+	Plug 'bronson/vim-visual-star-search'
 
     " Enhance operation
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -215,6 +216,8 @@
 		\   'command': 'revive %t',
 		\   'callback': 'ale#handlers#unix#HandleAsWarning',
 		\})
+
+		let g:ale_lint_on_text_changed = 'never'
     " }
 
     " vim-go {
