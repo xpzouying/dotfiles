@@ -45,10 +45,13 @@
 	" for update
 	set updatetime=100
 
+	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/vendor/bundle/*,*/node_modules/*
 
     " With system clipboard
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
+	set clipboard=unnamed
+	set history=100
 
     if has('mouse')
         set mouse=a
@@ -74,6 +77,9 @@
     " map <C-n> :cn<CR>
     " map <C-m> :cp<CR>
     nnoremap <leader>a :cclose<CR>
+
+	" Highlight the current word under the cursor
+	nmap <leader>sw :set hlsearch<CR>mm*N`m
 " }
 
 
