@@ -94,7 +94,7 @@
 	" Plug 'chriskempson/base16-vim'
 	" Plug 'dracula/vim'
     " Plug 'altercation/vim-colors-solarized'
-    " Plug 'sheerun/vim-polyglot'
+    Plug 'sheerun/vim-polyglot'
 
     Plug 'itchyny/lightline.vim'
 
