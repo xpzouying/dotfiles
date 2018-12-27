@@ -1,0 +1,149 @@
+Basic Movement
+--------------
+hjkl
+jk -- down 1, up 1
+hl -- left 1, right 1
+
+G -- move to last line
+gg -- move to first line (or :0<CR>)
+
+0 and $ take you from the beginning to the end of the line.
+
+You can advance backward and forward one word at a time with w and b.
+Starting with a number (xw) moves you x words forward.
+
+Ctrl-u, ctrl-d -- move cursor up and down half a page
+
+To quickly jump to a specific character, use fx (or tx to place the cursor in front)
+; will repeat the last search, capital F (and T) will search backwards.
+
+( and ) quickle move backward and forward one sentence.
+{ and } quickly move you up and down paragraphs.
+
+HML will jump your cursor to high, medium, and low parts of the screen.
+zt, zz, and zb will similarly move your current line to the area of the screen.
+
+Two easy ways to jump to a line number:
+  xxG (think of as: line number GOTO)
+  :xx<CR>
+
+
+Searching
+---------
+:set incsearch will set incremental search
+:set hlsearch will set highlight search
+/string will search forward for the next occurrence
+?string will search backward for the previous occurrence
+n moved forward one match, N moves backward one match
+  (reversed if searching .. in reverse)
+ggn will jump to the first match, or GN to jump to the last
+* searches forward for the string under the cursor
+# searches forward for the string under the cursor
+:noh will unhighlight the search
+& repeats the last search-and-replace
+
+
+Editing commands that leave you in command mode
+-----------------------------------------------
+dd - delete the current line
+d$ - delete from the cursor to the end of the line
+d0 - delete from the cursor to the beginning of the line
+d5j - delete 5 lines down
+d5l - delete 5 characters to the right
+d5w - delete 5 words in front
+d5b - delete 5 words in front
+d} - delete to the end of the paragraph
+
+The same motion comands that work on delete also work on `y`, yank (copy)
+
+rx -- replace the current character with x
+Ctrl-a -- increment the next number forward by 1
+10 Ctrl-a -- increment the next number by 10
+Ctrl-d -- decrement the next number by 1
+10 Ctrl-d -- decrement the next number by 10
+
+Colon Commands
+--------------
+While in command mode, you can jump to the expression evaluator with :
+
+2,5y - copy lines 2-5
+s/string/replacement/ - search and replace
+2,5 s/string/replacement/ - perform search and replace once per line in 2,5
+2,5 s/string/replacement/g - perform global search and replace
+% s/string/replacement/g - global search and replace on all lines
+% s/string/replacement/gc - global search and replace with confirmation
+
+:tabe path/to/file -- open new tab with new file
+gt, gT -- move right and left one tab
+Or, for convenience, you can add this to your .vimrc:
+map <c-h> gT
+map <c-l> gt
+so Ctrl-h and Ctrl-l will cycle tabs left and right
+
+Switching to insert mode
+------------------------
+i, a -- insert mode at current character, before current character
+I, A -- insert mode at beginning, end of line
+
+c<motion> -- change the motion
+c$ -- delete from the current character to the end of the line
+cw -- change a word
+c5w -- change 5 words
+
+o, O -- insert a newline before, after current line
+
+ci' -- change inside quote, for changing 'quoted' values.
+di' -- delete inside quote
+
+Shorthand -- Longhand -- motion and enter insert mode
+c{motion} -- d{motion}i -- delete the motion and enter to insert mode
+C -- d$a -- delete to the end of the line and enter insert mode
+A -- $a -- move to the end of the line and enter insert mode
+I -- ^i -- move to beginning of line and enter insert mode
+s -- xi -- 
+S -- ^C
+o -- $a<CR> -- insert newline below cursor and enter insert mode on it
+O -- jA -- insert newline above cursor and enter insert mode on it
+
+Unit of Work
+------------
+Changing to insert mode, making edits, and switching back to command mode is
+considered one unit of work in vim. The "dot operator" (.) replays the previous
+unit of work. This can make it to quickly repeat similar edits, like when you
+make an edit and then realize you have to apply the edit a few more times.
+
+Macros
+------
+Ever hit the wrong key and get stuck in `recording` mode? This is that.
+qq -- start recording
+q -- finish recording
+@q -- playback macro
+10@q -- playback macro 10 times
+
+One quick command
+-----------------
+While in insert mode, you can hit Ctrl-o (command).
+This can be useful if you need to quickly move and then continue editing.
+
+But escape is so far away!
+--------------------------
+No kidding, especially on a tiny laptop. Ctrl-C will cancel the current edit and
+drop you back to command mode, or alternatively, putting
+  imap jj <Esc>
+in your .vimrc will catch `jj` in edit mode (an uncommon combination) and
+convert it to an <Esc>, dropping you in command mode.
+
+Abort/undo/reset/ABANDON SHIP
+-----------------------------
+Sometimes it just seems like Vim is a sinking ship. To make a life raft of your
+current sessin (buffers, tabs), you can enter command mode and:
+
+  :mksession(!) mysession.vim
+
+and load it with `vim -S mysession.vim` or in command mode:
+
+  :source mysession.vim
+
+Command-T
+---------
+<leader>t -- open Command-T file explorer
