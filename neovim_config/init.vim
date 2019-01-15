@@ -21,8 +21,8 @@
     set softtabstop=4   " Number of spaces that a <tab> represents
     set shiftwidth=4
     set smarttab
-    " set relativenumber
-    " set number              " Line numbers on
+    set relativenumber
+    set number              " Line numbers on
     set backspace=indent,eol,start      " Backspace for dummies
     set ignorecase
     set smartcase
@@ -50,7 +50,7 @@
     " With system clipboard
     " set clipboard+=unnamedplus
     " set clipboard+=unnamed
-	set clipboard=unnamed
+	" set clipboard=unnamed
 	set history=100
 
     if has('mouse')
@@ -80,6 +80,14 @@
 
 	" Highlight the current word under the cursor
 	nmap <leader>sw :set hlsearch<CR>mm*N`m
+
+	" System clipboard niceties. (Stolen from Mastering Vim Quickly)
+
+	map ,y "+y
+	map ,d "+d
+	map ,p "+p
+	map ,P "+P
+
 " }
 
 
@@ -311,6 +319,14 @@
 
 		" colorscheme base16-default-dark
 	"}
+	
+	" Testing out less relative numbers. (Stolen from Mastering Vim Quickly)
+	augroup relativeNumbers
+		autocmd!
+		autocmd InsertEnter * :setlocal norelativenumber
+		autocmd InsertLeave * :setlocal relativenumber
+	augroup END
+
 " }
 
 """"""""""
