@@ -76,7 +76,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git osx brew python tmux virtualenv z ssh-agent go colorize)
-plugins=(git z ssh-agent tmux)
+plugins=(git z ssh-agent tmux docker)
 
 source $ZSH/oh-my-zsh.sh
 
