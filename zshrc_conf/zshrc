@@ -76,7 +76,14 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git osx brew python tmux virtualenv z ssh-agent go colorize)
-plugins=(git z ssh-agent tmux docker)
+plugins=(
+	git
+	z
+	ssh-agent
+	tmux
+	docker
+	zsh-autosuggestion
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,6 +113,13 @@ fi
 alias ls='ls -GpF'  # Mac OS specific
 alias ll='ls -alGpF'  # Mac OS specific
 alias dc=docker-compose
+
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"
+alias unsetproxy="unset ALL_PROXY"
+
+# for fzf preview
+alias pp='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500'"'"
+alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || tac {}) 2> /dev/null | head -500'"'"  # flashback
 
 # enable colors
 export CLICOLOR=1
@@ -171,5 +185,7 @@ export PATH=$PATH:$HOME/Tools/zybin
 # autoload -U promptinit; promptinit
 # prompt pure
 
-
 # zprof
+
+source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
