@@ -130,9 +130,8 @@
     Plug 'w0rp/ale'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-
+	Plug 'pangloss/vim-javascript'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
 	if has('nvim')
 		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 		Plug 'zchee/deoplete-go', { 'do': 'make'}
