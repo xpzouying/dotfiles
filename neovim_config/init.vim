@@ -131,6 +131,12 @@
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
 	Plug 'pangloss/vim-javascript'
+	Plug 'mxw/vim-jsx'
+	" post install (yarn install | npm install) then load plugin only for editing supported files
+	Plug 'prettier/vim-prettier', {
+				\ 'do': 'yarn install',
+				\ 'for': [ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 	if has('nvim')
 		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
