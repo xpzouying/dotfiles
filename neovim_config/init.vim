@@ -147,16 +147,6 @@
 		Plug 'roxma/vim-hug-neovim-rpc'
 	endif
 
-    """ if has('nvim')
-    """     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemotePlugin') }
-    """     Plug 'zchee/deoplete-go', { 'do': 'make'}
-    """ else
-    """     Plug 'maralla/completor.vim'
-    """ endif
-
-    " Python
-    " Plug 'davidhalter/jedi-vim'
-
     call plug#end()
     " End plug
 " }

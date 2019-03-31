@@ -13,6 +13,10 @@
 # deoplete:
     installation: need python3, and pip3 install neovim.
 
+	```bash
+		pip3 install --user --upgrade pynvim
+	```
+
 # deoplete-go:
     pip2 install --upgrade neovim
     pip3 install --upgrade neovim
