@@ -137,15 +137,17 @@
 				\ 'do': 'yarn install',
 				\ 'for': [ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-	if has('nvim')
-		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-		Plug 'zchee/deoplete-go', { 'do': 'make'}
-	else
-		Plug 'Shougo/deoplete.nvim'
-		Plug 'roxma/nvim-yarp'
-		Plug 'roxma/vim-hug-neovim-rpc'
-	endif
+	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+	""" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+	""" if has('nvim')
+	""" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	""" 	Plug 'zchee/deoplete-go', { 'do': 'make'}
+	""" else
+	""" 	Plug 'Shougo/deoplete.nvim'
+	""" 	Plug 'roxma/nvim-yarp'
+	""" 	Plug 'roxma/vim-hug-neovim-rpc'
+	""" endif
 
     call plug#end()
     " End plug
@@ -345,6 +347,38 @@
 		autocmd InsertLeave * :setlocal relativenumber
 	augroup END
 
+
+	" { coc.nvim
+		" if hidden is not set, TextEdit might fail.
+		set hidden
+
+		" Better display for messages
+		set cmdheight=2
+
+		" Smaller updatetime for CursorHold & CursorHoldI
+		set updatetime=300
+
+		" don't give |ins-completion-menu| messages.
+		set shortmess+=c
+
+		" always show signcolumns
+		set signcolumn=yes
+
+		" Use <c-space> for trigger completion.
+		inoremap <silent><expr> <c-space> coc#refresh()
+
+		" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current
+		" position.
+		" " Coc only does snippet and additional edit on confirm.
+		inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+		" Remap keys for gotos
+		nmap <silent> gd <Plug>(coc-definition)
+		nmap <silent> gy <Plug>(coc-type-definition)
+		nmap <silent> gi <Plug>(coc-implementation)
+		nmap <silent> gr <Plug>(coc-references)
+
+	" }
 " }
 
 """"""""""

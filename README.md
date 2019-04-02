@@ -3,6 +3,14 @@
 
 Dotfiles for zouying.
 
+## Installation
+
+- neovim (nightly) with brew in macos: 
+
+	```bash
+		brew install --HEAD neovim
+	```
+
 ## Settings ##
 
 ### pip settings ###
