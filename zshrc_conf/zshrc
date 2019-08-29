@@ -147,7 +147,7 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 
 # alias python=python3
 # alias pip=pip3
-alias code='code-insiders'
+# alias code='code-insiders'
 
 
 # start the ssh-agent in the background
@@ -219,3 +219,14 @@ function gfc() {
          git log --all --grep="$1"
 }
 
+
+# added by travis gem
+[ -f /Users/zouying/.travis/travis.sh ] && source /Users/zouying/.travis/travis.sh
+
+# PATH
+export PATH=$PATH:$HOME/zybin/
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
