@@ -37,6 +37,9 @@
 
 	" set laststatus=0	" disable status line
 
+	" don't give |ins-completion-menu| messages.
+	set shortmess+=c
+
     set lazyredraw
 
     " PERFORMANCE
@@ -127,25 +130,27 @@
 
 
     " Programming
-    Plug 'w0rp/ale'
+    " Plug 'w0rp/ale'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-	Plug 'pangloss/vim-javascript'
-	Plug 'mxw/vim-jsx'
+	" Plug 'pangloss/vim-javascript'
+	" Plug 'mxw/vim-jsx'
 	" post install (yarn install | npm install) then load plugin only for editing supported files
-	Plug 'prettier/vim-prettier', {
-				\ 'do': 'yarn install',
-				\ 'for': [ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+	" Plug 'prettier/vim-prettier', {
+	" 			\ 'do': 'yarn install',
+	" 			\ 'for': [ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-	if has('nvim')
-		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-		Plug 'zchee/deoplete-go', { 'do': 'make'}
-	else
-		Plug 'Shougo/deoplete.nvim'
-		Plug 'roxma/nvim-yarp'
-		Plug 'roxma/vim-hug-neovim-rpc'
-	endif
+    """ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+	""" if has('nvim')
+	""" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	""" 	Plug 'zchee/deoplete-go', { 'do': 'make'}
+	""" else
+	""" 	Plug 'Shougo/deoplete.nvim'
+	""" 	Plug 'roxma/nvim-yarp'
+	""" 	Plug 'roxma/vim-hug-neovim-rpc'
+	""" endif
+
+	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
     call plug#end()
     " End plug
@@ -238,83 +243,113 @@
 					\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
     " }
 
-    " ALE {
-		" let g:ale_linters = {'go': ['gometalinter'] }
-		call ale#linter#Define('go', {
-		\   'name': 'revive',
-		\   'output_stream': 'both',
-		\   'executable': 'revive',
-		\   'read_buffer': 0,
-		\   'command': 'revive %t',
-		\   'callback': 'ale#handlers#unix#HandleAsWarning',
-		\})
+	" coc.nvim {
+	" for jsonc in coc.nvim
+		autocmd FileType json syntax match Comment +\/\/.\+$+
+		autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
-		let g:ale_lint_on_text_changed = 'never'
-    " }
 
-    " vim-go {
-        let g:go_fmt_fail_silently = 1
-        let g:go_highlight_structs = 1
-        let g:go_highlight_interfaces = 1
-        let g:go_highlight_functions = 1
-        let g:go_highlight_methods = 1
-        let g:go_highlight_fields = 1
-        let g:go_highlight_types = 1
-        let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1
-        let g:go_highlight_extra_types = 1
+		" Remap keys for gotos
+		nmap <silent> gd <Plug>(coc-definition)
+		nmap <silent> gy <Plug>(coc-type-definition)
+		nmap <silent> gi <Plug>(coc-implementation)
+		nmap <silent> gr <Plug>(coc-references)
 
-        " Enable goimports to automatically insert import paths instead of gofmt
-        let g:go_fmt_command = "goimports"
-        " let g:go_def_mode = 'godef'
-        let g:go_list_type = "quickfix"
-        " let g:go_def_mode = "guru"
+		" Use K to show documentation in preview window
+		nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-        " GoDecls search include 'function and type'
-        let g:go_decls_includes = "func,type"
+		function! s:show_documentation()
+			if (index(['vim','help'], &filetype) >= 0)
+				execute 'h '.expand('<cword>')
+			else
+				call CocAction('doHover')
+			endif
+		endfunction
 
-        let g:go_textobj_include_function_doc = 1
+		" Use `:Format` to format current buffer
+		command! -nargs=0 Format :call CocAction('format')
 
-        let g:go_auto_type_info = 0  " AutoTypeInfo
-        let g:go_auto_sameids = 0   " auto Identifier highlighting
-        let g:go_gocode_unimported_packages = 1
-        let g:go_autodetect_gopath = 1
+	" }
 
-        let g:go_metalinter_autosave = 0
-        let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+	""" " ALE {
+	""" let g:ale_linters = {
+	""" 			\ 'go': ['gopls'],
+	""" 			\}
+	""" """ 	let g:ale_lint_on_text_changed = 'never'
+	""" " }
+	
+	" --- new config for vim-go ---
+	"  for gopls
+	""" " vim-go {
+	""" 	let g:go_def_mode='gopls'
+	""" 	let g:go_info_mode='gopls'
+	""" " }
 
-        " edit config
-        let g:go_fmt_autosave = 1
-        let g:go_template_autocreate = 0
+	
+	" --- old config ---
+    """ " vim-go {
+    """     let g:go_fmt_fail_silently = 1
+    """     let g:go_highlight_structs = 1
+    """     let g:go_highlight_interfaces = 1
+    """     let g:go_highlight_functions = 1
+    """     let g:go_highlight_methods = 1
+    """     let g:go_highlight_fields = 1
+    """     let g:go_highlight_types = 1
+    """     let g:go_highlight_operators = 1
+    """     let g:go_highlight_build_constraints = 1
+    """     let g:go_highlight_extra_types = 1
 
-        " nmap <C-g> :GoDecls<cr>
-        " imap <C-g> <esc>:<C-u>GoDecls<cr>
-        nmap <Leader>g :GoDecls<CR>
+    """     " Enable goimports to automatically insert import paths instead of gofmt
+    """     let g:go_fmt_command = "goimports"
+    """     " let g:go_def_mode = 'godef'
+    """     let g:go_list_type = "quickfix"
+    """     " let g:go_def_mode = "guru"
 
-        augroup go
-          autocmd!
+    """     " GoDecls search include 'function and type'
+    """     let g:go_decls_includes = "func,type"
 
-		  autocmd BufEnter,BufNewFile,BufRead *.go setlocal completeopt-=preview
-        
-          autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
-          autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
-          " autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def-tab)
-        
-          autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
-        
-          autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
-          autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-        
-          autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
-        
-          " I like these more!
-		  " called :A, :AV, :AS and :AT. Here :A works 
-          autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-          autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-          autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-        augroup END
+    """     let g:go_textobj_include_function_doc = 1
 
-    " }
+    """     let g:go_auto_type_info = 0  " AutoTypeInfo
+    """     let g:go_auto_sameids = 0   " auto Identifier highlighting
+    """     let g:go_gocode_unimported_packages = 1
+    """     let g:go_autodetect_gopath = 1
+
+    """     let g:go_metalinter_autosave = 0
+    """     let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+
+    """     " edit config
+    """     let g:go_fmt_autosave = 1
+    """     let g:go_template_autocreate = 0
+
+    """     " nmap <C-g> :GoDecls<cr>
+    """     " imap <C-g> <esc>:<C-u>GoDecls<cr>
+    """     nmap <Leader>g :GoDecls<CR>
+
+    """     augroup go
+    """       autocmd!
+
+	""" 	  autocmd BufEnter,BufNewFile,BufRead *.go setlocal completeopt-=preview
+    """     
+    """       autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
+    """       autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
+    """       " autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def-tab)
+    """     
+    """       autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
+    """     
+    """       autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
+    """       autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
+    """     
+    """       autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+    """     
+    """       " I like these more!
+	""" 	  " called :A, :AV, :AS and :AT. Here :A works 
+    """       autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+    """       autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+    """       autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+    """     augroup END
+
+    """ " }
 	
 
 	""" disable pop-up menu
@@ -338,12 +373,12 @@
 		" colorscheme base16-default-dark
 	"}
 	
-	" Testing out less relative numbers. (Stolen from Mastering Vim Quickly)
-	augroup relativeNumbers
-		autocmd!
-		autocmd InsertEnter * :setlocal norelativenumber
-		autocmd InsertLeave * :setlocal relativenumber
-	augroup END
+	""" " Testing out less relative numbers. (Stolen from Mastering Vim Quickly)
+	""" augroup relativeNumbers
+	""" 	autocmd!
+	""" 	autocmd InsertEnter * :setlocal norelativenumber
+	""" 	autocmd InsertLeave * :setlocal relativenumber
+	""" augroup END
 
 " }
 
