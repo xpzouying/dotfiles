@@ -82,10 +82,37 @@ plugins=(
 	ssh-agent
 	tmux
 	docker
-	zsh-autosuggestion
+	# zsh-autosuggestion
 )
 
 source $ZSH/oh-my-zsh.sh
+
+
+# --- begin zplug ----
+# Install ZPLUS
+source ~/.zplug/init.zsh
+
+
+# Can manage local plugins
+# zplug "~/.zsh", from:local
+
+
+# theme
+zplug 'dracula/zsh', as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+# zplug load --verbose
+zplug load
+### --- end zplug ---
+
 
 # User configuration
 # You may need to manually set your language environment
@@ -187,7 +214,6 @@ export PATH=$PATH:$HOME/Tools/zybin
 # autoload -U promptinit; promptinit
 # prompt pure
 
-# zprof
 
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -230,3 +256,8 @@ export PATH=$PATH:$HOME/zybin/
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+# make sure it's end
+# zprof
+
