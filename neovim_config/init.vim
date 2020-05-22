@@ -109,7 +109,7 @@
 
     " theme / colorscheme
 	" Plug 'chriskempson/base16-vim'
-	" Plug 'dracula/vim'
+	Plug 'dracula/vim', { 'as': 'dracula' }
     " Plug 'altercation/vim-colors-solarized'
     Plug 'sheerun/vim-polyglot'
 
