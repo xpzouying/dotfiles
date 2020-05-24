@@ -37,7 +37,7 @@
     set showcmd
 
 	" set laststatus=0	" disable status line
-	set cmdheight=2
+	" set cmdheight=2
 
 	" always show signcolumns
 	" set signcolumn=yes
@@ -118,7 +118,7 @@
     " Plug 'altercation/vim-colors-solarized'
     " Plug 'sheerun/vim-polyglot'
 
-    " Plug 'itchyny/lightline.vim'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'

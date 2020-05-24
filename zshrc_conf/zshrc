@@ -123,36 +123,8 @@ export LANG=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 
-# use nvim first
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
-
-if type docker-compose > /dev/null 2>&1; then
-  alias dc=docker-compose
-fi
-
-if type tldr > /dev/null 2>&1; then
-	alias help=tldr
-fi
-
-# httpstat: curl with color
-# go get github.com/davecheney/httpstat
-# if type httpstat > /dev/null 2>&1; then
-# 	alias curl=httpstat
-# fi
-
-alias ls='ls -GpF'  # Mac OS specific
-alias ll='ls -alGpF'  # Mac OS specific
 
 
-
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"
-alias unsetproxy="unset ALL_PROXY"
-
-# for fzf preview
-alias pp='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500'"'"
-alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || tac {}) 2> /dev/null | head -500'"'"  # flashback
 
 # enable colors
 export CLICOLOR=1
@@ -178,9 +150,6 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 # plugins
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# alias python=python3
-# alias pip=pip3
-# alias code='code-insiders'
 
 
 # start the ssh-agent in the background
@@ -192,10 +161,6 @@ cover () {
     go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
 
-# vsocde / vsocde-insider
-# if ! type "$code-insiders" > /dev/null 2>&1; then
-# 	alias code=code-insiders
-# fi
 
 # brew-bottles
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -240,20 +205,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# ----- git alias -----
-# gcp "initial commit"
-function gcp() {
-      git commit -am "$1" && git push 
-}
-
-# gfc "<commit message>"
-function gfc() {
-         git log --all --grep="$1"
-}
-
-
 # added by travis gem
-[ -f /Users/zouying/.travis/travis.sh ] && source /Users/zouying/.travis/travis.sh
+# [ -f /Users/zouying/.travis/travis.sh ] && source /Users/zouying/.travis/travis.sh
 
 # PATH
 export PATH=$PATH:$HOME/zybin/
@@ -263,6 +216,9 @@ export PATH=$PATH:$HOME/zybin/
 [[ -f /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/zouying/src/Github.com/ZOUYING/my-image-gallery/zimage/node_modules/tabtab/.completions/electron-forge.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+
+# alias
+source $HOME/.zy_alias_rc
 
 # make sure it's end
 # zprof
