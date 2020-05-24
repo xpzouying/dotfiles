@@ -82,7 +82,6 @@ plugins=(
 	ssh-agent
 	tmux
 	docker
-	# zsh-autosuggestion
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,6 +94,8 @@ source ~/.zplug/init.zsh
 
 # Can manage local plugins
 # zplug "~/.zsh", from:local
+
+zplug "zsh-users/zsh-autosuggestions"
 
 
 # theme
@@ -131,6 +132,10 @@ if type docker-compose > /dev/null 2>&1; then
   alias dc=docker-compose
 fi
 
+if type tldr > /dev/null 2>&1; then
+	alias help=tldr
+fi
+
 # httpstat: curl with color
 # go get github.com/davecheney/httpstat
 # if type httpstat > /dev/null 2>&1; then
@@ -139,7 +144,8 @@ fi
 
 alias ls='ls -GpF'  # Mac OS specific
 alias ll='ls -alGpF'  # Mac OS specific
-alias dc=docker-compose
+
+
 
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"
 alias unsetproxy="unset ALL_PROXY"
