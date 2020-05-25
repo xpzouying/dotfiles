@@ -217,8 +217,11 @@ export PATH=$PATH:$HOME/zybin/
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 
-# alias
+# --- alias ---
 source $HOME/.zy_alias_rc
+
+# --- source local config ----
+source $HOME/.local_rc
 
 # make sure it's end
 # zprof
