@@ -102,3 +102,12 @@ And then add to your ~/.tmux.conf:
 `set-option -g default-command "reattach-to-user-namespace -l zsh"`
 
 
+### cleanup git branch
+
+```bash
+git branch -d $(git branch --merged=master | grep -v master)
+
+git fetch --prune
+
+```
+
