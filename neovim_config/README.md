@@ -1,7 +1,7 @@
 
 
 1. Plugins:
-# vim-plug:
+## vim-plug:
     https://github.com/junegunn/vim-plug
 
     installtion:
@@ -10,23 +10,24 @@
 
 
 
-# deoplete:
-    installation: need python3, and pip3 install neovim.
+## Start nvim and run:
 
-	```bash
-		pip3 install --user --upgrade pynvim
-	```
+	- :PlugInstall
+    - :UpdateRemotePlugins
+	- :CocInfo
+	- :CocConfig
 
-# deoplete-go:
-    pip2 install --upgrade neovim
-    pip3 install --upgrade neovim
-
-    go get -u github.com/nsf/gocode
-
-
-
-# Start nvim and run:
-    :UpdateRemotePlugins
+		```json
+			{
+				"languageserver": {
+					"golang": {
+						"command": "gopls",
+							"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+							"filetypes": ["go"]
+					}
+				}
+			}
+		```
 
 
 # Common errors
@@ -38,8 +39,9 @@
 
 
 ##### Others
-1. gruvbox true color. Add following in .zshrc/.bashrc.
-    source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+
+1. Ref urls:
+	- [Config vim as a go IDE](https://octetz.com/docs/2019/2019-04-24-vim-as-a-go-ide/)
 
 
 2. Quick look plugins

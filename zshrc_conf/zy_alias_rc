@@ -1,0 +1,59 @@
+
+# use nvim first
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+if type docker-compose > /dev/null 2>&1; then
+  alias dc=docker-compose
+fi
+
+if type tldr > /dev/null 2>&1; then
+	alias h=tldr
+fi
+
+alias v="vim"
+
+# httpstat: curl with color
+# go get github.com/davecheney/httpstat
+# if type httpstat > /dev/null 2>&1; then
+# 	alias curl=httpstat
+# fi
+
+# vsocde / vsocde-insider
+# if ! type "$code-insiders" > /dev/null 2>&1; then
+# 	alias code=code-insiders
+# fi
+
+
+alias ls='ls -GpF'  # Mac OS specific
+alias ll='ls -alGpF'  # Mac OS specific
+
+
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"
+alias unsetproxy="unset ALL_PROXY"
+
+# for fzf preview
+alias pp='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500'"'"
+alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || tac {}) 2> /dev/null | head -500'"'"  # flashback
+
+# alias python=python3
+# alias pip=pip3
+# alias code='code-insiders'
+
+
+
+# ----- git alias -----
+alias gs="git status"
+alias gc="git commit"
+
+# gcp "initial commit"
+# function gcp() {
+#       git commit -am "$1" && git push 
+# }
+
+# gfc "<commit message>"
+# function gfc() {
+#          git log --all --grep="$1"
+# }
+
