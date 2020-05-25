@@ -186,7 +186,7 @@ export PATH=$PATH:$HOME/Tools/zybin
 # prompt pure
 
 
-source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # >>> conda initialize >>>
