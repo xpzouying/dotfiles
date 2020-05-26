@@ -146,7 +146,7 @@
 	" 			\ 'for': [ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	""" if has('nvim')
 	""" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	""" 	Plug 'zchee/deoplete-go', { 'do': 'make'}
