@@ -1,4 +1,12 @@
 
+# --- export ---
+
+# --- golang ---
+export GOPROXY=https://goproxy.cn,direct
+
+
+# --- end export ---
+
 # use nvim first
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
