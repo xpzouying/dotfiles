@@ -51,7 +51,7 @@
     set synmaxcol=200
 	
 	" for update
-	set updatetime=100
+	set updatetime=50
 
 	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/vendor/bundle/*,*/node_modules/*
 
@@ -61,9 +61,9 @@
 	" set clipboard=unnamed
 	set history=100
 
-    if has('mouse')
-        set mouse=a
-    endif
+    " if has('mouse')
+    "     set mouse=a
+    " endif
 
     " set guicursor=
     set t_Co=256
@@ -116,12 +116,14 @@
 	" Plug 'chriskempson/base16-vim'
 	" Plug 'dracula/vim', { 'as': 'dracula' }
     " Plug 'altercation/vim-colors-solarized'
-    " Plug 'sheerun/vim-polyglot'
+    Plug 'sheerun/vim-polyglot'
 
     Plug 'itchyny/lightline.vim'
+	Plug 'flazz/vim-colorschemes'
 
-    Plug 'scrooloose/nerdtree'
-    Plug 'jistr/vim-nerdtree-tabs'
+
+    " Plug 'scrooloose/nerdtree'
+    " Plug 'jistr/vim-nerdtree-tabs'
     Plug 'qpkorr/vim-bufkill'
 	Plug 'bronson/vim-visual-star-search'
 
@@ -136,8 +138,8 @@
 
     " Programming
     " Plug 'w0rp/ale'
-    " Plug 'tpope/vim-fugitive'
-    " Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
 	" Plug 'pangloss/vim-javascript'
 	" Plug 'mxw/vim-jsx'
 	" post install (yarn install | npm install) then load plugin only for editing supported files
@@ -163,6 +165,26 @@
 
 """"""""""
 " Plugin config {
+	
+	" { --- vim go (polyglot) settings.
+		let g:go_highlight_build_constraints = 1
+		let g:go_highlight_extra_types = 1
+		let g:go_highlight_fields = 1
+		let g:go_highlight_functions = 1
+		let g:go_highlight_methods = 1
+		let g:go_highlight_operators = 1
+		let g:go_highlight_structs = 1
+		let g:go_highlight_types = 1
+		let g:go_highlight_function_parameters = 1
+		let g:go_highlight_function_calls = 1
+		let g:go_highlight_generate_tags = 1
+		let g:go_highlight_format_strings = 1
+		let g:go_highlight_variable_declarations = 1
+		let g:go_auto_sameids = 1
+	" }
+
+
+
 	" { lightline
 		set laststatus=2
 	" }
@@ -405,6 +427,11 @@
 		nnoremap <CR> :nohlsearch<cr>
 	" }
 	
+	" tpope/vim-fugitive {
+		nmap <leader>gb :diffget //3<CR>
+		nmap <leader>ga :diffget //2<CR>
+		nmap <leader>gs :G<CR>
+	" }
 	
 	"{ colorscheme
 		" set termguicolors  " grey color
