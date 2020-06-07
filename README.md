@@ -164,3 +164,17 @@ alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"  # terminal proxy
 alias unsetproxy="unset ALL_PROXY"
 ```
 
+
+### Better Tools
+
+Better for:
+
+- ls: [exa](https://github.com/ogham/exa)
+- curl: [httpie](https://httpie.org/)
+- curl: [bat](https://github.com/sharkdp/bat)
+- grep: [rg/ripgrep](https://github.com/BurntSushi/ripgrep)
+- find: [fd](https://github.com/sharkdp/fd)
+- diff: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- man: [tldr](https://github.com/tldr-pages/tldr)
+- [jq](https://github.com/stedolan/jq)
+
