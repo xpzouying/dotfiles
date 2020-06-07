@@ -22,7 +22,7 @@
     set shiftwidth=4
     set smarttab
     " set relativenumber
-    " set number              " Line numbers on
+    set number              " Line numbers on
     set backspace=indent,eol,start      " Backspace for dummies
     set ignorecase
     set smartcase
