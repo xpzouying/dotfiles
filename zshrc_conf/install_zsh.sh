@@ -25,7 +25,7 @@ echo "OS Platform is" $PLATFORM
 echo "Link zsh"
 ln -s "$(pwd)/zshrc" "$HOME/.zshrc"
 
-ln -s "$(pwd)/zh_alias_rc" "$HOME/.zy_alias_rc"
+ln -s "$(pwd)/zy_alias_rc" "$HOME/.zy_alias_rc"
 
 touch "$HOME/.local_rc"
 
