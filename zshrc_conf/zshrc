@@ -226,3 +226,8 @@ source $HOME/.local_rc
 # make sure it's end
 # zprof
 
+# --- extra utils ---
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
