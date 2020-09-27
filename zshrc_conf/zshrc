@@ -1,3 +1,5 @@
+# enable/disable to meausre performance
+# MAKE SURE enable 'zprof' at the bottom
 # zmodload zsh/zprof
 
 
@@ -70,6 +72,9 @@ ZSH_THEME="robbyrussell"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -223,11 +228,12 @@ source $HOME/.zy_alias_rc
 # --- source local config ----
 source $HOME/.local_rc
 
-# make sure it's end
-# zprof
 
 # --- extra utils ---
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
+
+# make sure it's end
+# zprof
