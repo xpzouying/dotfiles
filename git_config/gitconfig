@@ -2,7 +2,7 @@
 	email = xpzouying@gmail.com
 	name = zy
 [core]
-	editor = nvim
+	editor = vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
@@ -34,12 +34,12 @@
 	changeHunkIndicators = false
 	stripLeadingSymbols = false
 	useUnicodeRuler = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+### [difftool "sourcetree"]
+### 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+### 	path = 
+### [mergetool "sourcetree"]
+### 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+### 	trustExitCode = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
