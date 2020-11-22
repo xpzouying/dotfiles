@@ -153,7 +153,8 @@ export GOPATH=$HOME/GOPATH
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin/
 
 # Ref: https://goproxy.cn/
-export GO111MODULE=on
+# export GO111MODULE=on
+export GO111MODULE=auto
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 # GOPROXY=https://goproxy.io,direct
