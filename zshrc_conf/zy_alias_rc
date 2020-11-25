@@ -12,9 +12,10 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-if type docker-compose > /dev/null 2>&1; then
-  alias dc=docker-compose
-fi
+# if type docker-compose > /dev/null 2>&1; then
+#   alias dc=docker-compose
+# fi
+alias dc=docker-compose
 
 if type tldr > /dev/null 2>&1; then
 	alias h=tldr
