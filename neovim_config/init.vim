@@ -47,6 +47,8 @@
 
     set lazyredraw
 
+	set termguicolors
+
     " PERFORMANCE
     set synmaxcol=200
 	
@@ -114,6 +116,7 @@
 
     Plug 'itchyny/lightline.vim'
 	Plug 'flazz/vim-colorschemes'
+	Plug 'aonemd/kuroi.vim'
 
     Plug 'qpkorr/vim-bufkill'
 	Plug 'bronson/vim-visual-star-search'
@@ -137,6 +140,12 @@
 	" { lightline
 		set laststatus=2
 	" }
+
+	"{  color - theme
+		set t_Co=256
+		set background=dark
+		colorscheme kuroi
+	"}
 
     " fzf {
         " [Buffers] Jump to the existing window if possible
