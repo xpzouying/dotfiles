@@ -9,6 +9,12 @@ Table of Contents
 记录平时使用的小工具。
 
 
+## gh-markdown
+
+作用：生成github md文件
+
+Install: https://github.com/broady/dotfiles/blob/master/rc/gh-markdown.bash
+
 
 ## github-markdown-toc
 
