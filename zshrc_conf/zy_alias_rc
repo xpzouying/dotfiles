@@ -7,10 +7,10 @@ export GOPROXY=https://goproxy.cn,direct
 
 # --- end export ---
 
-# use nvim first
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
+# # use nvim first
+# if type nvim > /dev/null 2>&1; then
+#   alias vim='nvim'
+# fi
 
 # if type docker-compose > /dev/null 2>&1; then
 #   alias dc=docker-compose
