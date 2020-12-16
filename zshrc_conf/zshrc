@@ -110,6 +110,8 @@ source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 
+zplug "supercrabtree/k"
+
 
 # theme
 # zplug 'dracula/zsh', as:theme
