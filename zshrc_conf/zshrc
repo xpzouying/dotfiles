@@ -92,8 +92,6 @@ plugins=(
 	git
 	z
 	ssh-agent
-	tmux
-	docker
 )
 
 source $ZSH/oh-my-zsh.sh
