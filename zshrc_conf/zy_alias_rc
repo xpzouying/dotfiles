@@ -48,21 +48,10 @@ alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a b
 
 # alias python=python3
 # alias pip=pip3
-# alias code='code-insiders'
+alias code='code-insiders'
 
 
 
 # ----- git alias -----
-alias gs="git status"
-alias gc="git commit"
-
-# gcp "initial commit"
-# function gcp() {
-#       git commit -am "$1" && git push 
-# }
-
-# gfc "<commit message>"
-# function gfc() {
-#          git log --all --grep="$1"
-# }
-
+alias gs="git status "
+alias gc="git commit "
