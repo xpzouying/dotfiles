@@ -40,7 +40,7 @@ alias ls='ls -GpF'  # Mac OS specific
 alias ll='ls -alGpF'  # Mac OS specific
 
 
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:7891"
 alias unsetproxy="unset ALL_PROXY"
 
 # for fzf preview
