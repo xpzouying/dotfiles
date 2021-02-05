@@ -3,6 +3,7 @@
 
 # --- golang ---
 export GOPROXY=https://goproxy.cn,direct
+export PATH=$HOME/go/bin:$PATH
 
 
 # --- end export ---
