@@ -12,3 +12,9 @@ eval $(/opt/homebrew/bin/brew shellenv)
 echo "setting pip"
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
+
+echo "plugins..."
+brew install fzf
+
+echo "bat..."
+brew install bat
