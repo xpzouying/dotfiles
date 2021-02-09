@@ -18,3 +18,6 @@ brew install fzf
 
 echo "bat..."
 brew install bat
+
+echo "rg..."
+brew install rg
