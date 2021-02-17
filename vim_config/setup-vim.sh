@@ -12,6 +12,8 @@ set encoding=utf-8
 set incsearch
 set hlsearch
 
+set dir=/tmp
+set backupdir=/tmp
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -21,5 +23,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 map <C-p> :Files<CR>
+
+let g:go_fmt_command = "goimports"
 
 EOL
