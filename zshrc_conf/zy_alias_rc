@@ -1,5 +1,7 @@
 
 # --- export ---
+export EDITOR=vim
+export VISUAL="$EDITOR"
 
 # --- golang ---
 export GOPROXY=https://goproxy.cn,direct
