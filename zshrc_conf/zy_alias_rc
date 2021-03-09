@@ -50,7 +50,7 @@ alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a b
 
 # alias python=python3
 # alias pip=pip3
-alias code='code-insiders'
+# alias code='code-insiders'
 
 
 
