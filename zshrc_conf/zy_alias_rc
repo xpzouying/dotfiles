@@ -7,6 +7,9 @@ export VISUAL="$EDITOR"
 export GOPROXY=https://goproxy.cn,direct
 export PATH=/usr/local/go/bin:$HOME/go/bin:$HOME/GOPATH/bin:$PATH
 
+# --- python ---
+alias python=python3
+
 # --- end export ---
 
 # # use nvim first
