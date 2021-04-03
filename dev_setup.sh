@@ -7,6 +7,15 @@ echo "install brew for macos"
 echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $HOME/.zprofile
 eval $(/opt/homebrew/bin/brew shellenv)
 
+echo "config brew of macos for tsinghua repo"
+
+cd "$(brew --repo)"
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+
+
 
 
 echo "setting pip"
@@ -21,3 +30,4 @@ brew install bat
 
 echo "rg..."
 brew install rg
+
