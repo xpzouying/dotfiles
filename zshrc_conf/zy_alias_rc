@@ -55,7 +55,7 @@ alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a b
 # alias pip=pip3
 # alias code='code-insiders'
 
-
+alias cdr="cd $(git rev-parse --show-toplevel)"
 
 # ----- git alias -----
 alias gs="git status "
