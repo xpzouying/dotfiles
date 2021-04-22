@@ -60,3 +60,6 @@ alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a b
 # ----- git alias -----
 alias gs="git status "
 alias gc="git commit "
+
+# --- code ---
+alias code='code-insiders'
