@@ -177,4 +177,5 @@ Better for:
 - diff: [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - man: [tldr](https://github.com/tldr-pages/tldr)
 - [jq](https://github.com/stedolan/jq)
+- [termshark](https://github.com/gcla/termshark) - A terminal UI for tshark, inspired by Wireshark
 
