@@ -27,6 +27,7 @@ mv $HOME/.zshrc /tmp/zshrc_bak
 ln -s "$(pwd)/zshrc" "$HOME/.zshrc"
 
 ln -s "$(pwd)/zy_alias_rc" "$HOME/.zy_alias_rc"
+ln -s "$(pwd)/markrc" "$HOME/.markrc"
 
 touch "$HOME/.local_rc"
 
