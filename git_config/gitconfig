@@ -13,33 +13,13 @@
     # for git flow
     flfs = flow feature start
     flff = flow feature finish
-
-# diff-so-fancy config
 [color]
 	ui = true
-### [color "diff-highlight"]
-### 	oldNormal = red bold
-### 	oldHighlight = red bold 52
-### 	newNormal = green bold
-### 	newHighlight = green bold 22
-### [color "diff"]
-### 	meta = yellow
-### 	frag = magenta bold
-### 	commit = yellow bold
-### 	old = red bold
-### 	new = green bold
-### 	whitespace = red reverse
 [diff-so-fancy]
 	markEmptyLines = false
 	changeHunkIndicators = false
 	stripLeadingSymbols = false
 	useUnicodeRuler = false
-### [difftool "sourcetree"]
-### 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-### 	path = 
-### [mergetool "sourcetree"]
-### 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-### 	trustExitCode = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -47,3 +27,5 @@
 	process = git-lfs filter-process
 [http]
 	# proxy = socks5://127.0.0.1:7891
+### [url "git@github.com:"]
+### 	insteadOf = https://github.com/
