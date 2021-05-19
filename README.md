@@ -178,4 +178,5 @@ Better for:
 - man: [tldr](https://github.com/tldr-pages/tldr)
 - [jq](https://github.com/stedolan/jq)
 - [termshark](https://github.com/gcla/termshark) - A terminal UI for tshark, inspired by Wireshark
+- [mark-directory](https://github.com/kodango/mark-directory) - Provides a quick way to change directory from the command line.
 
