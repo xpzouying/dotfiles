@@ -18,7 +18,8 @@ set dir=/tmp
 set backupdir=/tmp
 
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'govim/govim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -26,6 +27,9 @@ call plug#end()
 
 map <C-p> :Files<CR>
 
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
+let g:go_info_mode = 'gopls'
+let g:go_def_mode = 'gopls'
 
 EOL
