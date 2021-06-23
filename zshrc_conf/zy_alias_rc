@@ -65,3 +65,9 @@ alias gc="git commit "
 
 # --- code ---
 # alias code='code-insiders'
+
+
+# --- zsh plugins ---
+
+# brew install zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
