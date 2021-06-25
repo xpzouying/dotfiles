@@ -31,5 +31,7 @@
 ### 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
-[pull]
-	ff = only
+
+# DO NOT use ff
+# [pull]
+# 	ff = only
