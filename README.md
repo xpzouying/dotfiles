@@ -179,4 +179,4 @@ Better for:
 - [jq](https://github.com/stedolan/jq)
 - [termshark](https://github.com/gcla/termshark) - A terminal UI for tshark, inspired by Wireshark
 - [mark-directory](https://github.com/kodango/mark-directory) - Provides a quick way to change directory from the command line.
-
+- better git diff: [git-delta](https://github.com/dandavison/delta)
