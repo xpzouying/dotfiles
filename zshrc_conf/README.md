@@ -5,6 +5,10 @@
     brew install coreutils
 3. install `z`:
     brew install z
+	OR
+    ```bash
+	wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+    ```
 4. install zplus
 	`curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh`
 
@@ -13,7 +17,19 @@
 
 - `https://github.com/zsh-users/zsh-autosuggestions`
 
+OR
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
 - `brew install zsh-syntax-highlighting`
+
+OR
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 
 ## 参考资料
 

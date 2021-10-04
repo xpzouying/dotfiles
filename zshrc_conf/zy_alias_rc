@@ -10,7 +10,7 @@ export GOPROXY=https://goproxy.cn,direct
 export PATH=/usr/local/go/bin:$HOME/go/bin:$HOME/GOPATH/bin:$PATH
 
 # --- python ---
-alias python=python3
+# alias python=python3
 
 # --- end export ---
 
@@ -62,12 +62,3 @@ alias oo='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a b
 # ----- git alias -----
 alias gs="git status "
 alias gc="git commit "
-
-# --- code ---
-# alias code='code-insiders'
-
-
-# --- zsh plugins ---
-
-# brew install zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
