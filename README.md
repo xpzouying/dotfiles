@@ -18,6 +18,11 @@
 ## 详细介绍
 
 
+### 字体
+
+- [Wenkai](https://github.com/lxgw/LxgwWenKai)
+
+
 ### git配置
 
 配置目录：`./git_config`
