@@ -22,6 +22,7 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
+set updatetime=300  " default is 4000ms
 
 " mouse mode: a=all, n=normal, v=virtual, i=insert, ...
 set mouse=a
@@ -72,15 +73,19 @@ call plug#begin()
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig'
 " Plug 'glepnir/lspsaga.nvim'  " better UI
 
 Plug 'nvim-lua/plenary.nvim'  " with telescope
 Plug 'nvim-telescope/telescope.nvim'
 
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " --- end - vim-plug ---
 " Initialize plugin system
@@ -113,6 +118,10 @@ nmap <Space> <C-w>w
     nnoremap <C-p> <cmd>Telescope find_files<cr>
     nnoremap <C-f> <cmd>Telescope live_grep<cr>
     nnoremap <leader>b <cmd>Telescope buffers<cr>
+" }
+
+
+" nvim-treesitter {
 " }
 
 " ---------- shortcut ----------

@@ -20,6 +20,25 @@ brew install ripgrep
 1. [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 
+** After vim-plug **
+
+
+```bash
+
+# :TSInstall go
+
+
+:CocInstall coc-go
+
+:CocConfig
+
+// {
+//   "go.goplsOptions": {
+//     "completeUnimported": true
+//   }
+// }
+```
+
 
 ## Ref:
 
