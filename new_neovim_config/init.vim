@@ -69,23 +69,41 @@ let mapleader=","
 " --- begin - vim-plug ---
 call plug#begin()
 
+Plug 'sainnhe/gruvbox-material'
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'lewis6991/impatient.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'onsails/lspkind-nvim'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'tami5/lspsaga.nvim'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lualine/lualine.nvim'
+
+
+
+
+" Plug 'jayli/vim-easycomplete'
+
 
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'glepnir/lspsaga.nvim'  " better UI
 
-Plug 'nvim-lua/plenary.nvim'  " with telescope
-Plug 'nvim-telescope/telescope.nvim'
-
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+""" Plug 'nvim-lua/plenary.nvim'  " with telescope
+""" Plug 'nvim-telescope/telescope.nvim'
+""" 
+""" 
+""" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " --- end - vim-plug ---
 " Initialize plugin system
@@ -100,18 +118,41 @@ nmap sv :vsplit<Return><C-w>w
 
 nmap <Space> <C-w>w
 
+" general {
+    colorscheme gruvbox-material
+" }
+
+" nvim-cmp {
+    nnoremap <silent> gf <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+    nnoremap <silent> gx <cmd>Lspsaga code_action<cr>
+    nnoremap <silent> gs :Lspsaga signature_help<CR>
+    nnoremap <silent> gr :Lspsaga rename<CR>
+    vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
+    nnoremap <silent> gp :Lspsaga preview_definition<CR>
+    nnoremap <silent> go :Lspsaga show_line_diagnostics<CR>
+
+    nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+    nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+
+    set completeopt=menu,menuone,noselect
+" }
+
+
+" lspsaga {
+    nnoremap <silent> K <cmd>Lspsaga hover_doc<CR>
+" }
 
 " vim-go {
-	" Navigation commands
-	au FileType go nmap <Leader>ds <Plug>(go-def-split)
-	au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-	
-	" Alternate commands - openn corresponding test file
-	au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
-	au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
+	""" " Navigation commands
+	""" au FileType go nmap <Leader>ds <Plug>(go-def-split)
+	""" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+	""" 
+	""" " Alternate commands - openn corresponding test file
+	""" au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
+	""" au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
 
-	" Use new vim 8.2 popup windows for Go Doc
-	let g:go_doc_popup_window = 1
+	""" " Use new vim 8.2 popup windows for Go Doc
+	""" let g:go_doc_popup_window = 1
 " }
 
 " telescope {
@@ -126,4 +167,9 @@ nmap <Space> <C-w>w
 
 " ---------- shortcut ----------
 
+lua << EOF
+
+EOF
+
+lua require('zy')
 
