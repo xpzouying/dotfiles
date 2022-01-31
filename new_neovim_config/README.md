@@ -45,3 +45,8 @@ brew install ripgrep
 - [Golang开发环境 - 使用neovim 0.5](https://amikai.github.io/2021/08/16/go_neovim_env_0.5/)
 
 - [How to set up neovim 0.5](https://blog.inkdrop.app/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887)
+
+
+- dotfiles examples
+
+  - [AGou-ops dotfiles](https://github.com/AGou-ops/dotfiles) - lua config配置参考。
