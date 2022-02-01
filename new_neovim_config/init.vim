@@ -70,10 +70,8 @@ let mapleader=","
 call plug#begin()
 
 Plug 'sainnhe/gruvbox-material'
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -85,10 +83,12 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'tami5/lspsaga.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'ray-x/navigator.lua'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 
 
@@ -142,27 +142,16 @@ nmap <Space> <C-w>w
     nnoremap <silent> K <cmd>Lspsaga hover_doc<CR>
 " }
 
-" vim-go {
-	""" " Navigation commands
-	""" au FileType go nmap <Leader>ds <Plug>(go-def-split)
-	""" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-	""" 
-	""" " Alternate commands - openn corresponding test file
-	""" au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
-	""" au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
-
-	""" " Use new vim 8.2 popup windows for Go Doc
-	""" let g:go_doc_popup_window = 1
+" {
+    nnoremap <silent><nowait> <Leader>b  :<C-u>Clap buffers<CR>
+    nnoremap <silent><nowait> <C-p>  :<C-u>Clap files ++finder=rg --ignore --hidden --files<CR>
+    " nnoremap <silent><nowait> <Leader>f  :<C-u>Clap files ++finder=rg --ignore --hidden --files<CR>
 " }
 
-" telescope {
-    nnoremap <C-p> <cmd>Telescope find_files<cr>
-    nnoremap <C-f> <cmd>Telescope live_grep<cr>
-    nnoremap <leader>b <cmd>Telescope buffers<cr>
-" }
-
-
-" nvim-treesitter {
+" nvim-tree
+    nnoremap <C-n> :NvimTreeToggle<CR>
+    nnoremap <leader>n :NvimTreeFindFile<CR>
+    highlight NvimTreeFolderIcon guibg=blue
 " }
 
 " ---------- shortcut ----------

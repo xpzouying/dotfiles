@@ -24,19 +24,7 @@ brew install ripgrep
 
 
 ```bash
-
-# :TSInstall go
-
-
-:CocInstall coc-go
-
-:CocConfig
-
-// {
-//   "go.goplsOptions": {
-//     "completeUnimported": true
-//   }
-// }
+:Clap install-binary
 ```
 
 

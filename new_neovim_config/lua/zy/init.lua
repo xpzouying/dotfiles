@@ -1,12 +1,14 @@
 require('impatient')
 
 require('zy.lsp')
+require('zy.nvim-tree')
 require('zy.nvim-cmp')
 require('zy.nvim-lspsaga')
 require('zy.nvim-lsp-installer')
 require('zy.nvim-bufferline')
 require('zy.nvim-lualine')
 require('zy.nvim-signature')
+require('zy.navigator')
 
 
 --------------
