@@ -50,3 +50,5 @@ brew install ripgrep
 - dotfiles examples
 
   - [AGou-ops dotfiles](https://github.com/AGou-ops/dotfiles) - lua config配置参考。
+
+  - [glepnir/nvim](https://github.com/glepnir/nvim) - Fastest startup time in 20-35ms(depends ssd) with 42 plugins.

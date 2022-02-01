@@ -27,3 +27,4 @@ lsp_installer.on_server_ready(function(server)
   -- server:setup(server_options)
   server:setup(default_opts)
 end)
+
