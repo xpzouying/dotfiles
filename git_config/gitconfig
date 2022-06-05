@@ -27,8 +27,8 @@
 	process = git-lfs filter-process
 [http]
 	# proxy = socks5://127.0.0.1:7891
-### [url "git@github.com:"]
-### 	insteadOf = https://github.com/
+	### [url "git@github.com:"]
+	### 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
 
@@ -55,3 +55,5 @@
 #     file-style = bold yellow ul
 #     file-decoration-style = none
 # --- end git delta ---
+[pull]
+	rebase = false
