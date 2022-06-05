@@ -69,19 +69,15 @@ let mapleader=","
 " --- begin - vim-plug ---
 call plug#begin()
 
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'lewis6991/impatient.nvim'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+" Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'tami5/lspsaga.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -90,6 +86,15 @@ Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 Plug 'ray-x/navigator.lua'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
+
+" Completion
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
 
 
 
@@ -118,9 +123,9 @@ nmap sv :vsplit<Return><C-w>w
 
 nmap <Space> <C-w>w
 
-" general {
-    colorscheme gruvbox-material
-" }
+"""" general {
+"""    colorscheme gruvbox-material
+"""" }
 
 " nvim-cmp {
     nnoremap <silent> gf <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
