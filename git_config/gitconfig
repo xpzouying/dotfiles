@@ -13,13 +13,7 @@
     # for git flow
     flfs = flow feature start
     flff = flow feature finish
-# [color]
-# 	ui = true
-# [diff-so-fancy]
-# 	markEmptyLines = false
-# 	changeHunkIndicators = false
-# 	stripLeadingSymbols = false
-# 	useUnicodeRuler = false
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -32,28 +26,27 @@
 [init]
 	defaultBranch = main
 
-# DO NOT use ff
-# [pull]
-# 	ff = only
+[diff]
+    external = difft
+    tool = difftastic
 
-# --- git delta ---
-# [pager]
-#     diff = delta
-#     log = delta
-#     reflog = delta
-#     show = delta
+[difftool]
+    prompt = false
 
-# [interactive]
-#     diffFilter = delta --color-only
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
 
-# [delta]
-#     features = side-by-side line-numbers decorations
-#     whitespace-error-style = 22 reverse
+# Use a pager for large output, just like other git commands.
+[pager]
+    difftool = true
 
-# [delta "decorations"]
-#     commit-decoration-style = bold yellow box ul
-#     file-style = bold yellow ul
-#     file-decoration-style = none
-# --- end git delta ---
+# `git dft` is less to type than `git difftool`.
+[alias]
+    df = difftool
+    sh = "show --ext-diff"
+    pl = pull
+    ps = push
+    cl = clone
+
 [pull]
 	rebase = false
