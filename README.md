@@ -21,6 +21,7 @@
 ### 字体
 
 - [Wenkai](https://github.com/lxgw/LxgwWenKai)
+- [LXGW WenKai Screen / 霞鹜文楷屏幕阅读版](https://github.com/lxgw/LxgwWenKai-Screen)
 
 
 ### git配置
