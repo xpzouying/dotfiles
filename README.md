@@ -113,11 +113,13 @@ bash ./install_zsh.sh
 
 
 ## Software ##
+
 - Nerd tree font: [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 - fzf: [fzf](https://github.com/junegunn/fzf) `brew install fzf`
 - rg: [rg](https://github.com/BurntSushi/ripgrep) - `brew install ripgrep`
 - ag: `brew install the_silver_searcher`
 - [fd](https://github.com/sharkdp/fd)：better find tools. `brew install fd`
+- [Log file navigator](https://github.com/tstack/lnav)
 
 ## 其他设置
 
