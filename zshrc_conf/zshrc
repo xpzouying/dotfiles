@@ -90,7 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 source $HOME/.zy_alias_rc
 source $HOME/.local_rc
-source $HOME/.markrc
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
