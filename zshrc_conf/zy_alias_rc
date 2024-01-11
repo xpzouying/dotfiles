@@ -65,3 +65,5 @@ alias gc="git commit "
 
 # 自动删除本地已经合并的分支
 alias gitupdateandclean="git checkout main && git pull && git branch --merged | grep -v '\*' | grep -v 'main' | xargs -I {} git branch -d {}"
+
+alias p="python3"
