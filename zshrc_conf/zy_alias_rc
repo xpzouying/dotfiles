@@ -67,3 +67,12 @@ alias gc="git commit "
 alias gitupdateandclean="git checkout main && git pull && git branch --merged | grep -v '\*' | grep -v 'main' | xargs -I {} git branch -d {}"
 
 alias p="python3"
+
+# use Tmux only if current term program is Apple Terminal
+if [ "$TERM_PROGRAM" = 'Apple_Terminal' ] || [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
+  if ! tmux has-session -t zy 2> /dev/null; then
+    tmux new-session -s zy
+  elif [ -z "$TMUX" ]; then
+    tmux attach-session -t zy
+  fi
+fi
