@@ -76,3 +76,11 @@ alias p="python3"
 #     tmux attach-session -t zy
 #   fi
 # fi
+
+PROXY_IP="172.26.147.155" # m2mini
+with_proxy(){
+   http_proxy=http://$PROXY_IP:6152 \
+   https_proxy=http://$PROXY_IP:6152 \
+   all_proxy=socks5://$PROXY_IP:6152 \
+   "$@"
+}
