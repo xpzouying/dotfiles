@@ -36,6 +36,8 @@
 cd ./git_config
 
 bash ./install.sh
+
+- [Popular Git Config Options](https://jvns.ca/blog/2024/02/16/popular-git-config-options)
 ```
 
 ### neovim配置
