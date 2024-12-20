@@ -6,7 +6,12 @@
 
 ```bash
 
+# macOS
 brew install ripgrep
+brew install fd
+
+# Ubuntu
+sudo apt install fd-find
 
 ```
 
@@ -28,7 +33,7 @@ brew install ripgrep
 ```
 
 
-### Themes
+### LazyVim
 
 ```
 mkdir -p ~/.config/nvim/lua/plugins
@@ -72,6 +77,26 @@ return {
 }
 ```
 
+#### 安装 Telescope 插件
+
+```bash
+nvim ~/.config/nvim/lua/plugins/telescope.lua
+```
+
+内容如下，
+
+```
+-- ~/.config/nvim/lua/plugins/telescope.lua
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
+  },
+}
+```
 
 
 
