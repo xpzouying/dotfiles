@@ -98,6 +98,25 @@ return {
 }
 ```
 
+#### 安装 neoscroll - 光标跳动插件
+
+```
+-- ~/.config/nvim/lua/plugins/neoscroll.lua
+return {
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup({
+        -- 设置滑动时间（以毫秒为单位）
+        easing_function = "quadratic",
+        hide_cursor = true,
+        cursor_scrolls_alone = true,
+      })
+    end,
+  }
+}
+```
+
 
 
 ## Ref:
