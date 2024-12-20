@@ -28,6 +28,53 @@ brew install ripgrep
 ```
 
 
+### Themes
+
+```
+mkdir -p ~/.config/nvim/lua/plugins
+touch ~/.config/nvim/lua/plugins/colorscheme.lua
+
+vim ~/.config/nvim/lua/plugins/colorscheme.lua
+```
+
+colorscheme.lua
+
+```
+return {
+  -- Add catppuccin
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "latte", -- 设置为浅色主题
+      background = {
+        light = "latte",
+      },
+      transparent_background = false,
+      integrations = {
+        telescope = true,
+        mason = true,
+        mini = true,
+        which_key = true,
+        noice = true,
+      },
+    },
+  },
+
+  -- Change Default Colorscheme
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
+}
+```
+
+
+
+
 ## Ref:
 
 - [Golang开发环境 - 使用neovim 0.5](https://amikai.github.io/2021/08/16/go_neovim_env_0.5/)
