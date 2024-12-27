@@ -15,6 +15,11 @@
 
 ## Plugins
 
+插件安装汇总：
+
+- 直接安装这个即可：https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df
+
+
 - `https://github.com/zsh-users/zsh-autosuggestions`
 
 OR
