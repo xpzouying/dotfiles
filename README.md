@@ -119,6 +119,8 @@ brew install font-cascadia-code font-cascadia-mono-nf
 
 # Intel One Mono
 brew install --cask font-intel-one-mono
+
+brew install --cask font-monaspace
 ```
 
 
