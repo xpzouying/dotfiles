@@ -108,7 +108,18 @@ bash ./install_zsh.sh
   - $HOME/.local_rc：设置当前机器的环境变量，该文件不上传到repo管理，只对当前机器有效。比如当前当前服务器的自定义PATH路径。
 
 
+## Fonts
 
+```bash
+# San Francisco Mono
+brew install --cask font-sf-mono
+
+# Microsoft Cascadia: Cascadia Code, Cascadia (Code|Mono) NF
+brew install font-cascadia-code font-cascadia-mono-nf
+
+# Intel One Mono
+brew install --cask font-intel-one-mono
+```
 
 
 ## 一些好用的工具
