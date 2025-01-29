@@ -1,5 +1,7 @@
 # --- more path ---
 export PATH=$HOME/zybin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+
 
 # --- export ---
 export EDITOR=vim
