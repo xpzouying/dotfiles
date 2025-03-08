@@ -76,3 +76,17 @@ chezmoi apply
 4. 在其他设备上使用 chezmoi update
 
 这样可以确保所有更改都被正确跟踪和同步。
+
+**更新**
+
+```bash
+
+chezmoi edit ~/.zshrc  # 编辑特定文件
+chezmoi apply  # 将更改应用到系统
+
+# 推送到 GitHub:
+chezmoi cd  # 进入 Chezmoi 源目录
+git add .   # 添加更改
+git commit -m "更新 zshrc 配置"  # 提交更改
+git push    # 推送到 GitHub
+```
