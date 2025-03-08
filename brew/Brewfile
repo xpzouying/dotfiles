@@ -1,0 +1,3 @@
+# Brewfile（通用）
+brew "git"
+brew "lazygit"
