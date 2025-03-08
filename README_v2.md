@@ -50,6 +50,29 @@ bash ./install.sh
 # 初始化
 chezmoi init
 
+# 进入目录
+chezmoi cd
+
 # 管理
 chezmoi managed
+
+# 同步
+chezmoi update
+
+# 修改
+chezmoi edit ~/.zshrc
+
+# 应用
+chezmoi apply
 ```
+
+## 4. 最佳的工作流程
+
+最佳的工作流程是：
+
+1. 总是使用 chezmoi edit 修改文件
+2. 用 chezmoi apply 应用更改
+3. 提交并推送更改到 GitHub
+4. 在其他设备上使用 chezmoi update
+
+这样可以确保所有更改都被正确跟踪和同步。

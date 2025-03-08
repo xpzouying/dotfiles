@@ -84,10 +84,10 @@ plugins=(
 	git
 	z
 	ssh-agent
-	zsh-autosuggestions
+	# zsh-autosuggestions
 	zsh-syntax-highlighting
 	fast-syntax-highlighting
-	zsh-autocomplete
+	# zsh-autocomplete
 )
 
 
