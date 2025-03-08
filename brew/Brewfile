@@ -5,3 +5,15 @@ brew "neovim"
 
 # 管理配置的工具
 brew "chezmoi"
+
+# ZSH and related tools
+brew "zsh"
+brew "zsh-completions"
+brew "starship"       # 终端提示符
+brew "coreutils"      # 颜色支持所需
+brew "z"              # 目录快速跳转
+brew "tldr"           # 简化的手册页
+
+# 额外的实用工具
+brew "fzf"            # 模糊查找器
+brew "highlight"      # 预览的语法高亮

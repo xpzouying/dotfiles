@@ -1,5 +1,7 @@
 # 新的配置
 
+## 1. 目录结构
+
 ```
 dotfiles/
 │
@@ -33,4 +35,21 @@ dotfiles/
 ├── install.sh                   # 安装所有配置的主脚本
 ├── update.sh                    # 更新配置的脚本
 └── README.md                    # 文档说明
+```
+
+## 2. 安装各种依赖
+
+```bash
+cd brew
+bash ./install.sh
+```
+
+## 3. 安装 chezmoi
+
+```bash
+# 初始化
+chezmoi init
+
+# 管理
+chezmoi managed
 ```
